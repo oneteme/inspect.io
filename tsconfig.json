@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./inspect.io/",
     "paths": {
       "@app/*": ["src/app/*"],
       "@assets/*": ["src/assets/*"],
