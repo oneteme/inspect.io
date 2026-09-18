@@ -43,7 +43,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/inspect.io",
+              "baseHref": "/inspect.io/",
               "budgets": [
                 {
                   "type": "initial",
