@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "./dist",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -43,6 +43,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/inspect.io",
               "budgets": [
                 {
                   "type": "initial",
