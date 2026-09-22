@@ -350,29 +350,17 @@
       },
       "intro": {
         "subtitle": "Suivre chaque transaction du clic utilisateur jusqu'à la base de données",
-        "description": "Dans un système moderne composé de multiples microservices, serveurs et bases de données, suivre le chemin d'une opération devient un casse-tête. INSPECT offre une vision continue, sans couture, d'un bout à l'autre de la chaîne."
+        "description": "Dans un système moderne composé de multiples microservices, serveurs et bases de données, suivre le chemin d'une opération fonctionnelle peut être complexe."
       },
       "pillars": {
-        "title": "Ce que permet la cartographie dans une application informatique",
-        "topology": {
-          "title": "Urbanisation - Découverte des dépendances",
-          "desc": "Visualiser automatiquement l'ensemble des briques logicielles (microservices, bases de données, brokers, API tierces) et leurs flux réels pour comprendre l'écosystème applicatif global.",
-          "benefit": "Une vision d'ensemble claire et partagée entre équipes techniques et métier."
+        "title": "Avantages",
+        "cartography": {
+          "title": "Cartographie",
+          "desc": "Vous pouvez retrouver le graphe réel des interactions, même après des modifications dans votre code qui n'auraient pas été répertoriées dans de la documentation."
         },
-        "impact": {
-          "title": "Analyse d'impact",
-          "desc": "Anticiper les répercussions et les risques sur les services dépendants avant toute mise en production, montée de version ou arrêt d'une brique logicielle.",
-          "benefit": "Sécuriser les déploiements et éviter les pannes en cascade."
-        },
-        "bottlenecks": {
-          "title": "Détection des goulots d'étranglement",
-          "desc": "Identifier instantanément quel maillon intermédiaire sature ou dysfonctionne et observer comment les ralentissements se propagent dans la chaîne applicative.",
-          "benefit": "Isoler la cause racine d'un incident en quelques secondes."
-        },
-        "governance": {
-          "title": "Gouvernance des flux",
-          "desc": "Repérer les flux invisibles, les dépendances obsolètes ou les communications non sécurisées pour garantir la conformité et la sécurité de votre système d'information.",
-          "benefit": "Maintenir un référentiel d'architecture vivant, auditable et sécurisé."
+        "traceability": {
+          "title": "Traçabilité de bout en bout",
+          "desc": "Vous pouvez retrouver le déroulement exact d'un traitement (étapes, durées, requêtes exécutées...)."
         }
       },
       "tree": {

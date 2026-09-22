@@ -360,26 +360,14 @@
         "description": "In modern multi-service architectures, following the path of an operation can be daunting. INSPECT provides continuous, seamless visibility across the entire chain."
       },
       "pillars": {
-        "title": "What Application Mapping Enables",
-        "topology": {
-          "title": "Architecture Discovery & Dependency Mapping",
-          "desc": "Automatically visualize all software components (microservices, databases, brokers, third-party APIs) and their live communication to understand the full application ecosystem.",
-          "benefit": "A clear, shared architectural vision between engineering and business teams."
+        "title": "Advantages",
+        "cartography": {
+          "title": "Cartography",
+          "desc": "You can retrieve the real graph of interactions, even after modifications in your code that hasn't been updated in documentation yet."
         },
-        "impact": {
-          "title": "Impact Analysis & Change Management",
-          "desc": "Anticipate risks and cascading effects on dependent services before any deployment, upgrade, or component decommissioning.",
-          "benefit": "Secure releases and avoid domino-effect outages."
-        },
-        "bottlenecks": {
-          "title": "Bottleneck Detection & Domino Effect Tracking",
-          "desc": "Instantly pinpoint which intermediary link is saturated or failing and observe how latency ripples through the entire application chain.",
-          "benefit": "Isolate the root cause of an incident within seconds."
-        },
-        "governance": {
-          "title": "Flow Governance & Shadow IT Detection",
-          "desc": "Uncover hidden dependencies, deprecated endpoints, or unencrypted communications to ensure infrastructure compliance and security.",
-          "benefit": "Maintain a living, auditable, and secure architectural blueprint."
+        "traceability": {
+          "title": "End-to-End Traceability",
+          "desc": "You can retrieve the exact sequence of an operation (steps, durations, executed requests...)."
         }
       },
       "tree": {
