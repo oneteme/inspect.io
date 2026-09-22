@@ -18,29 +18,6 @@ import { hugeComputerProgramming01 } from '@ng-icons/huge-icons';
 import { goToPage } from '@utils/utils';
 import { ScrollspyService } from '@services/scrollspy.service';
 
-export type TraceScenarioKey = 'order-flow' | 'auth-oauth' | 'batch-sync' | 'fail-isolation';
-
-export interface TraceTreeNode {
-  id: string;
-  depth: number;
-  type: string;
-  label: string;
-  target: string;
-  duration: string;
-  status: 'success' | 'warn' | 'error' | 'info';
-  statusBadge: string;
-  threadName: string;
-  details: string;
-}
-
-export interface ScenarioData {
-  badgeText: string;
-  rootTitle: string;
-  totalDuration: string;
-  nodesCount: number;
-  nodes: TraceTreeNode[];
-  metrics: { label: string; val: string }[];
-}
 
 @Component({
   selector: 'app-trace-tree',
@@ -70,7 +47,6 @@ export class TraceTreeComponent implements AfterViewInit {
   private readonly scrollSpy = inject(ScrollspyService);
   private scrollspyObserver?: IntersectionObserver;
 
-  readonly selectedScenario = signal<TraceScenarioKey>('order-flow');
   readonly isTransitioning = signal(false);
 
   ngAfterViewInit(): void {

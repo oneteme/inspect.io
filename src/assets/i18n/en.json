@@ -371,9 +371,6 @@
         }
       },
       "tree": {
-        "badges": {
-          "title": "TRACE TREE"
-        },
         "title": "Detailed Trace Tree",
         "description": "Trace tree gives a hierarchical and chronological view of the journey taken by a given business action (a user click, a transaction, or a batch).",
         "concept": {
@@ -387,61 +384,36 @@
             "title": "Hierarchical View",
             "desc": "A clean visual tree showing how components execute sequentially or concurrently."
           }
-        },
-        "value": {
-          "title": "The INSPECT Advantage for Your Teams",
-          "subtitle": "Pinpoint the failing line of code in 3 clicks",
-          "first": {
-            "title": "Ultra-fast MTTR (Mean Time to Resolution)",
-            "desc": "No need to read thousands of obscure log lines: the trace tree highlights the exact failing call in bright red."
-          },
-          "second": {
-            "title": "Understand latency breakdown",
-            "desc": "See at a glance if a 3-second operation spent 2.8 seconds waiting for a third-party response."
-          },
-          "third": {
-            "title": "Bridging business and engineering",
-            "desc": "A universal visual representation that allows business analysts to clearly point out failing steps to engineers."
-          }
         }
       },
       "thread": {
-        "badges": {
-          "title": "THREAD TRACKING & ASYNCHRONISM"
-        },
-        "title": "Thread Processing & Tracking",
-        "subtitle": "Asynchronism & Multi-threading: Never lose the thread",
-        "description": "To achieve high performance, modern applications distribute work across multiple virtual 'workers' (threads) running concurrently. INSPECT maintains unbroken traceability across thread boundaries.",
+        "title": "Thread Processing and tracking",
+        "subtitle": "Asynchronism and Multi-threading",
         "concept": {
-          "title": "What are Threads and Asynchronism?",
-          "desc": "Simple explanations to understand how servers handle multiple tasks at once.",
+          "title": "What are multi-thread and asynchronism?",
           "thread": {
-            "title": "What is a Thread?",
-            "desc": "A thread is an autonomous execution worker. Think of a restaurant kitchen brigade: each chef is a thread preparing a specific recipe alongside others."
+            "title": "Multi-Thread",
+            "desc": "Multi-Thread is the ability of a program to execute multiple threads concurrently. Each thread can run independently, allowing for parallel execution of tasks."
           },
           "async": {
-            "title": "What is Asynchronism?",
-            "desc": "Delegating a heavy task to the background (e.g. generating a PDF report) and immediately freeing the user with an order buzzer without freezing their screen."
+            "title": "Asynchronism",
+            "desc": "It's a task that can be executed in the background without blocking the main thread. It allows for better resource utilization and responsiveness."
           },
-          "context": {
-            "title": "The Common Pitfall: Context Loss",
-            "desc": "In most tools, when a task hops to a background worker, the correlation thread is lost. INSPECT solves this by seamlessly propagating the Trace ID."
-          }
+          "context": "Without proper tracking, it can be difficult to understand the flow of execution and identify performance bottlenecks or errors in complex asynchronous architectures."
         },
         "value": {
-          "title": "The INSPECT Advantage for Your Teams",
-          "subtitle": "Unbroken traceability even in complex async architectures",
+          "title": "INSPECT including these needs",
           "first": {
-            "title": "Full tracking of background tasks",
-            "desc": "Follow transactions through message queues, background executors, and reactive pipelines."
+            "title": "Continuity of execution tracking",
+            "desc": " INSPECT automatically tracks user actions from one thread to another and across deferred executions. Even if a task is processed by a different thread 5 minutes later, it remains linked to the initial request."
           },
           "second": {
-            "title": "Detection of thread locks (Deadlocks)",
-            "desc": "Identify situations where workers wait on each other indefinitely, causing application freezes."
+            "title": "Visibility into background tasks",
+            "desc": " INSPECT provides a unified view of the main action and all related asynchronous tasks (parallel processing, notifications, database writes)."
           },
           "third": {
-            "title": "Native support for modern standards",
-            "desc": "Compatible with standard threads and modern Virtual Threads (Java 21 Loom) with zero complex setup."
+            "title": "Simplified error explanation",
+            "desc": "If an asynchronous task fails, the user can trace back directly to the triggering event without losing any information, simplifying diagnosis and support."
           }
         }
       },

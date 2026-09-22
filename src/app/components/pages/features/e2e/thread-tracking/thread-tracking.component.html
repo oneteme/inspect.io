@@ -4,9 +4,9 @@
     <div class="hero__glow hero__glow--primary"></div>
     <div class="hero__glow hero__glow--secondary"></div>
 
-    <div class="hero__badge reveal">
+    <div class="hero__badge reveal" (click)="goToCartography()">
       <span class="hero__badge-dot"></span>
-      <span>{{ "features.e2e.thread.badges.title" | translate }}</span>
+      <span>{{ "features.e2e.badges.title" | translate }}</span>
     </div>
 
     <h1 class="hero__headline reveal">
@@ -15,24 +15,12 @@
 
     <h2 class="hero__gradient reveal">{{ "features.e2e.thread.subtitle" | translate }}</h2>
 
-    <p class="hero__desc reveal">
-      {{ "features.e2e.thread.description" | translate }}
-    </p>
-
-    <div class="hero__cta-group reveal">
-      <button type="button" class="btn btn--primary" (click)="goToInstallation()">
-        <ng-icon name="bootstrapRocketTakeoffFill" class="btn__icon"></ng-icon>
-        <span>{{ "common.button.install" | translate }}</span>
-      </button>
-
-    </div>
   </section>
 
   <!-- SECTION 1: CONCEPT EXPLANATION -->
   <section class="section" id="thread-tracking-concept">
     <div class="section__header reveal">
       <h2 class="section__title">{{ "features.e2e.thread.concept.title" | translate }}</h2>
-      <p class="section__subtitle">{{ "features.e2e.thread.concept.desc" | translate }}</p>
     </div>
 
     <div class="features-grid">
@@ -51,14 +39,6 @@
         <h3 class="feature-card__title">{{ "features.e2e.thread.concept.async.title" | translate }}</h3>
         <p class="feature-card__desc">{{ "features.e2e.thread.concept.async.desc" | translate }}</p>
       </article>
-
-      <article class="feature-card reveal">
-        <div class="feature-card__icon-wrap icon--amber">
-          <ng-icon name="bootstrapShieldCheck"></ng-icon>
-        </div>
-        <h3 class="feature-card__title">{{ "features.e2e.thread.concept.context.title" | translate }}</h3>
-        <p class="feature-card__desc">{{ "features.e2e.thread.concept.context.desc" | translate }}</p>
-      </article>
     </div>
   </section>
 
@@ -66,7 +46,6 @@
   <section class="section" id="thread-tracking-value">
     <div class="section__header reveal">
       <h2 class="section__title">{{ "features.e2e.thread.value.title" | translate }}</h2>
-      <p class="section__subtitle">{{ "features.e2e.thread.value.subtitle" | translate }}</p>
     </div>
 
     <div class="roi-grid">

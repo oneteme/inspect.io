@@ -364,9 +364,6 @@
         }
       },
       "tree": {
-        "badges": {
-          "title": "ARBRE DE TRACE"
-        },
         "title": "Arbre de trace détaillé",
         "description": "Un arbre de traces offre une vision hiérarchique et chronologique complète du parcours emprunté par une action métier donnée (un clic utilisateur, une transaction ou un batch).",
         "concept": {
@@ -379,61 +376,36 @@
             "title": "Compréhension des interactions",
             "desc": "Un métier pourrait, grâce à INSPECT, auditer les flux réels déclenchés par une fonctionnalité de son application sans avoir besoin de lire une ligne de code."
           }
-        },
-        "value": {
-          "title": "L'apport d'INSPECT pour vos équipes",
-          "subtitle": "Isolez la ligne exacte en cause en 3 clics",
-          "first": {
-            "title": "Résolution de panne ultra-rapide (MTTR réduit)",
-            "desc": "Inutile de lire des milliers de lignes de logs obscurs : l'arbre de trace pointe en rouge vif l'appel précis qui a échoué."
-          },
-          "second": {
-            "title": "Compréhension des temps d'attente",
-            "desc": "Voyez en un clin d'œil si une opération de 3 secondes a passé 2,8 secondes à attendre une réponse d'un tiers."
-          },
-          "third": {
-            "title": "Partage simple entre métiers et développeurs",
-            "desc": "Un schéma visuel universel qui permet aux fonctionnels de pointer précisément l'étape métier défaillante aux développeurs."
-          }
         }
       },
       "thread": {
-        "badges": {
-          "title": "SUIVI DES THREADS & ASYNCHRONISME"
-        },
-        "title": "Suivi des Traitements par Thread",
-        "subtitle": "Asynchronisme et Multi-thread : Ne perdez jamais le fil",
-        "description": "Pour être rapides, les applications modernes répartissent leur travail entre plusieurs 'ouvriers' virtuels (les threads) qui travaillent en parallèle. INSPECT garantit la traçabilité continue sans jamais perdre le contexte.",
+        "title": "Suivi des traitements par thread",
+        "subtitle": "Asynchronisme et Multi-thread",
         "concept": {
-          "title": "Qu'est-ce qu'un Thread et l'Asynchronisme ?",
-          "desc": "Explications simples pour comprendre comment votre serveur réalise plusieurs choses à la fois.",
+          "title": "Qu'est-ce que le multi-thread et l'asynchronisme ?",
           "thread": {
-            "title": "Thread",
-            "desc": "Un thread est une unité d'exécution autonome. Imaginez une brigade de cuisine : chaque cuisinier est un thread qui réalise une recette spécifique en même temps que les autres."
+            "title": "Multi-Thread",
+            "desc": "Le multi-thread est le fait de lancer plusieurs tâches simultanément dans un même programme. Chaque tâche est exécutée par un fil d'exécution (thread) distinct."
           },
           "async": {
             "title": "Asynchronisme",
-            "desc": "C'est le fait de lancer une tâche lourde en arrière-plan (ex: générer un rapport PDF) et de libérer immédiatement l'utilisateur avec un ticket d'attente, sans bloquer son écran."
+            "desc": "C'est une tâche qui est déléguée en arrière-plan sans bloquer l'utilisateur (ex. génération d'un rapport, envoi d'emails, appels d'API tiers). L'application répond immédiatement au métier pendant que le travail se poursuit en tâche de fond."
           },
-          "context": {
-            "title": "Le Piège classique : La perte de contexte",
-            "desc": "Dans la plupart des outils, quand une tâche passe d'un ouvrier à un autre en arrière-plan, le fil d'Ariane est perdu. INSPECT résout ce problème en transmettant automatiquement l'identifiant de trace."
-          }
+          "context": "Sans outil adapté, lorsqu'une action bascule sur un autre thread ou en asynchrone, le traitement est rompu. En cas d'erreur ou d'échec en arrière-plan, il devient très difficile de relier l'incident à l'action métier d'origine."
         },
         "value": {
-          "title": "L'apport d'INSPECT pour vos équipes",
-          "subtitle": "Une traçabilité ininterrompue même dans les architectures les plus complexes",
+          "title": "Prise en compte de ces besoins dans INSPECT",
           "first": {
-            "title": "Suivi complet des tâches d'arrière-plan",
-            "desc": "Suivez le cycle complet d'une demande même lorsqu'elle est déléguée à des files de messages ou des exécuteurs asynchrones."
+            "title": "Continuité des traitements métiers",
+            "desc": " INSPECT suit automatiquement l'action utilisateur d'un thread à l'autre et à travers les exécutions différées. Même si une tâche est traitée par un thread différent 5 minutes plus tard, elle reste rattachée à la demande initiale."
           },
           "second": {
-            "title": "Détection des blocages entre threads (Deadlocks)",
-            "desc": "Identifiez les situations où plusieurs ouvriers s'attendent mutuellement, provoquant le gel de l'application."
+            "title": "Visibilité sur les tâches d'arrière-plan",
+              "desc": " INSPECT regroupe sous une même vue fonctionnelle l'action principale et toutes celles qui sont liées asynchrones (traitements parallèles, notifications, écritures en base)."
           },
           "third": {
-            "title": "Support natif des technologies modernes",
-            "desc": "Compatible avec les threads classiques et les nouveaux Virtual Threads (Java 21 Loom), sans aucune configuration complexe."
+            "title": "Explication simplifiée des erreurs",
+            "desc": "Si un traitement asynchrone échoue, le métier peut remonter directement à l'événement déclencheur sans perte d'information, simplifiant le diagnostic et le support."
           }
         }
       },
