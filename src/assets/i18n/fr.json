@@ -33,7 +33,7 @@
       },
       "e2e": {
         "title": "Cartographie et traçabilité",
-        "tree": "Arbre de traces",
+        "tree": "Arbre de trace",
         "thread": "Suivi des traitements par thread",
         "architecture": "Cartographie dynamique des systèmes"
       },
@@ -349,11 +349,11 @@
         "title": "CARTOGRAPHIE ET TRAÇABILITÉ"
       },
       "intro": {
-        "subtitle": "Suivre chaque transaction du clic utilisateur jusqu'à la base de données",
-        "description": "Dans un système moderne composé de multiples microservices, serveurs et bases de données, suivre le chemin d'une opération fonctionnelle peut être complexe."
+        "subtitle": "Suivre chaque action du clic utilisateur jusqu'à la base de données",
+        "description": "Un SI composé de multiples microservices, serveurs et bases de données, peut suivre des chemins complexes."
       },
       "pillars": {
-        "title": "Avantages",
+        "title": "La cartographie et la traçabilité sont les outils qui permettent à INSPECT de palier ce problème",
         "cartography": {
           "title": "Cartographie",
           "desc": "Vous pouvez retrouver le graphe réel des interactions, même après des modifications dans votre code qui n'auraient pas été répertoriées dans de la documentation."
@@ -368,18 +368,16 @@
           "title": "ARBRE DE TRACE"
         },
         "title": "Arbre de trace détaillé",
-        "subtitle": "Vue composant par appel",
-        "description": "L'arbre de trace décompose une opération en une arborescence visuelle montrant chaque composant sollicité, la durée de chaque sous-étape et l'endroit exact d'une éventuelle panne.",
+        "description": "Un arbre de traces offre une vision hiérarchique et chronologique complète du parcours emprunté par une action métier donnée (un clic utilisateur, une transaction ou un batch).",
         "concept": {
-          "title": "Comprendre l'arbre de trace",
-          "desc": "Un arbre de trace est permet de connaitre la chronologie d'une action : l'action parent déclenche des sous-actions enfants et sont toutes hiérarchisées.",
-          "span": {
-            "title": "La Trace et le span",
-            "desc": "Une trace représente le voyage complet d'une requête. Chaque sous-étape (appel SQL, calcul, appel externe) est un 'span' chronométré avec précision."
+          "title": "Application dans INSPECT",
+          "diagnostic": {
+            "title": "Représentation claire du parcours ",
+            "desc": "INSPECT décompose visuellement chaque traitement sous forme d'arborescence parents/enfants, révélant la chaîne complète des composants sollicités (IHM, microservices, bases de données, tiers)."
           },
-          "hierarchy": {
-            "title": "La vue hiérarchique",
-            "desc": "Une arborescence claire qui montre visuellement comment les composants s'emboîtent et s'exécutent les uns après les autres ou en parallèle."
+          "understanding": {
+            "title": "Compréhension des interactions",
+            "desc": "Un métier pourrait, grâce à INSPECT, auditer les flux réels déclenchés par une fonctionnalité de son application sans avoir besoin de lire une ligne de code."
           }
         },
         "value": {

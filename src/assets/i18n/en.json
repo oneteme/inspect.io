@@ -356,11 +356,11 @@
         "title": "CARTOGRAPHY AND TRACEABILITY"
       },
       "intro": {
-        "subtitle": "Track transactions from the user click down to the database",
-        "description": "In modern multi-service architectures, following the path of an operation can be daunting. INSPECT provides continuous, seamless visibility across the entire chain."
+        "subtitle": "Track actions from the user click down to the database",
+        "description": "An application is formed by multiple microservices, servers, and databases, which can follow complex paths."
       },
       "pillars": {
-        "title": "Advantages",
+        "title": "Cartography and traceability are the tools that solve this problem",
         "cartography": {
           "title": "Cartography",
           "desc": "You can retrieve the real graph of interactions, even after modifications in your code that hasn't been updated in documentation yet."
@@ -375,16 +375,15 @@
           "title": "TRACE TREE"
         },
         "title": "Detailed Trace Tree",
-        "subtitle": "Component-by-call view: An X-ray of your transactions",
-        "description": "The trace tree decomposes an operation into a visual hierarchy showing every component involved, each step's duration, and the exact failure point.",
+        "description": "Trace tree gives a hierarchical and chronological view of the journey taken by a given business action (a user click, a transaction, or a batch).",
         "concept": {
-          "title": "Understanding the Trace Tree",
+          "title": "Application in INSPECT",
           "desc": "A trace tree is like an itemized receipt or a family tree of execution: the parent action triggers child sub-actions.",
-          "span": {
-            "title": "Traces & Spans",
-            "desc": "A trace represents the complete journey of a request. Each sub-step (database call, calculation, external request) is an accurately timed 'span'."
+          "diagnostic": {
+            "title": "Clear representation of the flow",
+            "desc": "INSPECT decomposes each treatment into a parent-child tree, with each node representing a specific call."
           },
-          "hierarchy": {
+          "understanding": {
             "title": "Hierarchical View",
             "desc": "A clean visual tree showing how components execute sequentially or concurrently."
           }
