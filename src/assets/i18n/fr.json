@@ -496,6 +496,9 @@
     },
     "health": {
       "title": "Cycle de vie et état des versions",
+      "badges": {
+        "title": "CYCLE DE VIE ET ÉTAT DES VERSIONS"
+      },
       "description": "Ayez la possibilité de suivre en temps réel quelle version de vos applications sont déployées, quel est leur état et leur cycle de vie. INSPECT permet l'accès à ces informations en faisant un inventaire applicatif, et en donnant accès à l'historique des événements.",
       "inventory": {
         "badges": {
@@ -530,42 +533,20 @@
         }
       },
       "events": {
-        "badges": {
-          "title": "HISTORIQUE DES ÉVÉNEMENTS"
-        },
         "title": "Historique des événements",
-        "subtitle": "Redémarrages, montées de version, déploiements et arrêts imprévus",
-        "description": "Historisez chaque événement marquant du cycle de vie de vos applications pour corréler instantanément un changement technique avec ses effets sur les performances.",
+        "description": "Ayez la visibilité sur chaque événement marquant du cycle de vie de vos applications pour corréler instantanément un changement technique avec ses effets sur les performances.",
         "concept": {
-          "title": "Comprendre les événements de cycle de vie",
-          "desc": "Tout ce qui modifie l'état d'une application au cours du temps.",
           "deployments": {
-            "title": "Les Déploiements (Les Mises en service)",
-            "desc": "Le moment précis où une nouvelle version du logiciel est installée et activée."
+            "title": "Déploiements",
+            "desc": "INSPECT offre la visibilité sur les déploiements en cours ou réalisés sur vos applications. Vous pouvez facilement voir lors de mises en recette ou production s'il y a des anomalies."
           },
           "restarts": {
-            "title": "Les Redémarrages (Prévus ou accidentels)",
-            "desc": "Savoir si un serveur a redémarré suite à une opération de maintenance planifiée ou à cause d'un crash."
+            "title": "Redémarrages",
+            "desc": "INSPECT vous permet de savoir si un serveur a redémarré suite à une opération de maintenance planifiée ou à cause d'un bug exceptionnel."
           },
           "correlation": {
-            "title": "La Corrélation temporelle (La Cause à effet)",
-            "desc": "Relier chronologiquement une hausse du taux d'erreur à un déploiement effectué 5 minutes plus tôt."
-          }
-        },
-        "value": {
-          "title": "L'apport d'INSPECT pour vos équipes",
-          "subtitle": "Sachez immédiatement ce qui a changé",
-          "first": {
-            "title": "Identification instantanée des régressions",
-            "desc": "Si les erreurs augmentent après une mise en production à 14h, INSPECT confirme immédiatement le lien avec le déploiement."
-          },
-          "second": {
-            "title": "Décision rapide de retour en arrière (Rollback)",
-            "desc": "Permet aux responsables de décider en toute connaissance de cause d'annuler une livraison avant que l'impact client ne soit critique."
-          },
-          "third": {
-            "title": "Audit continu de la stabilité",
-            "desc": "Suivez la fréquence des redémarrages imprévus pour identifier les applications structurellement instables."
+            "title": "Analyse facilitée",
+            "desc": "Si par exemple un service est en erreur tous les jours à un moment précis, vous pouvez faire une pré analyse et comprendre qu'il y a quelque chose à ce moment qui causerait un bug."
           }
         }
       }

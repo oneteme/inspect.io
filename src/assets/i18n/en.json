@@ -549,42 +549,20 @@
         }
       },
       "events": {
-        "badges": {
-          "title": "LIFECYCLE EVENTS"
-        },
-        "title": "Lifecycle Events History",
-        "subtitle": "Restarts, version upgrades, deployments, and unexpected stops",
-        "description": "Keep a historical record of every major lifecycle event to instantly correlate a technical change with its performance impact.",
+        "title": "Events history",
+        "description": "Have a complete history of all lifecycle events, including deployments, restarts, and other operational changes.",
         "concept": {
-          "title": "Understanding lifecycle events",
-          "desc": "Any event that modifies the operational state of an application over time.",
           "deployments": {
-            "title": "Deployments (Going Live)",
-            "desc": "The exact moment a new software version is installed and activated."
+            "title": "Deployments",
+            "desc": "INSPECT offers visibility into ongoing or completed deployments on your applications. You can easily see if there are any anomalies during staging or production deployments."
           },
           "restarts": {
-            "title": "Restarts (Planned or Accidental)",
-            "desc": "Knowing whether a server restarted due to planned maintenance or an unexpected crash."
+            "title": "Reboot",
+            "desc": "INSPECT can show you if a server restarted due to planned maintenance or an unexpected bug."
           },
           "correlation": {
-            "title": "Temporal Correlation (Cause and Effect)",
-            "desc": "Chronologically linking a sudden spike in errors to a deployment made 5 minutes earlier."
-          }
-        },
-        "value": {
-          "title": "The INSPECT Advantage for Your Teams",
-          "subtitle": "Know immediately what changed in your systems",
-          "first": {
-            "title": "Instant regression identification",
-            "desc": "If error rates jump after a 2 PM release, INSPECT immediately highlights the causal deployment link."
-          },
-          "second": {
-            "title": "Informed rollback decisions",
-            "desc": "Empowers managers to quickly decide on rolling back a release before customer impact escalates."
-          },
-          "third": {
-            "title": "Continuous stability auditing",
-            "desc": "Track unexpected restart frequencies to identify fundamentally unstable services."
+            "title": "Easy analysis",
+            "desc": "For example, if a service fails every day at a specific time, you can perform a preliminary analysis and understand that something at that time might be causing a bug."
           }
         }
       }

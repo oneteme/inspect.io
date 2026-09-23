@@ -114,6 +114,10 @@ export class ApplicationInventoryComponent implements AfterViewInit, OnDestroy {
     this.scrollSpy.setActivePath(null);
   }
 
+  goToHealth(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/health');
+  }
+
   goToNext(): void {
     goToPage(this.isTransitioning(), this.router, '/features/health/events');
   }

@@ -1,8 +1,17 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  signal,
+  ChangeDetectionStrategy,
+  AfterViewInit,
+  OnDestroy,
+  inject,
+  ElementRef
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  bootstrapArrowDown,
   bootstrapCalendarEventFill,
   bootstrapClockHistory,
   bootstrapCheckCircleFill,
@@ -16,19 +25,9 @@ import {
   bootstrapDiagram2Fill,
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
+import { ScrollspyService } from '@services/scrollspy.service';
+import { goToPage } from '@utils/utils';
 
-interface LifecycleEventRecord {
-  id: string;
-  timestamp: string;
-  eventType: 'STARTUP' | 'SHUTDOWN' | 'DEPLOYMENT' | 'CRASH_RECOVERY' | 'CONFIG_RELOAD';
-  serviceName: string;
-  environment: string;
-  version: string;
-  gitCommit: string;
-  durationBootMs?: number;
-  authorOrTrigger: string;
-  summary: string;
-}
 
 @Component({
   selector: 'app-lifecycle-events',
@@ -39,6 +38,7 @@ interface LifecycleEventRecord {
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [
     provideIcons({
+      bootstrapArrowDown,
       bootstrapCalendarEventFill,
       bootstrapClockHistory,
       bootstrapCheckCircleFill,
@@ -53,91 +53,71 @@ interface LifecycleEventRecord {
     })
   ]
 })
-export class LifecycleEventsComponent {
-  selectedEventType = signal<'ALL' | 'DEPLOYMENT' | 'STARTUP' | 'CRASH_RECOVERY'>('ALL');
+export class LifecycleEventsComponent implements AfterViewInit, OnDestroy {
+  private readonly router = inject(Router);
+  private readonly elementRef = inject(ElementRef);
+  private readonly scrollSpy = inject(ScrollspyService);
+  private observer?: IntersectionObserver;
 
-  events: LifecycleEventRecord[] = [
-    {
-      id: 'EVT-9042',
-      timestamp: 'Aujourd\'hui à 14:15:02',
-      eventType: 'DEPLOYMENT',
-      serviceName: 'order-service',
-      environment: 'PRODUCTION',
-      version: 'v2.4.0',
-      gitCommit: '9f8b41a',
-      durationBootMs: 3420,
-      authorOrTrigger: 'CI/CD Pipeline #892',
-      summary: 'Déploiement Rolling Update (6 pods). Montée de version sans interruption.'
-    },
-    {
-      id: 'EVT-9041',
-      timestamp: 'Aujourd\'hui à 11:30:14',
-      eventType: 'CONFIG_RELOAD',
-      serviceName: 'payment-service',
-      environment: 'PRODUCTION',
-      version: 'v2.3.8',
-      gitCommit: '38a1c90',
-      authorOrTrigger: 'Spring Cloud Config Bus',
-      summary: 'Actualisation à chaud du timeout Stripe (2500ms → 4000ms).'
-    },
-    {
-      id: 'EVT-9040',
-      timestamp: 'Hier à 22:45:10',
-      eventType: 'CRASH_RECOVERY',
-      serviceName: 'analytics-worker',
-      environment: 'PRODUCTION',
-      version: 'v1.9.2',
-      gitCommit: 'd48291f',
-      durationBootMs: 5120,
-      authorOrTrigger: 'K8s OOMKiller restart',
-      summary: 'Redémarrage automatique après pic mémoire sur batch nocturne.'
-    },
-    {
-      id: 'EVT-9039',
-      timestamp: '11/09/2026 à 09:00:00',
-      eventType: 'STARTUP',
-      serviceName: 'auth-service',
-      environment: 'PRODUCTION',
-      version: 'v2.1.0',
-      gitCommit: 'a12c84e',
-      durationBootMs: 2890,
-      authorOrTrigger: 'HPA Scale Out (+2 pods)',
-      summary: 'Auto-scaling dynamique suite à augmentation du trafic matinal.'
-    },
-    {
-      id: 'EVT-9038',
-      timestamp: '10/09/2026 à 18:20:00',
-      eventType: 'SHUTDOWN',
-      serviceName: 'catalog-service',
-      environment: 'STAGING',
-      version: 'v1.4.1',
-      gitCommit: 'e31b802',
-      authorOrTrigger: 'Graceful Shutdown (SIGTERM)',
-      summary: 'Extinction propre après traitement des requêtes en vol.'
+  readonly isTransitioning = signal(false);
+
+  ngAfterViewInit(): void {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      );
+
+      const revealElements = this.elementRef.nativeElement.querySelectorAll('.reveal');
+      revealElements.forEach((element: Element) => observer.observe(element));
+
+      const sections = [
+        { selector: 'app-application-inventory', path: '/features/health/inventory' },
+        { selector: 'app-lifecycle-events', path: '/features/health/events' },
+      ];
+
+      // Automatically activate and expand the section upon entering
+      if (!this.scrollSpy.activePath() || this.scrollSpy.activePath()?.startsWith('/features/health')) {
+        this.scrollSpy.setActivePath('/features/health/events');
+      }
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const match = sections.find((s) => entry.target.matches(s.selector));
+              if (match) {
+                this.scrollSpy.setActivePath(match.path);
+              }
+            }
+          }
+        },
+        { rootMargin: '-20% 0px -70% 0px', threshold: 0 },
+      );
+
+      sections.forEach(({ selector }) => {
+        const el = this.elementRef.nativeElement.querySelector(selector);
+        if (el) this.observer?.observe(el);
+      });
+
     }
-  ];
-
-  constructor(private router: Router) {}
-
-  setFilter(type: 'ALL' | 'DEPLOYMENT' | 'STARTUP' | 'CRASH_RECOVERY'): void {
-    this.selectedEventType.set(type);
+  }
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+    this.scrollSpy.setActivePath(null);
   }
 
-  getFilteredEvents(): LifecycleEventRecord[] {
-    const f = this.selectedEventType();
-    if (f === 'ALL') return this.events;
-    return this.events.filter(e => e.eventType === f);
+  goToNext(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/autonomy');
   }
 
-  goToInstallation(): void {
-    this.router.navigate(['/guide/installation']);
+  goToHealth(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/health');
   }
 
-  goToArchitecture(): void {
-    this.router.navigate(['/architecture/overview']);
-  }
-
-  goToCompatibilities(): void {
-    this.router.navigate(['/guide/compatibilities']);
-  }
 }
