@@ -593,26 +593,16 @@
         }
       },
       "retention": {
-        "badges": {
-          "title": "SMART RETENTION & PURGE"
-        },
-        "title": "Smart Retention & Purge",
-        "subtitle": "Distributed configuration and differentiated retention: Technical vs Functional",
-        "description": "Optimize storage costs by keeping short-lived technical traces for diagnostics and long-term functional business records for audits and compliance.",
+        "title": "Smart retention and purge",
+        "description": "INSPECT optimizes storage by keeping short-lived technical traces for diagnostics and long-term functional business records for audits and compliance.",
         "concept": {
-          "title": "Understanding differentiated retention and purge",
-          "desc": "Keep the right level of information without wasting expensive disk space.",
           "retention": {
-            "title": "What is Retention? (Storage Duration)",
+            "title": "Retention and retention differenciated",
             "desc": "The policy determining how many days records are kept before automated cleanup."
           },
-          "differentiated": {
-            "title": "Differentiated Retention (Tech vs Business)",
-            "desc": "Keep heavy microsecond technical spans for 7 to 14 days, while preserving business transactions for 6 to 12 months."
-          },
           "purge": {
-            "title": "Smart Purge (Automated Cleanup)",
-            "desc": "Instantly and cleanly dropping expired partition tables in milliseconds without CPU spikes."
+            "title": "Smart Purge",
+            "desc": "INSPECT instantly and cleanly drops expired partition tables in milliseconds without CPU spikes."
           }
         },
         "value": {

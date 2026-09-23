@@ -84,8 +84,9 @@ export class DataPartitioningComponent implements AfterViewInit, OnDestroy {
       const revealElements = this.elementRef.nativeElement.querySelectorAll('.reveal');
       revealElements.forEach((element: Element) => observer.observe(element));
       const sections = [
-        { selector: 'app-application-inventory', path: '/features/health/inventory' },
-        { selector: 'app-lifecycle-events', path: '/features/health/events' },
+        { selector: 'app-data-partitioning', path: '/features/autonomy/partitioning' },
+        { selector: 'app-smart-retention', path: '/features/autonomy/purge' },
+        { selector: 'app-self-reporting', path: '/features/autonomy/self-reporting' },
       ];
 
       this.observer = new IntersectionObserver(

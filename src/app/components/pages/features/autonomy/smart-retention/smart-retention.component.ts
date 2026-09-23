@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnDestroy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  bootstrapArrowDown,
   bootstrapTrash3Fill,
   bootstrapSliders2,
   bootstrapShieldCheck,
@@ -17,17 +18,8 @@ import {
   bootstrapPiggyBankFill,
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
-
-interface RetentionPolicy {
-  category: 'TECH' | 'FUNCT';
-  title: string;
-  configKey: string;
-  defaultDays: number;
-  currentDays: number;
-  tablesTargeted: string[];
-  rationale: string;
-  dailyFreedVolume: string;
-}
+import { ScrollspyService } from '@services/scrollspy.service';
+import { goToPage } from '@utils/utils';
 
 @Component({
   selector: 'app-smart-retention',
@@ -37,6 +29,7 @@ interface RetentionPolicy {
   styleUrls: ['./smart-retention.component.scss'],
   viewProviders: [
     provideIcons({
+      bootstrapArrowDown,
       bootstrapTrash3Fill,
       bootstrapSliders2,
       bootstrapShieldCheck,
@@ -52,66 +45,68 @@ interface RetentionPolicy {
     })
   ]
 })
-export class SmartRetentionComponent {
-  selectedTab = signal<'policies' | 'virtual-threads' | 'metrics'>('policies');
-  purgeSimulated = signal<boolean>(false);
-  freedSpace = signal<string>('0 MB');
-  lastPurgeTimestamp = signal<string>('Aujourd\'hui à 02:00:00 (Cron nocturne)');
+export class SmartRetentionComponent implements AfterViewInit, OnDestroy {
+  private readonly router = inject(Router);
+  private readonly elementRef = inject(ElementRef);
+  private readonly scrollSpy = inject(ScrollspyService);
+  private observer?: IntersectionObserver;
 
-  techDays = signal<number>(14);
-  functDays = signal<number>(90);
+  readonly isTransitioning = signal(false);
 
-  policies: RetentionPolicy[] = [
-    {
-      category: 'TECH',
-      title: 'Télémétrie Technique Fine (JDBC, HTTP Headers, Payloads)',
-      configKey: 'inspect.retention.technical-days',
-      defaultDays: 14,
-      currentDays: 14,
-      tablesTargeted: ['REQ_JDBC', 'REQ_HTTP', 'REQ_LDAP', 'REQ_SMTP'],
-      rationale: 'Nécessaire uniquement pour le debugging chaud. Volume très élevé (80% du stockage).',
-      dailyFreedVolume: '18.4 GB / jour'
-    },
-    {
-      category: 'FUNCT',
-      title: 'Synthèses Métier & Sessions Fonctionnelles',
-      configKey: 'inspect.retention.functional-days',
-      defaultDays: 90,
-      currentDays: 90,
-      tablesTargeted: ['SES_HTTP', 'SES_MAIN', 'INSTANCE_TRACE'],
-      rationale: 'Indispensable pour les audits légaux, SLAs, RGPD et statistiques de fréquentation.',
-      dailyFreedVolume: '1.8 GB / jour'
+  ngAfterViewInit(): void {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      );
+
+      const revealElements = this.elementRef.nativeElement.querySelectorAll('.reveal');
+      revealElements.forEach((element: Element) => observer.observe(element));
+      const sections = [
+        { selector: 'app-data-partitioning', path: '/features/autonomy/partitioning' },
+        { selector: 'app-smart-retention', path: '/features/autonomy/purge' },
+        { selector: 'app-self-reporting', path: '/features/autonomy/self-reporting' },
+      ];
+
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const match = sections.find((s) => entry.target.matches(s.selector));
+              if (match) {
+                this.scrollSpy.setActivePath(match.path);
+              }
+            }
+          }
+        },
+        { rootMargin: '-20% 0px -70% 0px', threshold: 0 },
+      );
+
+      sections.forEach(({ selector }) => {
+        const el = this.elementRef.nativeElement.querySelector(selector);
+        if (el) this.observer?.observe(el);
+      });
     }
-  ];
-
-  constructor(private router: Router) {}
-
-  updateTechDays(val: number): void {
-    this.techDays.set(val);
   }
 
-  updateFunctDays(val: number): void {
-    this.functDays.set(val);
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+    this.scrollSpy.setActivePath(null);
   }
 
-  runPurgeDryRun(): void {
-    this.purgeSimulated.set(true);
-    setTimeout(() => {
-      this.freedSpace.set('20.2 GB');
-      this.lastPurgeTimestamp.set('À l\'instant (Via Virtual Threads Java 21)');
-      this.purgeSimulated.set(false);
-    }, 1000);
+  goToAutonomy(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/autonomy');
   }
 
-  goToInstallation(): void {
-    this.router.navigate(['/guide/installation']);
+  goToNext(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/autonomy/self-reporting');
   }
 
-  goToArchitecture(): void {
-    this.router.navigate(['/architecture/overview']);
-  }
-
-  goToCompatibilities(): void {
-    this.router.navigate(['/guide/compatibilities']);
-  }
 }
+

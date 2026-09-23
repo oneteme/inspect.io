@@ -577,26 +577,18 @@
         }
       },
       "retention": {
-        "badges": {
-          "title": "PURGE & RÉTENTION INTELLIGENTE"
-        },
+
         "title": "Purge et Rétention Intelligente",
         "subtitle": "Configuration distribuée et rétention différenciée Technique vs Fonctionnel",
         "description": "Optimisez l'espace de stockage en conservant les données techniques le temps nécessaire au diagnostic, et les événements métier stratégiques sur la durée requise par vos obligations légales.",
         "concept": {
-          "title": "Comprendre la rétention différenciée et la purge",
-          "desc": "Conserver le bon niveau d'information sans gaspiller d'espace disque.",
           "retention": {
-            "title": "Qu'est-ce que la Rétention ? (La Durée de conservation)",
-            "desc": "La politique qui définit combien de jours une information reste consultable avant d'être effacée."
-          },
-          "differentiated": {
-            "title": "Rétention Différenciée (Tech vs Métier)",
-            "desc": "Garder les détails techniques lourds (spans de 2ms) pendant 7 ou 14 jours, mais conserver l'historique des commandes métiers pendant 6 ou 12 mois."
+            "title": "Rétention et rétention différenciée",
+            "desc": "INSPECT permet de gérer les règles de rétention qui définissent combien de temps une information reste consultable. La rétention différenciée permet d'avoir des règles différentes selon le type de données, les détails techniques lourds sont plus rapidement purgés que des commandes métiers moins volumineuses."
           },
           "purge": {
-            "title": "La Purge Intelligente (Le Nettoyage automatique)",
-            "desc": "La suppression propre et automatique des partitions expirées en une fraction de seconde, sans consommer de CPU."
+            "title": "Purge",
+            "desc": "INSPECT purge proprement et automatiquement des partitions expirées sans consommer de CPU."
           }
         },
         "value": {

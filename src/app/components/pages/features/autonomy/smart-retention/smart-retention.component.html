@@ -4,36 +4,24 @@
     <div class="hero__glow hero__glow--primary"></div>
     <div class="hero__glow hero__glow--secondary"></div>
 
-    <div class="hero__badge reveal">
+    <div class="hero__badge reveal" (click)="goToAutonomy()">
       <span class="hero__badge-dot"></span>
-      <span>{{ "features.autonomy.retention.badges.title" | translate }}</span>
+      <span>{{ "features.autonomy.badges.title" | translate }}</span>
     </div>
 
     <h1 class="hero__headline reveal">
       {{ "features.autonomy.retention.title" | translate }}
     </h1>
 
-    <h2 class="hero__gradient reveal">{{ "features.autonomy.retention.subtitle" | translate }}</h2>
 
     <p class="hero__desc reveal">
       {{ "features.autonomy.retention.description" | translate }}
     </p>
-
-    <div class="hero__cta-group reveal">
-      <button type="button" class="btn btn--primary" (click)="goToInstallation()">
-        <ng-icon name="bootstrapRocketTakeoffFill" class="btn__icon"></ng-icon>
-        <span>{{ "common.button.install" | translate }}</span>
-      </button>
-
-    </div>
   </section>
 
   <!-- SECTION 1: CONCEPT EXPLANATION -->
   <section class="section" id="retention-concept">
-    <div class="section__header reveal">
-      <h2 class="section__title">{{ "features.autonomy.retention.concept.title" | translate }}</h2>
-      <p class="section__subtitle">{{ "features.autonomy.retention.concept.desc" | translate }}</p>
-    </div>
+
 
     <div class="features-grid">
       <article class="feature-card reveal">
@@ -48,34 +36,16 @@
         <div class="feature-card__icon-wrap icon--cyan">
           <ng-icon name="bootstrapSliders2"></ng-icon>
         </div>
-        <h3 class="feature-card__title">{{ "features.autonomy.retention.concept.differentiated.title" | translate }}</h3>
-        <p class="feature-card__desc">{{ "features.autonomy.retention.concept.differentiated.desc" | translate }}</p>
+        <h3 class="feature-card__title">{{ "features.autonomy.retention.concept.retention.title" | translate }}</h3>
+        <p class="feature-card__desc">{{ "features.autonomy.retention.concept.retention.desc" | translate }}</p>
       </article>
     </div>
   </section>
 
-  <!-- SECTION 2: INSPECT VALUE PROPOSITION -->
-  <section class="section" id="retention-value">
-    <div class="section__header reveal">
-      <h2 class="section__title">{{ "features.autonomy.retention.value.title" | translate }}</h2>
-      <p class="section__subtitle">{{ "features.autonomy.retention.value.subtitle" | translate }}</p>
-    </div>
-
-    <div class="roi-grid">
-      <div class="roi-card reveal">
-        <h4>{{ "features.autonomy.retention.value.first.title" | translate }}</h4>
-        <p>{{ "features.autonomy.retention.value.first.desc" | translate }}</p>
-      </div>
-
-      <div class="roi-card reveal">
-        <h4>{{ "features.autonomy.retention.value.second.title" | translate }}</h4>
-        <p>{{ "features.autonomy.retention.value.second.desc" | translate }}</p>
-      </div>
-
-      <div class="roi-card reveal">
-        <h4>{{ "features.autonomy.retention.value.third.title" | translate }}</h4>
-        <p>{{ "features.autonomy.retention.value.third.desc" | translate }}</p>
-      </div>
-    </div>
-  </section>
 </div>
+
+<!-- Relink when scroll down -->
+<section class="scroll-trigger scroll-trigger--down" (click)="goToNext()">
+  <span class="scroll-trigger__label">{{ "common.button.next" | translate }}</span>
+  <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
+</section>
