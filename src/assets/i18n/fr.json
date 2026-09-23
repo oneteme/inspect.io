@@ -476,46 +476,20 @@
         }
       },
       "resources": {
-        "badges": {
-          "title": "RESSOURCES SYSTÈME"
-        },
-        "title": "Ressources Système & Machine",
-        "subtitle": "Consommation CPU, Mémoire JVM, Threads actifs et Garbage Collector",
-        "description": "Surveillez la santé physique des machines hébergeant vos logiciels pour prévenir les crashs matériels et les fuites de mémoire.",
+        "title": "Ressources système et machine",
+        "description": "Voici les différents indicateurs clés de vos applications surveillés par INSPECT",
         "concept": {
-          "title": "Comprendre les ressources système",
-          "desc": "Les éléments matériels essentiels au fonctionnement d'un logiciel.",
           "cpu": {
-            "title": "Le CPU (Le Cerveau et la capacité de calcul)",
-            "desc": "Le processeur qui exécute les calculs. Un CPU saturé à 100% fait ramer toutes les applications du serveur."
+            "title": "CPU",
+            "desc": "Un CPU saturé à 100% fait ramer toutes les applications du serveur. INSPECT permettant de surveiller son état garantit au mieux la fiabilité de vos applications."
           },
           "ram": {
-            "title": "La Mémoire RAM / JVM (L'Espace de travail)",
-            "desc": "L'espace où les données actives sont stockées. Si la mémoire est pleine (Out of Memory), l'application s'arrête net."
+            "title": "RAM / JVM",
+            "desc": "INSPECT surveille la RAM (espace où les données actives sont stockées). Si elle est pleine (Out of Memory), l'application s'arrête, sa surveillance est un besoin principal"
           },
           "gc": {
-            "title": "Le Garbage Collector (Le Nettoyage de la table)",
-            "desc": "Le mécanisme automatique qui libère la mémoire inutilisée. S'il met trop de temps à nettoyer, il provoque des micro-pauses perceptibles."
-          },
-          "threads": {
-            "title": "Les Threads actifs (Les Ouvriers mobilisés)",
-            "desc": "Le nombre d'exécutions simultanées en cours sur la machine."
-          }
-        },
-        "value": {
-          "title": "L'apport d'INSPECT pour vos équipes",
-          "subtitle": "Prévenez les pannes matérielles avant l'arrêt du service",
-          "first": {
-            "title": "Alerte précoce sur fuite de mémoire",
-            "desc": "Identifiez une consommation mémoire qui grimpe progressivement avant qu'elle ne provoque un crash de l'application."
-          },
-          "second": {
-            "title": "Optimisation des coûts d'hébergement Cloud",
-            "desc": "Ajustez la taille exacte de vos serveurs en fonction de leur consommation réelle pour réduire la facture d'hébergement."
-          },
-          "third": {
-            "title": "Stabilité continue du service",
-            "desc": "Assurez une disponibilité maximale en détectant les serveurs en surchauffe avant qu'ils ne cèdent sous la charge."
+            "title": "Garbage Collector",
+            "desc": "Le mécanisme automatique qui libère la mémoire inutilisée. S'il met trop de temps à agir, il provoque des pauses perceptibles"
           }
         }
       }

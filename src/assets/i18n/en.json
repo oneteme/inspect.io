@@ -496,42 +496,19 @@
           "title": "SYSTEM RESOURCES"
         },
         "title": "System & Machine Resources",
-        "subtitle": "CPU consumption, JVM Memory, Active Threads, and Garbage Collector",
-        "description": "Monitor the physical health of machines hosting your software to prevent hardware crashes and memory leaks.",
+        "description": "Here are the main system resources that INSPECT monitors to ensure optimal application performance and stability.",
         "concept": {
-          "title": "Understanding system resources",
-          "desc": "The essential hardware elements powering your software applications.",
           "cpu": {
-            "title": "The CPU (The Brain & Computing Power)",
-            "desc": "The processor executing calculations. A CPU running at 100% slows down every application on that server."
+            "title": "The CPU",
+            "desc": "A CPU running at 100% slows down every application on that server. INSPECT monitors CPU usage to prevent overloads."
           },
           "ram": {
-            "title": "RAM / JVM Memory (The Desk Workspace)",
-            "desc": "The space where active data is held. If memory fills up (Out of Memory), the application immediately crashes."
+            "title": "RAM / JVM Memory",
+            "desc": "RAM memory usage is monitored to prevent application crashes due to Out of Memory errors."
           },
           "gc": {
-            "title": "The Garbage Collector (Clearing the Desk)",
-            "desc": "The automated mechanism freeing unused memory. If it takes too long to clean, it causes noticeable micro-pauses."
-          },
-          "threads": {
-            "title": "Active Threads (Working Hands)",
-            "desc": "The count of concurrent tasks currently executing on the machine."
-          }
-        },
-        "value": {
-          "title": "The INSPECT Advantage for Your Teams",
-          "subtitle": "Prevent hardware outages before services stop",
-          "first": {
-            "title": "Early warning on memory leaks",
-            "desc": "Detect steadily creeping memory usage before it triggers an application crash."
-          },
-          "second": {
-            "title": "Cloud cost optimization",
-            "desc": "Right-size server instances based on actual resource consumption to lower cloud bills."
-          },
-          "third": {
-            "title": "Continuous service stability",
-            "desc": "Ensure maximum uptime by flagging overloaded nodes before they buckle under traffic."
+            "title": "Garbage Collector ",
+            "desc": "The Garbage Collector is responsible for reclaiming memory used by objects that are no longer needed. INSPECT tracks GC activity to ensure efficient memory management."
           }
         }
       }

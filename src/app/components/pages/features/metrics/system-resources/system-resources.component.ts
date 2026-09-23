@@ -1,4 +1,12 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  signal,
+  ChangeDetectionStrategy,
+  AfterViewInit,
+  inject,
+  ElementRef,
+  DestroyRef
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -7,6 +15,7 @@ import {
   bootstrapHddStackFill,
   bootstrapDiagram3Fill,
   bootstrapCheckCircleFill,
+  bootstrapArrowDown,
   bootstrapArrowRight,
   bootstrapRocketTakeoffFill,
   bootstrapSpeedometer2,
@@ -16,19 +25,9 @@ import {
   bootstrapSegmentedNav,
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
+import { ScrollspyService } from '@services/scrollspy.service';
+import { goToPage } from '@utils/utils';
 
-interface JvmInstanceResource {
-  instanceName: string;
-  hostIp: string;
-  cpuUsagePct: number;
-  jvmHeapUsedMB: number;
-  jvmHeapMaxMB: number;
-  gcPauseAvgMs: number;
-  activeThreads: number;
-  virtualThreadsActive: number;
-  hikariConnectionsActive: number;
-  hikariConnectionsMax: number;
-}
 
 @Component({
   selector: 'app-system-resources',
@@ -39,6 +38,7 @@ interface JvmInstanceResource {
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [
     provideIcons({
+      bootstrapArrowDown,
       bootstrapCpuFill,
       bootstrapHddStackFill,
       bootstrapDiagram3Fill,
@@ -53,63 +53,81 @@ interface JvmInstanceResource {
     })
   ]
 })
-export class SystemResourcesComponent {
-  selectedView = signal<'ALL' | 'JVM' | 'THREADS' | 'HIKARI'>('ALL');
+export class SystemResourcesComponent implements AfterViewInit {
+  private readonly router = inject(Router);
+  private readonly el = inject(ElementRef);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly scrollSpy = inject(ScrollspyService);
+  private scrollspyObserver?: IntersectionObserver;
 
-  instances: JvmInstanceResource[] = [
-    {
-      instanceName: 'order-service-pod-79f8b',
-      hostIp: '10.244.2.14',
-      cpuUsagePct: 18.5,
-      jvmHeapUsedMB: 1420,
-      jvmHeapMaxMB: 4096,
-      gcPauseAvgMs: 4.2,
-      activeThreads: 142,
-      virtualThreadsActive: 890,
-      hikariConnectionsActive: 12,
-      hikariConnectionsMax: 30
-    },
-    {
-      instanceName: 'payment-service-pod-42a1c',
-      hostIp: '10.244.3.88',
-      cpuUsagePct: 42.1,
-      jvmHeapUsedMB: 2890,
-      jvmHeapMaxMB: 4096,
-      gcPauseAvgMs: 12.8,
-      activeThreads: 210,
-      virtualThreadsActive: 1450,
-      hikariConnectionsActive: 24,
-      hikariConnectionsMax: 30
-    },
-    {
-      instanceName: 'auth-service-pod-99d3e',
-      hostIp: '10.244.1.05',
-      cpuUsagePct: 8.2,
-      jvmHeapUsedMB: 680,
-      jvmHeapMaxMB: 2048,
-      gcPauseAvgMs: 2.1,
-      activeThreads: 68,
-      virtualThreadsActive: 120,
-      hikariConnectionsActive: 5,
-      hikariConnectionsMax: 20
+  readonly isTransitioning = signal(false);
+
+  ngAfterViewInit(): void {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      );
+
+      const revealElements = this.el.nativeElement.querySelectorAll('.reveal');
+      revealElements.forEach((element: Element) => observer.observe(element));
+
+      const spySections = [
+        { selector: 'app-availability-sla', path: '/features/metrics/availability' },
+        { selector: 'app-performance-response', path: '/features/metrics/performance' },
+        { selector: 'app-volume-throughput', path: '/features/metrics/volume' },
+        { selector: 'app-system-resources', path: '/features/metrics/resources' }
+      ];
+
+      if (!this.scrollSpy.activePath() || this.scrollSpy.activePath()?.startsWith('/features/metrics')) {
+        this.scrollSpy.setActivePath('/features/metrics/resources');
+      }
+
+      this.scrollspyObserver = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const match = spySections.find((s) => entry.target.matches(s.selector));
+              if (match) {
+                this.scrollSpy.setActivePath(match.path);
+              }
+            }
+          }
+        },
+        { rootMargin: '-15% 0px -60% 0px', threshold: 0 },
+      );
+
+      spySections.forEach(({ selector }) => {
+        const el = this.el.nativeElement.querySelector(selector);
+        if (el) this.scrollspyObserver?.observe(el);
+      });
+
+      this.destroyRef.onDestroy(() => {
+        observer.disconnect();
+        this.scrollspyObserver?.disconnect();
+        this.scrollSpy.setActivePath(null);
+      });
     }
-  ];
-
-  constructor(private router: Router) {}
-
-  setView(v: 'ALL' | 'JVM' | 'THREADS' | 'HIKARI'): void {
-    this.selectedView.set(v);
   }
 
-  goToInstallation(): void {
-    this.router.navigate(['/guide/installation']);
+
+  goToNext(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/lifecycle');
   }
 
-  goToArchitecture(): void {
-    this.router.navigate(['/architecture/overview']);
+
+  goToMetrics(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/metrics');
   }
 
-  goToCompatibilities(): void {
-    this.router.navigate(['/guide/compatibilities']);
+  ngOnDestroy() {
+    this.scrollspyObserver?.disconnect();
+    this.scrollSpy.setActivePath(null);
   }
 }

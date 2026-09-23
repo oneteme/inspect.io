@@ -6,34 +6,21 @@
 
     <div class="hero__badge reveal">
       <span class="hero__badge-dot"></span>
-      <span>{{ "features.metrics.resources.badges.title" | translate }}</span>
+      <span>{{ "features.metrics.badges.title" | translate }}</span>
     </div>
 
     <h1 class="hero__headline reveal">
       {{ "features.metrics.resources.title" | translate }}
     </h1>
 
-    <h2 class="hero__gradient reveal">{{ "features.metrics.resources.subtitle" | translate }}</h2>
-
     <p class="hero__desc reveal">
       {{ "features.metrics.resources.description" | translate }}
     </p>
 
-    <div class="hero__cta-group reveal">
-      <button type="button" class="btn btn--primary" (click)="goToInstallation()">
-        <ng-icon name="bootstrapRocketTakeoffFill" class="btn__icon"></ng-icon>
-        <span>{{ "common.button.install" | translate }}</span>
-      </button>
-
-    </div>
   </section>
 
   <!-- SECTION 1: CONCEPT EXPLANATION -->
   <section class="section" id="system-resources-concept">
-    <div class="section__header reveal">
-      <h2 class="section__title">{{ "features.metrics.resources.concept.title" | translate }}</h2>
-      <p class="section__subtitle">{{ "features.metrics.resources.concept.desc" | translate }}</p>
-    </div>
 
     <div class="features-grid">
       <article class="feature-card reveal">
@@ -59,39 +46,13 @@
         <h3 class="feature-card__title">{{ "features.metrics.resources.concept.gc.title" | translate }}</h3>
         <p class="feature-card__desc">{{ "features.metrics.resources.concept.gc.desc" | translate }}</p>
       </article>
-
-      <article class="feature-card reveal">
-        <div class="feature-card__icon-wrap icon--amber">
-          <ng-icon name="bootstrapSegmentedNav"></ng-icon>
-        </div>
-        <h3 class="feature-card__title">{{ "features.metrics.resources.concept.threads.title" | translate }}</h3>
-        <p class="feature-card__desc">{{ "features.metrics.resources.concept.threads.desc" | translate }}</p>
-      </article>
     </div>
   </section>
 
-  <!-- SECTION 2: INSPECT VALUE PROPOSITION -->
-  <section class="section" id="system-resources-value">
-    <div class="section__header reveal">
-      <h2 class="section__title">{{ "features.metrics.resources.value.title" | translate }}</h2>
-      <p class="section__subtitle">{{ "features.metrics.resources.value.subtitle" | translate }}</p>
-    </div>
-
-    <div class="roi-grid">
-      <div class="roi-card reveal">
-        <h4>{{ "features.metrics.resources.value.first.title" | translate }}</h4>
-        <p>{{ "features.metrics.resources.value.first.desc" | translate }}</p>
-      </div>
-
-      <div class="roi-card reveal">
-        <h4>{{ "features.metrics.resources.value.second.title" | translate }}</h4>
-        <p>{{ "features.metrics.resources.value.second.desc" | translate }}</p>
-      </div>
-
-      <div class="roi-card reveal">
-        <h4>{{ "features.metrics.resources.value.third.title" | translate }}</h4>
-        <p>{{ "features.metrics.resources.value.third.desc" | translate }}</p>
-      </div>
-    </div>
-  </section>
 </div>
+
+<!-- Relink when scroll down -->
+<section class="scroll-trigger scroll-trigger--down" (click)="goToNext()">
+  <span class="scroll-trigger__label">{{ "common.button.next" | translate }}</span>
+  <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
+</section>

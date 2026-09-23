@@ -1,7 +1,4 @@
-:host {
-  display: block;
-  width: 100%;
-}
+@use "src/styles.scss" as *;
 
 .volume-container {
   width: 100%;
