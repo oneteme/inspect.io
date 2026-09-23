@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnDestroy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -9,6 +9,7 @@ import {
   bootstrapCheckCircleFill,
   bootstrapArrowRight,
   bootstrapShieldCheck,
+  bootstrapArrowDown,
   bootstrapCpuFill,
   bootstrapHddStackFill,
   bootstrapRocketTakeoffFill,
@@ -19,6 +20,8 @@ import {
   bootstrapGearFill,
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
+import { goToPage } from '@utils/utils';
+import { ScrollspyService } from '@services/scrollspy.service';
 
 interface PartitionInfo {
   tableName: string;
@@ -39,6 +42,7 @@ interface PartitionInfo {
   styleUrls: ['./data-partitioning.component.scss'],
   viewProviders: [
     provideIcons({
+      bootstrapArrowDown,
       bootstrapDatabaseFill,
       bootstrapCalendarCheckFill,
       bootstrapLightningChargeFill,
@@ -56,83 +60,67 @@ interface PartitionInfo {
     })
   ]
 })
-export class DataPartitioningComponent {
-  selectedPeriod = signal<'2025_03' | '2025_04' | '2025_05'>('2025_04');
-  simulationRunning = signal<boolean>(false);
-  lastSchedulerRun = signal<string>('Aujourd\'hui à 00:00:02 (Succès)');
+export class DataPartitioningComponent implements AfterViewInit, OnDestroy {
+  private readonly router = inject(Router);
+  private readonly elementRef = inject(ElementRef);
+  private readonly scrollSpy = inject(ScrollspyService);
+  private observer?: IntersectionObserver;
 
-  tables: PartitionInfo[] = [
-    {
-      tableName: 'SES_HTTP',
-      partitionStrategy: 'MONTHLY',
-      currentActivePartition: 'SES_HTTP_2025_04',
-      upcomingPartition: 'SES_HTTP_2025_05',
-      rowCount: '48.2 M',
-      storageSize: '14.2 GB',
-      status: 'ACTIVE',
-      indexState: 'OPTIMAL'
-    },
-    {
-      tableName: 'REQ_HTTP',
-      partitionStrategy: 'DAILY',
-      currentActivePartition: 'REQ_HTTP_2025_04_15',
-      upcomingPartition: 'REQ_HTTP_2025_04_16',
-      rowCount: '182.6 M',
-      storageSize: '62.8 GB',
-      status: 'ACTIVE',
-      indexState: 'OPTIMAL'
-    },
-    {
-      tableName: 'REQ_JDBC',
-      partitionStrategy: 'DAILY',
-      currentActivePartition: 'REQ_JDBC_2025_04_15',
-      upcomingPartition: 'REQ_JDBC_2025_04_16',
-      rowCount: '345.1 M',
-      storageSize: '89.4 GB',
-      status: 'ACTIVE',
-      indexState: 'OPTIMAL'
-    },
-    {
-      tableName: 'INSTANCE_TRACE',
-      partitionStrategy: 'MONTHLY',
-      currentActivePartition: 'INSTANCE_TRACE_2025_04',
-      upcomingPartition: 'INSTANCE_TRACE_2025_05',
-      rowCount: '12.4 M',
-      storageSize: '4.1 GB',
-      status: 'ACTIVE',
-      indexState: 'OPTIMAL'
-    },
-    {
-      tableName: 'RESOURCE_USAGE',
-      partitionStrategy: 'MONTHLY',
-      currentActivePartition: 'RESOURCE_USAGE_2025_04',
-      upcomingPartition: 'RESOURCE_USAGE_2025_05',
-      rowCount: '8.7 M',
-      storageSize: '2.3 GB',
-      status: 'ACTIVE',
-      indexState: 'OPTIMAL'
+  readonly isTransitioning = signal(false);
+
+  ngAfterViewInit(): void {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      );
+
+      const revealElements = this.elementRef.nativeElement.querySelectorAll('.reveal');
+      revealElements.forEach((element: Element) => observer.observe(element));
+      const sections = [
+        { selector: 'app-application-inventory', path: '/features/health/inventory' },
+        { selector: 'app-lifecycle-events', path: '/features/health/events' },
+      ];
+
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const match = sections.find((s) => entry.target.matches(s.selector));
+              if (match) {
+                this.scrollSpy.setActivePath(match.path);
+              }
+            }
+          }
+        },
+        { rootMargin: '-20% 0px -70% 0px', threshold: 0 },
+      );
+
+      sections.forEach(({ selector }) => {
+        const el = this.elementRef.nativeElement.querySelector(selector);
+        if (el) this.observer?.observe(el);
+      });
     }
-  ];
-
-  constructor(private router: Router) {}
-
-  triggerSchedulerSimulation(): void {
-    this.simulationRunning.set(true);
-    setTimeout(() => {
-      this.simulationRunning.set(false);
-      this.lastSchedulerRun.set('À l\'instant (Partitions anticipées créées)');
-    }, 1200);
   }
 
-  goToInstallation(): void {
-    this.router.navigate(['/guide/installation']);
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+    this.scrollSpy.setActivePath(null);
   }
 
-  goToArchitecture(): void {
-    this.router.navigate(['/architecture/overview']);
+  goToAutonomy(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/autonomy');
   }
 
-  goToCompatibilities(): void {
-    this.router.navigate(['/guide/compatibilities']);
+  goToNext(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/autonomy/purge');
   }
+
 }
+

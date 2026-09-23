@@ -561,38 +561,18 @@
         "description": "Installer un outil de supervision ne doit pas impliquer une charge de travail supplémentaire pour les équipes et ne doit pas être difficilement maintenable. C'est pour cela qu'INSPECT gère automatiquement sa base de données, son stockage et sa propre surveillance."
       },
       "partitioning": {
-        "badges": {
-          "title": "PARTITIONNEMENT DYNAMIQUE"
-        },
-        "title": "Partitionnement Dynamique des Données",
-        "subtitle": "Création automatique des partitions Jour/Mois sans intervention humaine",
-        "description": "Pour rester rapide même avec des milliards de données, INSPECT organise automatiquement ses données dans des tiroirs chronologiques séparés.",
+        "title": "Partitionnement dynamique des données",
+        "description": "Pour rester performant même avec un grand nombre de données, INSPECT organise automatiquement ses données dans des partitions.",
         "concept": {
-          "title": "Qu'est-ce que le Partitionnement de données ?",
+          "title": "Partitionnement de données",
           "desc": "Une technique indispensable pour conserver des recherches ultra-rapides dans le temps.",
           "partition": {
-            "title": "Le Concept des Partitions (Les Classeurs par mois)",
-            "desc": "Au lieu de jeter toutes les feuilles dans une boîte géante de 10 mètres de haut, vous créez un classeur par jour ou par mois. La recherche ne fouille que le classeur concerné."
+            "title": "Partitions",
+            "desc": "Le partitionnement de données sert à INSPECT à conserver des recherches rapides, peu importe l'application où il sera intégré."
           },
           "dynamic": {
-            "title": "L'Automatisation Dynamique (Zéro tâche manuelle)",
-            "desc": "INSPECT crée automatiquement les nouveaux classeurs pour demain et le mois prochain, sans qu'aucun administrateur de base de données n'ait à intervenir."
-          }
-        },
-        "value": {
-          "title": "L'apport d'INSPECT pour vos équipes",
-          "subtitle": "Performances constantes sans maintenance technique",
-          "first": {
-            "title": "Recherches instantanées toute l'année",
-            "desc": "Consultez une trace d'il y a 3 mois aussi rapidement qu'une trace enregistrée il y a 5 secondes."
-          },
-          "second": {
-            "title": "Zéro coût d'administration (DBA)",
-            "desc": "Vos équipes de bases de données n'ont aucun script de maintenance ou de découpage à créer ni à surveiller."
-          },
-          "third": {
-            "title": "Évolutivité illimitée (Scalabilité)",
-            "desc": "Le système supporte des volumes massifs de données sans jamais ralentir ni saturer."
+            "title": "Automatisation dynamique",
+            "desc": "INSPECT crée automatiquement les nouvelles partitions, sans qu'aucune action ne soit nécessaire."
           }
         }
       },

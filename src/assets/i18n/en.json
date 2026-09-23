@@ -577,38 +577,18 @@
         "description": "Install a monitoring tool shouldn't give more tasks for the teams and should not be difficult to maintain. That's why INSPECT automatically manages its database, storage, and its own monitoring."
       },
       "partitioning": {
-        "badges": {
-          "title": "DYNAMIC PARTITIONING"
-        },
-        "title": "Dynamic Data Partitioning",
-        "subtitle": "Automatic creation of Day/Month partitions without human intervention",
-        "description": "To remain blazing fast even with billions of records, INSPECT automatically organizes data into chronological compartments.",
+        "title": "Automatic data dartitioning",
+        "description": "To stay performant even with a large amount of data, INSPECT automatically organizes its data into partitions.",
         "concept": {
-          "title": "What is Data Partitioning?",
-          "desc": "An essential technique to ensure search queries remain lightning fast over time.",
+          "title": "Data Partitioning",
+          "desc": "An essential technique to keep searches ultra-fast over time.",
           "partition": {
-            "title": "The Partition Concept (Monthly Filing Cabinets)",
-            "desc": "Instead of throwing every document into a giant 10-meter-high box, you maintain a folder per day or month. Searches only look in the target folder."
+            "title": "Partitions",
+            "desc": "Data partitioning helps INSPECT maintain fast searches, regardless of the application it is integrated into."
           },
           "dynamic": {
-            "title": "Dynamic Automation (Zero Manual Work)",
-            "desc": "INSPECT automatically generates upcoming partitions ahead of time without needing database administrators (DBAs)."
-          }
-        },
-        "value": {
-          "title": "The INSPECT Advantage for Your Teams",
-          "subtitle": "Constant performance with zero database maintenance",
-          "first": {
-            "title": "Instant search performance year-round",
-            "desc": "Query a 3-month-old trace just as quickly as a trace recorded 5 seconds ago."
-          },
-          "second": {
-            "title": "Zero DBA administrative cost",
-            "desc": "Your database teams do not need to write or maintain partition maintenance scripts."
-          },
-          "third": {
-            "title": "Limitless scalability",
-            "desc": "Easily accommodates massive data volumes without ever saturating storage access."
+            "title": "Dynamic Automation",
+            "desc": "INSPECT automatically creates new partitions without any manual intervention."
           }
         }
       },
