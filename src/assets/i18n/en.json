@@ -568,14 +568,13 @@
       }
     },
     "autonomy": {
-      "title": "Self Management & Autonomy",
+      "title": "Self Management and autonomy",
       "badges": {
-        "title": "SELF MANAGEMENT & AUTONOMY"
+        "title": "SELF MANAGEMENT AND AUTONOMY"
       },
       "intro": {
-        "title": "Zero administrative overhead and intelligent self-management",
-        "subtitle": "An autonomous system that self-optimizes, self-purges, and self-monitors",
-        "description": "Adopting an observability tool should never increase administrative burden. INSPECT autonomously manages its storage, database, and operational resilience."
+        "title": "An autonomous system that self-optimizes, self-purges, and self-monitors",
+        "description": "Install a monitoring tool shouldn't give more tasks for the teams and should not be difficult to maintain. That's why INSPECT automatically manages its database, storage, and its own monitoring."
       },
       "partitioning": {
         "badges": {

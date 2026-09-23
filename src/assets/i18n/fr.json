@@ -554,12 +554,11 @@
     "autonomy": {
       "title": "Self Management et Autonomie",
       "badges": {
-        "title": "SELF MANAGEMENT & AUTONOMIE"
+        "title": "SELF MANAGEMENT ET AUTONOMIE"
       },
       "intro": {
-        "title": "Zéro effort d'administration et auto-gestion intelligente",
-        "subtitle": "Un système autonome qui s'auto-optimise, s'auto-purge et s'auto-surveille",
-        "description": "Installer un outil de supervision ne doit pas créer une charge de travail supplémentaire pour vos équipes. INSPECT gère automatiquement sa base de données, son stockage et sa propre résilience."
+        "title": "Un système autonome qui s'auto-optimise, s'auto-purge et s'auto-surveille",
+        "description": "Installer un outil de supervision ne doit pas impliquer une charge de travail supplémentaire pour les équipes et ne doit pas être difficilement maintenable. C'est pour cela qu'INSPECT gère automatiquement sa base de données, son stockage et sa propre surveillance."
       },
       "partitioning": {
         "badges": {

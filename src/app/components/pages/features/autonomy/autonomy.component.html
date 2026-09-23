@@ -12,12 +12,16 @@
       {{ "features.autonomy.intro.title" | translate }}
     </h1>
 
-    <h2 class="hero__gradient">
-      {{ "features.autonomy.intro.subtitle" | translate }}
-    </h2>
 
     <p class="hero__desc">
       {{ "features.autonomy.intro.description" | translate }}
     </p>
   </section>
 </div>
+
+
+<!-- Relink when scroll down -->
+<section class="scroll-trigger scroll-trigger--down" (click)="goToNext()">
+  <span class="scroll-trigger__label"> {{ "common.button.details" | translate }}</span>
+  <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
+</section>
