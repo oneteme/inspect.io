@@ -80,7 +80,7 @@
       "highlight": "INSPECTez",
       "suffix": "ce qui se passe réellement dans votre application."
     },
-    "content": "INSPECT est une plateforme de suivi et d'analyse des appels d'API conçue pour offrir une visibilité approfondie sur les interactions entre les différents composants d'un système distribué.",
+    "content": "INSPECT est une plateforme de suivi et d'analyse des appels de différents types conçue pour offrir une visibilité approfondie sur les interactions entre les différents composants d'un système distribué.",
     "cta": {
       "explore": "Découvrir les fonctionnalités",
       "architecture": "Explorer l'architecture",
@@ -117,7 +117,7 @@
       },
       "heartbeat": {
         "title": "Monitoring",
-        "content": "Avec INSPECT, vous pourrez surveiller et monitorer l'ensemble des microservices de votre projet, voir le dernier redémarrage, la version déployée, le nombre de tentatives, tout ça en quelques secondes."
+        "content": "Avec INSPECT, vous pourrez surveiller et monitorer l'ensemble des applications de votre projet, voir le dernier redémarrage, la version déployée, le nombre de tentatives, tout ça en quelques secondes."
       }
     },
     "profiles": {
@@ -212,7 +212,7 @@
       "events": {
         "title": "Événements et contextes d'exécution",
         "subtitle": "API, BATCH, Démarrage, Tests : comprendre tous les types d'activité",
-        "description": "Une application se limite rarement à quelques redirections vers des onglets : il y a quasi systématiquement beaucoup de traitements de fonds, ou d'exécutions nocturnes qui sont indispensables et qu'il faut superviser",
+        "description": "Pour superviser un ensemble d'applications, il faut superviser plusieurs méthodes et protocoles d'échanges. Tous transmettent différentes informations, de façon différente et à des moments différents : synchrone, asynchrone, à une fréquence régulière dans la nuit, pour une occurrence unique par un utilisateur etc.",
         "concept": {
           "title": "Quelques événements supervisés par INSPECT",
           "batch": {

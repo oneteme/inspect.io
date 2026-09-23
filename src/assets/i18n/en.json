@@ -141,7 +141,7 @@
       },
       "heartbeat": {
         "title": "Monitoring",
-        "content": "With INSPECT, you can watch and monitor all microservices of your project, know when was the last restart, what is the deployed version, the number of restarts, all of it in a few seconds."
+        "content": "With INSPECT, you can watch and monitor all applications of your project, know when was the last restart, what is the deployed version, the number of restarts, all of it in a few seconds."
       }
     }
   },
@@ -214,7 +214,7 @@
       "events": {
         "title": "Events and execution contexts",
         "subtitle": "API, BATCH, Startup, Tests: understanding all forms of system activity",
-        "description": "An application doesn't limit itself at only a few clicks and some pop-ups. There are, almost always, a lot of batchs and tasks in background or during the night who are necessary and need to be monitored",
+        "description": "To monitor a set of applications, you need to monitor multiple methods and exchange protocols. They all transmit different information, in different ways and at different times: synchronous, asynchronous, at a regular frequency during the night, for a single occurrence by a user, etc.",
         "concept": {
           "title": "Some events monitored by INSPECT",
           "batch": {
