@@ -433,9 +433,9 @@
       }
     },
     "metrics": {
-      "title": "Performance Metrics & APM",
+      "title": "Performance Metrics AND APM",
       "badges": {
-        "title": "PERFORMANCE METRICS & APM"
+        "title": "PERFORMANCE METRICS AND APM"
       },
       "intro": {
         "title": "Proactive performance and health monitoring",

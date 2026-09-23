@@ -155,20 +155,12 @@
     "observability": {
       "title": "Observabilité",
       "subtitle": "Comprendre l'état interne de vos systèmes à travers leurs signaux",
-      "description": "L'observabilité est la capacité à déduire l'état de santé, le comportement et les dysfonctionnements internes d'un système informatique complexe uniquement en observant ses sorties externes.",
-      "value": {
-        "title": "L'apport pour vous :",
-        "desc": "Fini les réunions de crise où chacun se renvoie la responsabilité. L'observabilité permet à toute l'équipe (métier, support, développeurs) de comprendre en quelques secondes ce qui s'est réellement passé lors d'un incident."
-      }
+      "description": "L'observabilité est la capacité à déduire l'état de santé, le comportement et les dysfonctionnements internes d'un système informatique complexe uniquement en observant ses sorties externes."
     },
     "telemetry": {
       "title": "Télémétrie",
       "subtitle": "La collecte automatique et continue des signaux vitaux",
-      "description": "La télémétrie désigne l'ensemble des mesures, signaux et données brutes capturés automatiquement au cœur des applications : le temps d'exécution d'une tâche, les erreurs rencontrées, la consommation de mémoire ou le chemin emprunté par une transaction.",
-      "value": {
-        "title": "L'apport pour vous :",
-        "desc": "La télémétrie fournit les faits bruts et objectifs. Vous ne dépendez plus d'hypothèses : chaque action utilisateur ou traitement de nuit dispose d'un enregistrement factuel et horodaté."
-      }
+      "description": "La télémétrie désigne l'ensemble des mesures, signaux et données brutes capturés automatiquement au cœur des applications : le temps d'exécution d'une tâche, les erreurs rencontrées, la consommation de mémoire ou le chemin emprunté par une transaction."
     },
     "solution": {
       "title": "INSPECT unifie ces 2 principes",
@@ -294,15 +286,15 @@
           "navigation": {
             "title": "Traçage automatique de la navigation",
             "router": {
-              "title": "Écoute du cycle de vie du routeur",
-              "desc": "INSPECT détecte chaque changement d'URL (NavigationStart, NavigationEnd, NavigationCancel) et horodate les temps de transition."
+              "title": "Surveillance de l'état",
+              "desc": "INSPECT détecte chaque changement d'URL et horodate les temps de transition."
             },
             "cache": {
               "title": "Gestion des comportements avancés",
               "desc": "Prise en compte du cache du navigateur et des sorties de page."
             },
             "session": {
-              "title": "Corrélation de session (SessionManager)",
+              "title": "Corrélation de session",
               "desc": "Chaque vue ou navigation est rattachée à une session logique, propageant les identifiants techniques vers les requêtes HTTP backend."
             }
           },
@@ -310,7 +302,7 @@
             "title": "Capture des interactions utilisateur",
             "dom": {
               "title": "Écoute automatique des événements DOM (Document Object Model)",
-              "desc": "Le module UserActionMonitor écoute automatiquement les événements DOM, qui sont toutes les actions basiques de l'utilisateur comme le clic, le scroll, le chargement."
+              "desc": "Un module présent dans INSPECT écoute automatiquement les événements DOM, qui sont toutes les actions basiques de l'utilisateur comme le clic, le scroll, le chargement."
             },
             "semantic": {
               "title": "Résolution intelligente",
@@ -333,7 +325,7 @@
             "desc": "En sélectionnant un utilisateur et une date, l'équipe technique ou le support accède à la restitution exacte de sa session sous forme de fil chronologique (\"Chargement de la page\", \"Clique sur le bouton Valider\", \"Changement de champ\")."
           },
           "reproduction": {
-            "title": "Reproduction ultra-rapide des incidents",
+            "title": "Reproduction rapide des incidents",
             "desc": "Plus besoin de demander à l'utilisateur de décrire ses étapes, le scénario est facilement réalisé."
           },
           "insights": {
@@ -350,10 +342,10 @@
       },
       "intro": {
         "subtitle": "Suivre chaque action du clic utilisateur jusqu'à la base de données",
-        "description": "Un SI composé de multiples microservices, serveurs et bases de données, peut suivre des chemins complexes."
+        "description": "Un SI composé de multiples applications, serveurs et bases de données, peut suivre des chemins complexes."
       },
       "pillars": {
-        "title": "La cartographie et la traçabilité sont les outils qui permettent à INSPECT de palier ce problème",
+        "title": "La cartographie et la traçabilité sont les outils qui permettent à INSPECT de palier ce problème de suivi de ces chemins",
         "cartography": {
           "title": "Cartographie",
           "desc": "Vous pouvez retrouver le graphe réel des interactions, même après des modifications dans votre code qui n'auraient pas été répertoriées dans de la documentation."
@@ -401,7 +393,7 @@
           },
           "second": {
             "title": "Visibilité sur les tâches d'arrière-plan",
-              "desc": " INSPECT regroupe sous une même vue fonctionnelle l'action principale et toutes celles qui sont liées asynchrones (traitements parallèles, notifications, écritures en base)."
+            "desc": " INSPECT regroupe sous une même vue fonctionnelle l'action principale et toutes celles qui sont liées asynchrones (traitements parallèles, notifications, écritures en base)."
           },
           "third": {
             "title": "Explication simplifiée des erreurs",

@@ -16,13 +16,6 @@
     <h2 class="hero__gradient">
       {{ "features.subtitle" | translate }}
     </h2>
-
-    <div class="hero__cta-group">
-      <button type="button" class="btn btn--primary" (click)="goToInstallation()">
-        <ng-icon name="bootstrapRocketTakeoffFill" class="btn__icon"></ng-icon>
-        <span>{{ "common.button.install" | translate }}</span>
-      </button>
-    </div>
   </section>
 
   <!-- Observability & Telemetry Pillar Cards -->
@@ -40,10 +33,6 @@
           </div>
         </div>
         <p class="pillar-card__desc">{{ "features.observability.description" | translate }}</p>
-        <div class="pillar-card__value">
-          <strong class="pillar-card__value-title">{{ "features.observability.value.title" | translate }}</strong>
-          <span>{{ "features.observability.value.desc" | translate }}</span>
-        </div>
       </article>
 
       <!-- Card 2: Telemetry -->
@@ -58,10 +47,6 @@
           </div>
         </div>
         <p class="pillar-card__desc">{{ "features.telemetry.description" | translate }}</p>
-        <div class="pillar-card__value">
-          <strong class="pillar-card__value-title">{{ "features.telemetry.value.title" | translate }}</strong>
-          <span>{{ "features.telemetry.value.desc" | translate }}</span>
-        </div>
       </article>
     </div>
   </section>
