@@ -458,42 +458,20 @@
         }
       },
       "volume": {
-        "badges": {
-          "title": "VOLUMÉTRIE & DÉBIT"
-        },
-        "title": "Volumétrie et Débit",
-        "subtitle": "Charge globale, débit de requêtes et pics d'activité",
+        "title": "Volumétrie et débit",
         "description": "Suivez le volume de transactions traitées par seconde et anticipez les montées en charge pour garantir la fluidité du service.",
         "concept": {
-          "title": "Comprendre le débit et la charge",
-          "desc": "Mesurer la capacité de vos systèmes à absorber l'activité de vos clients.",
           "rps": {
-            "title": "Qu'est-ce que le Débit (Throughput) ? (Le Flux de véhicules)",
-            "desc": "Le nombre de requêtes, commandes ou transactions traitées avec succès par unité de temps (ex: 2 000 requêtes par seconde)."
+            "title": "Débit (Throughput)",
+            "desc": "En suivant le nombre de requêtes, commandes ou transactions traitées avec succès par unité de temps, INSPECT permet de connaitre au mieux le débit de vos applications."
           },
           "spike": {
-            "title": "Qu'est-ce qu'un Pic de charge ? (L'Heure de pointe)",
-            "desc": "Les moments d'affluence exceptionnelle (soldes, ouverture de billetterie, clôture comptable mensuelle)."
+            "title": "Pic de charge",
+            "desc": "Les moments d'affluence exceptionnelle sont facilement repérables."
           },
           "capacity": {
-            "title": "Capacité et Dimensionnement (Anticipation)",
-            "desc": "Anticiper les montées en charge et dimensionner l'infrastructure avant la saturation des serveurs."
-          }
-        },
-        "value": {
-          "title": "L'apport d'INSPECT pour vos équipes",
-          "subtitle": "Préparez vos systèmes aux grands événements commerciaux",
-          "first": {
-            "title": "Dimensionnement précis des infrastructures",
-            "desc": "Évitez de surpayer des serveurs inutiles ou de sous-dimensionner vos machines grâce aux métriques de charge réelle."
-          },
-          "second": {
-            "title": "Anticipation des saturations",
-            "desc": "Détectez les tendances de hausse d'activité plusieurs semaines à l'avance pour adapter vos capacités sereinement."
-          },
-          "third": {
-            "title": "Sécurité lors des temps forts métier",
-            "desc": "Surveillez en temps réel le comportement de vos systèmes pendant les lancements de produits ou les pics de ventes."
+            "title": "Capacité et dimensionnement",
+            "desc": "Capacité d'anticiper les montées de charge et dimensionner l'infrastructure avant la saturation des serveurs."
           }
         }
       },

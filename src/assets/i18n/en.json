@@ -474,42 +474,20 @@
         }
       },
       "volume": {
-        "badges": {
-          "title": "VOLUME & THROUGHPUT"
-        },
-        "title": "Volume & Throughput",
-        "subtitle": "Overall load, request throughput, and traffic spikes",
+        "title": "Volume and throughput",
         "description": "Track the volume of transactions processed per second and anticipate traffic spikes to ensure seamless service.",
         "concept": {
-          "title": "Understanding throughput and load",
-          "desc": "Measuring your systems' ability to absorb customer activity.",
           "rps": {
-            "title": "What is Throughput? (The Traffic Flow)",
+            "title": "Throughput",
             "desc": "The number of requests, orders, or transactions successfully processed per time unit (e.g. 2,000 requests/sec)."
           },
           "spike": {
-            "title": "What is a Load Peak? (Rush Hour)",
-            "desc": "Moments of surge traffic (Black Friday sales, ticketing releases, monthly accounting closing)."
+            "title": "Load Peak",
+            "desc": "Moments of surge traffic are easily identifiable."
           },
           "capacity": {
-            "title": "Capacity Planning (Future-proofing)",
+            "title": "Capacity Planning and Scaling",
             "desc": "Anticipating traffic growth and scaling resources before infrastructure saturation occurs."
-          }
-        },
-        "value": {
-          "title": "The INSPECT Advantage for Your Teams",
-          "subtitle": "Prepare your infrastructure for high-stakes business events",
-          "first": {
-            "title": "Accurate infrastructure sizing",
-            "desc": "Avoid overpaying for unnecessary cloud servers or undersizing machines using real load data."
-          },
-          "second": {
-            "title": "Anticipate capacity limits",
-            "desc": "Detect traffic growth trends weeks in advance to adjust server capacity comfortably."
-          },
-          "third": {
-            "title": "Peace of mind during peak events",
-            "desc": "Monitor live application behavior in real-time during product launches and promotional sales."
           }
         }
       },
