@@ -520,19 +520,15 @@
       },
       "description": "You can have from INSPECT the possibility to track in real time the lifecycle of your applications, and to know which version is deployed on each server. INSPECT gives you the possibility to have a complete inventory of your applications, and to track all lifecycle events.",
       "inventory": {
-        "title": "Application Inventory",
-        "subtitle": "Complete inventory of your application estate by environment",
-        "description": "A consolidated, live view of all your applications organized by environment (Development, Staging, Pre-production, Production).",
+        "title": "Application inventory",
         "concept": {
-          "title": "Understanding application inventory",
-          "desc": "The comprehensive and live record of all software assets across your company.",
           "environments": {
-            "title": "Environments (The Validation Stages)",
-            "desc": "Dev (coding), Staging (testing), Pre-prod (qualification), and Production (live customers)."
+            "title": "Environments",
+            "desc": "You can have access to what is deployed on each environment (DEV, QA, PROD...) and on each application in a single web page."
           },
           "versioning": {
-            "title": "Version Governance (The Release Numbers)",
-            "desc": "Knowing whether version 2.4.1 or 2.4.0 is deployed on each server to prevent discrepancies."
+            "title": "Versions",
+            "desc": "INSPECT provides all the information about the deployed application: version number, SHA of the last git commit, git tag. All the information needed to ensure what is deployed in which environment."
           }
         },
         "value": {

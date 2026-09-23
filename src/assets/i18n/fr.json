@@ -496,27 +496,20 @@
     },
     "health": {
       "title": "Cycle de vie et état des versions",
-      "badges": {
-        "title": "CYCLE DE VIE ET ÉTAT DES VERSIONS"
-      },
       "description": "Ayez la possibilité de suivre en temps réel quelle version de vos applications sont déployées, quel est leur état et leur cycle de vie. INSPECT permet l'accès à ces informations en faisant un inventaire applicatif, et en donnant accès à l'historique des événements.",
       "inventory": {
         "badges": {
           "title": "INVENTAIRE APPLICATIF"
         },
-        "title": "Inventaire Applicatif",
-        "subtitle": "Cartographie complète de votre parc par environnement",
-        "description": "Une vue consolidée et toujours à jour de toutes vos applications, réparties par environnement (Développement, Recette, Pré-production, Production).",
+        "title": "Inventaire applicatif",
         "concept": {
-          "title": "Comprendre l'inventaire applicatif",
-          "desc": "L'inventaire est la liste exhaustive et vivante de tout le patrimoine logiciel de votre entreprise.",
           "environments": {
-            "title": "Les Environnements (Les Étapes de validation)",
-            "desc": "La Dev (pour coder), la Recette (pour tester), la Pré-prod (pour valider) et la Production (utilisée par vos vrais clients)."
+            "title": "Environnements",
+            "desc": "INSPECT vous permet d'accéder en une seule page web à l'ensemble de l'état de vos environnements (DEV, INT, REC, PPRD, PROD etc.)"
           },
           "versioning": {
-            "title": "La Gestion des versions (Le Numéro d'édition)",
-            "desc": "Savoir à tout moment si la version 2.4.1 ou 2.4.0 est déployée sur chaque serveur pour éviter les disparités."
+            "title": "Gestion des versions",
+            "desc": "INSPECT fournit toutes les informations sur l'application déployée : numéro de version, sha du dernier commit git, tag git. Toutes les informations nécessaires pour s'assurer de ce qui est déployé dans quel environnement."
           }
         },
         "value": {

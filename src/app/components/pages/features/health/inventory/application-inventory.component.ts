@@ -1,8 +1,17 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  signal,
+  ChangeDetectionStrategy,
+  AfterViewInit,
+  OnDestroy,
+  inject,
+  ElementRef
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  bootstrapArrowDown,
   bootstrapHddStackFill,
   bootstrapGit,
   bootstrapLayersFill,
@@ -17,19 +26,9 @@ import {
   bootstrapTagFill,
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
+import { ScrollspyService } from '@services/scrollspy.service';
+import { goToPage } from '@utils/utils';
 
-interface ApplicationInstanceRecord {
-  appName: string;
-  environment: 'PRODUCTION' | 'STAGING' | 'QA' | 'DEV';
-  instancesCount: number;
-  springBootVersion: string;
-  javaVersion: string;
-  gitBranch: string;
-  gitCommitShort: string;
-  buildTimestamp: string;
-  activeProfile: string;
-  status: 'UP' | 'OUTDATED' | 'MISMATCH';
-}
 
 @Component({
   selector: 'app-application-inventory',
@@ -44,6 +43,7 @@ interface ApplicationInstanceRecord {
       bootstrapGit,
       bootstrapLayersFill,
       bootstrapCheckCircleFill,
+      bootstrapArrowDown,
       bootstrapArrowRight,
       bootstrapRocketTakeoffFill,
       bootstrapSliders2,
@@ -55,93 +55,67 @@ interface ApplicationInstanceRecord {
     })
   ]
 })
-export class ApplicationInventoryComponent {
-  selectedEnvFilter = signal<'ALL' | 'PRODUCTION' | 'STAGING' | 'QA'>('ALL');
+export class ApplicationInventoryComponent implements AfterViewInit, OnDestroy {
+  private readonly router = inject(Router);
+  private readonly elementRef = inject(ElementRef);
+  private readonly scrollSpy = inject(ScrollspyService);
+  private observer?: IntersectionObserver;
 
-  inventoryRecords: ApplicationInstanceRecord[] = [
-    {
-      appName: 'order-service',
-      environment: 'PRODUCTION',
-      instancesCount: 6,
-      springBootVersion: '3.3.4',
-      javaVersion: 'OpenJDK 21.0.4',
-      gitBranch: 'main',
-      gitCommitShort: '9f8b41a',
-      buildTimestamp: '2026-09-12 18:30',
-      activeProfile: 'prod,k8s,cloud',
-      status: 'UP'
-    },
-    {
-      appName: 'payment-service',
-      environment: 'PRODUCTION',
-      instancesCount: 4,
-      springBootVersion: '3.3.4',
-      javaVersion: 'OpenJDK 21.0.4',
-      gitBranch: 'main',
-      gitCommitShort: '9f8b41a',
-      buildTimestamp: '2026-09-12 18:30',
-      activeProfile: 'prod,pci-dss',
-      status: 'UP'
-    },
-    {
-      appName: 'catalog-service',
-      environment: 'PRODUCTION',
-      instancesCount: 3,
-      springBootVersion: '3.2.8',
-      javaVersion: 'OpenJDK 17.0.10',
-      gitBranch: 'hotfix/v1.4',
-      gitCommitShort: 'e31b802',
-      buildTimestamp: '2026-08-28 11:15',
-      activeProfile: 'prod,redis',
-      status: 'OUTDATED'
-    },
-    {
-      appName: 'auth-service',
-      environment: 'STAGING',
-      instancesCount: 2,
-      springBootVersion: '3.3.4',
-      javaVersion: 'OpenJDK 21.0.4',
-      gitBranch: 'release/v2.1',
-      gitCommitShort: 'a12c84e',
-      buildTimestamp: '2026-09-13 09:00',
-      activeProfile: 'staging,mock-idp',
-      status: 'UP'
-    },
-    {
-      appName: 'analytics-worker',
-      environment: 'QA',
-      instancesCount: 2,
-      springBootVersion: '3.3.0',
-      javaVersion: 'OpenJDK 21.0.4',
-      gitBranch: 'feature/spark-etl',
-      gitCommitShort: '78cf120',
-      buildTimestamp: '2026-09-11 16:40',
-      activeProfile: 'qa,batch',
-      status: 'MISMATCH'
+  readonly isTransitioning = signal(false);
+
+  ngAfterViewInit(): void {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      );
+
+      const revealElements = this.elementRef.nativeElement.querySelectorAll('.reveal');
+      revealElements.forEach((element: Element) => observer.observe(element));
+
+      const sections = [
+        { selector: 'app-application-inventory', path: '/features/health/inventory' },
+        { selector: 'app-lifecycle-events', path: '/features/health/events' },
+      ];
+
+      // Automatically activate and expand the section upon entering
+      if (!this.scrollSpy.activePath() || this.scrollSpy.activePath()?.startsWith('/features/health')) {
+        this.scrollSpy.setActivePath('/features/health/inventory');
+      }
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const match = sections.find((s) => entry.target.matches(s.selector));
+              if (match) {
+                this.scrollSpy.setActivePath(match.path);
+              }
+            }
+          }
+        },
+        { rootMargin: '-20% 0px -70% 0px', threshold: 0 },
+      );
+
+      sections.forEach(({ selector }) => {
+        const el = this.elementRef.nativeElement.querySelector(selector);
+        if (el) this.observer?.observe(el);
+      });
+
     }
-  ];
-
-  constructor(private router: Router) {}
-
-  setEnvFilter(env: 'ALL' | 'PRODUCTION' | 'STAGING' | 'QA'): void {
-    this.selectedEnvFilter.set(env);
+  }
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+    this.scrollSpy.setActivePath(null);
   }
 
-  getFilteredRecords(): ApplicationInstanceRecord[] {
-    const f = this.selectedEnvFilter();
-    if (f === 'ALL') return this.inventoryRecords;
-    return this.inventoryRecords.filter(r => r.environment === f);
+  goToNext(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/health/events');
   }
 
-  goToInstallation(): void {
-    this.router.navigate(['/guide/installation']);
-  }
-
-  goToArchitecture(): void {
-    this.router.navigate(['/architecture/overview']);
-  }
-
-  goToCompatibilities(): void {
-    this.router.navigate(['/guide/compatibilities']);
-  }
 }

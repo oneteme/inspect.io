@@ -118,7 +118,7 @@ export class SystemResourcesComponent implements AfterViewInit {
 
 
   goToNext(): void {
-    goToPage(this.isTransitioning(), this.router, '/features/lifecycle');
+    goToPage(this.isTransitioning(), this.router, '/features/health');
   }
 
 
