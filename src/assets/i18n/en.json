@@ -514,19 +514,12 @@
       }
     },
     "health": {
-      "title": "Lifecycle & Version Governance",
+      "title": "Lifecycle and version governance",
       "badges": {
-        "title": "VERSION GOVERNANCE & LIFECYCLE"
+        "title": "LIFECYCLE AND VERSION GOVERNANCE"
       },
-      "intro": {
-        "title": "Application governance and deployment control",
-        "subtitle": "Real-time inventory and lifecycle event correlation",
-        "description": "Knowing exactly what version of software is running where and correlating issues with recent deployments is key to serene operations."
-      },
+      "description": "You can have from INSPECT the possibility to track in real time the lifecycle of your applications, and to know which version is deployed on each server. INSPECT gives you the possibility to have a complete inventory of your applications, and to track all lifecycle events.",
       "inventory": {
-        "badges": {
-          "title": "APPLICATION INVENTORY"
-        },
         "title": "Application Inventory",
         "subtitle": "Complete inventory of your application estate by environment",
         "description": "A consolidated, live view of all your applications organized by environment (Development, Staging, Pre-production, Production).",

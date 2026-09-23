@@ -495,15 +495,11 @@
       }
     },
     "health": {
-      "title": "Cycle de Vie et Gestion des Versions",
+      "title": "Cycle de vie et état des versions",
       "badges": {
-        "title": "GESTION DES VERSIONS & CYCLE DE VIE"
+        "title": "CYCLE DE VIE ET ÉTAT DES VERSIONS"
       },
-      "intro": {
-        "title": "Gouvernance applicative et maîtrise des déploiements",
-        "subtitle": "Inventaire en temps réel et corrélation des événements de cycle de vie",
-        "description": "Savoir exactement quelle version de logiciel tourne sur quel serveur et pouvoir lier un problème à un déploiement récent est la clé d'une exploitation sereine."
-      },
+      "description": "Ayez la possibilité de suivre en temps réel quelle version de vos applications sont déployées, quel est leur état et leur cycle de vie. INSPECT permet l'accès à ces informations en faisant un inventaire applicatif, et en donnant accès à l'historique des événements.",
       "inventory": {
         "badges": {
           "title": "INVENTAIRE APPLICATIF"
