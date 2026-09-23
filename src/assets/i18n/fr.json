@@ -421,45 +421,22 @@
       "badges": {
         "title": "MÉTRIQUES DE PERFORMANCE ET APM"
       },
-      "description": "L'APM (Application Performance Monitoring) consiste à mesurer en permanence la vitalité de vos logiciels pour détecter les dégradations avant que les utilisateurs n'en souffrent.",
+      "description": "L'APM (Application Performance Monitoring) consiste à mesurer en permanence la vitalité de vos applications pour détecter les dégradations avant que les utilisateurs ne le remontent.",
       "chapters": "INSPECT vous permet de suivre les indicateurs clés de performance et de fiabilité de vos applications, en mettant l'accent sur la santé, la disponibilité, la performance et le volume.",
       "sla": {
-        "badges": {
-          "title": "SANTÉ & DISPONIBILITÉ"
-        },
-        "title": "Santé et Disponibilité",
-        "subtitle": "SLA, Uptime, Taux d'erreur et Budget d'erreur",
-        "description": "Mesurez objectivement le respect de vos engagements de service et la fiabilité de vos applications pour vos clients et partenaires.",
+        "title": "Santé et disponibilité",
         "concept": {
-          "title": "Comprendre les notions de disponibilité et de SLA",
-          "desc": "Des termes simples pour mesurer si un service fonctionne comme promis.",
           "sla": {
-            "title": "Qu'est-ce qu'un SLA ? (L'Engagement de qualité)",
-            "desc": "Le Service Level Agreement est le contrat d'engagement formel (ex: 99,9% de disponibilité garantie par mois)."
+            "title": "SLA",
+            "desc": "Le Service Level Agreement est le contrat d'engagement formel. INSPECT permet au mieux de suivre les SLA"
           },
           "uptime": {
-            "title": "Qu'est-ce que l'Uptime ? (Le Temps de service)",
-            "desc": "Le pourcentage de temps pendant lequel l'application a été accessible et pleinement opérationnelle sans panne."
+            "title": "Uptime",
+            "desc": "Le temps pendant lequel l'application a été accessible et pleinement opérationnelle sans panne. Donnée qu'INSPECT permet de connaitre"
           },
-          "budget": {
-            "title": "Qu'est-ce que le Budget d'erreur ? (La Marge de sécurité)",
-            "desc": "Le nombre maximal d'incidents ou de minutes d'arrêt toléré sur une période avant de rompre le contrat client."
-          }
-        },
-        "value": {
-          "title": "L'apport d'INSPECT pour vos équipes",
-          "subtitle": "Garantissez la confiance de vos utilisateurs et clients",
-          "first": {
-            "title": "Suivi objectif des engagements contractuels",
-            "desc": "Générez des rapports fiables pour prouver le respect des engagements de service auprès de vos clients et partenaires."
-          },
-          "second": {
-            "title": "Alertes proactives avant rupture de SLA",
-            "desc": "Soyez notifié dès qu'un taux d'erreur grimpe anormalement, avant que le budget d'erreur ne soit consommé."
-          },
-          "third": {
-            "title": "Pilotage serein des comités de service",
-            "desc": "Fournissez des chiffres transparents et indiscutables lors des revues de performance avec le métier."
+          "error": {
+            "title": "Taux d'erreur",
+            "desc": "INSPECT permet de remonter le taux d'erreur, le nombre d'échecs pour le démarrage d'une de vos applications"
           }
         }
       },

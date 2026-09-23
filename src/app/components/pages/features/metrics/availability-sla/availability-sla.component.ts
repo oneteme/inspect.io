@@ -1,8 +1,17 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  signal,
+  ChangeDetectionStrategy,
+  ElementRef,
+  DestroyRef,
+  OnDestroy,
+  AfterViewInit
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  bootstrapArrowDown,
   bootstrapShieldCheck,
   bootstrapSpeedometer2,
   bootstrapCheckCircleFill,
@@ -14,16 +23,8 @@ import {
   bootstrapExclamationTriangleFill
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
-
-interface ServiceSlaTarget {
-  serviceName: string;
-  slaTargetPct: number;
-  currentUptimePct: number;
-  budgetRemainingMinutes: number;
-  errorRatePct: number;
-  apdexScore: number;
-  status: 'COMPLIANT' | 'AT_RISK' | 'BREACHED';
-}
+import { ScrollspyService } from '@services/scrollspy.service';
+import { goToPage } from '@utils/utils';
 
 @Component({
   selector: 'app-availability-sla',
@@ -34,6 +35,7 @@ interface ServiceSlaTarget {
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [
     provideIcons({
+      bootstrapArrowDown,
       bootstrapShieldCheck,
       bootstrapSpeedometer2,
       bootstrapCheckCircleFill,
@@ -46,76 +48,77 @@ interface ServiceSlaTarget {
     })
   ]
 })
-export class AvailabilitySlaComponent {
-  selectedPeriod = signal<'30d' | '7d' | '24h'>('30d');
+export class AvailabilitySlaComponent implements AfterViewInit, OnDestroy {
 
-  services: ServiceSlaTarget[] = [
-    {
-      serviceName: 'Core Banking API Gateway',
-      slaTargetPct: 99.95,
-      currentUptimePct: 99.992,
-      budgetRemainingMinutes: 18.2,
-      errorRatePct: 0.008,
-      apdexScore: 0.99,
-      status: 'COMPLIANT'
-    },
-    {
-      serviceName: 'Checkout & Payment Service',
-      slaTargetPct: 99.90,
-      currentUptimePct: 99.945,
-      budgetRemainingMinutes: 14.5,
-      errorRatePct: 0.045,
-      apdexScore: 0.97,
-      status: 'COMPLIANT'
-    },
-    {
-      serviceName: 'Product Catalog & Search Engine',
-      slaTargetPct: 99.50,
-      currentUptimePct: 99.880,
-      budgetRemainingMinutes: 142.0,
-      errorRatePct: 0.09,
-      apdexScore: 0.96,
-      status: 'COMPLIANT'
-    },
-    {
-      serviceName: 'Third-Party Partner Ingestion (SFTP)',
-      slaTargetPct: 99.00,
-      currentUptimePct: 98.920,
-      budgetRemainingMinutes: 0.0,
-      errorRatePct: 1.08,
-      apdexScore: 0.88,
-      status: 'BREACHED'
+  private scrollspyObserver?: IntersectionObserver;
+
+  constructor(private router: Router,
+              private elementRef: ElementRef,
+              private scrollSpy: ScrollspyService,
+              private destroyRef: DestroyRef) {}
+  readonly isTransitioning = signal(false);
+
+  ngAfterViewInit(): void {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      );
+
+      const revealElements = this.elementRef.nativeElement.querySelectorAll('.reveal');
+      revealElements.forEach((element: Element) => observer.observe(element));
+
+      const spySections = [
+        { selector: 'app-availability-sla', path: '/features/metrics/availability' },
+        { selector: 'app-performance-response', path: '/features/metrics/performance' },
+        { selector: 'app-volume-throughput', path: '/features/metrics/volume' },
+        { selector: 'app-system-resources', path: '/features/metrics/resources' }
+      ];
+
+      // Automatically activate and expand the section upon entering
+      if (!this.scrollSpy.activePath() || this.scrollSpy.activePath()?.startsWith('/features/metrics')) {
+        this.scrollSpy.setActivePath('/features/metrics/availability');
+      }
+
+      this.scrollspyObserver = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const match = spySections.find((s) => entry.target.matches(s.selector));
+              if (match) {
+                this.scrollSpy.setActivePath(match.path);
+              }
+            }
+          }
+        },
+        { rootMargin: '-15% 0px -60% 0px', threshold: 0 },
+      );
+
+      spySections.forEach(({ selector }) => {
+        const el = this.elementRef.nativeElement.querySelector(selector);
+        if (el) this.scrollspyObserver?.observe(el);
+      });
     }
-  ];
-
-  uptimeDays = [
-    { day: 'J-29', status: 'OK' }, { day: 'J-28', status: 'OK' }, { day: 'J-27', status: 'OK' },
-    { day: 'J-26', status: 'OK' }, { day: 'J-25', status: 'OK' }, { day: 'J-24', status: 'OK' },
-    { day: 'J-23', status: 'OK' }, { day: 'J-22', status: 'OK' }, { day: 'J-21', status: 'OK' },
-    { day: 'J-20', status: 'OK' }, { day: 'J-19', status: 'OK' }, { day: 'J-18', status: 'OK' },
-    { day: 'J-17', status: 'OK' }, { day: 'J-16', status: 'OK' }, { day: 'J-15', status: 'OK' },
-    { day: 'J-14', status: 'OK' }, { day: 'J-13', status: 'OK' }, { day: 'J-12', status: 'OK' },
-    { day: 'J-11', status: 'OK' }, { day: 'J-10', status: 'OK' }, { day: 'J-9', status: 'OK' },
-    { day: 'J-8', status: 'OK' },  { day: 'J-7', status: 'WARN' }, { day: 'J-6', status: 'OK' },
-    { day: 'J-5', status: 'OK' },  { day: 'J-4', status: 'OK' },  { day: 'J-3', status: 'OK' },
-    { day: 'J-2', status: 'OK' },  { day: 'J-1', status: 'OK' },  { day: 'Aujourd\'hui', status: 'OK' }
-  ];
-
-  constructor(private router: Router) {}
-
-  setPeriod(p: '30d' | '7d' | '24h'): void {
-    this.selectedPeriod.set(p);
   }
 
-  goToInstallation(): void {
-    this.router.navigate(['/guide/installation']);
+
+  goToNext(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/metrics/performance');
   }
 
-  goToArchitecture(): void {
-    this.router.navigate(['/architecture/overview']);
+
+  goToMetrics(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/metrics');
   }
 
-  goToCompatibilities(): void {
-    this.router.navigate(['/guide/compatibilities']);
+  ngOnDestroy() {
+    this.scrollspyObserver?.disconnect();
+    this.scrollSpy.setActivePath(null);
   }
 }

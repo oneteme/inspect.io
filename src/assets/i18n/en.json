@@ -437,45 +437,22 @@
       "badges": {
         "title": "PERFORMANCE METRICS AND APM"
       },
-      "description": "APM (Application Performance Monitoring) continuously measures the vitality of your software to detect performance degradations before users suffer.",
-      "chapters": "INSPECT provides three key metrics to assess the health of your applications: Health and availability, performance and response times, and volume and throughput.",
+      "description": "APM (Application Performance Monitoring) involves continuously measuring the health of your applications to detect degradations before users report them.",
+      "chapters": "INSPECT allows you to track key performance and reliability indicators of your applications, focusing on health, availability, performance, and volume.",
       "sla": {
-        "badges": {
-          "title": "HEALTH & AVAILABILITY"
-        },
-        "title": "Health & Availability",
-        "subtitle": "SLA, Uptime, Error Rates, and Error Budgets",
-        "description": "Objectively measure compliance with service commitments and the reliability of your applications for customers and partners.",
+        "title": "Health and Availability",
         "concept": {
-          "title": "Understanding availability and SLA concepts",
-          "desc": "Simple terms to measure if a service performs as promised.",
           "sla": {
-            "title": "What is an SLA? (The Quality Commitment)",
-            "desc": "Service Level Agreement: The formal commitment of uptime (e.g., 99.9% guaranteed monthly availability)."
+            "title": "SLA",
+            "desc": "The Service Level Agreement is the formal commitment contract. INSPECT allows to best track the SLAs."
           },
           "uptime": {
-            "title": "What is Uptime? (Active Service Time)",
-            "desc": "The percentage of time an application is accessible and fully operational without outages."
+            "title": "Uptime",
+            "desc": "The time during which the application was accessible and fully operational without any downtime. Data that INSPECT allows to know."
           },
-          "budget": {
-            "title": "What is an Error Budget? (The Safety Cushion)",
-            "desc": "The maximum number of incidents or minutes of downtime tolerated over a period before breaching contracts."
-          }
-        },
-        "value": {
-          "title": "The INSPECT Advantage for Your Teams",
-          "subtitle": "Ensure customer trust with verifiable metrics",
-          "first": {
-            "title": "Objective compliance reporting",
-            "desc": "Generate reliable reports proving adherence to SLAs for clients and business partners."
-          },
-          "second": {
-            "title": "Proactive alerts before SLA breach",
-            "desc": "Get notified the moment error rates spike, well before your error budget is exhausted."
-          },
-          "third": {
-            "title": "Data-driven service reviews",
-            "desc": "Provide indisputable figures during quarterly performance reviews with business leaders."
+          "error": {
+            "title": "Error rate",
+            "desc": "INSPECT follow the number of errors and exceptions, allowing to know the error rate and to detect anomalies."
           }
         }
       },
