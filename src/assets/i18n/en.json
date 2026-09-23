@@ -457,42 +457,19 @@
         }
       },
       "performance": {
-        "badges": {
-          "title": "RESPONSE TIME & LATENCY"
-        },
-        "title": "Performance & Response Times",
-        "subtitle": "Latency, Percentiles (P95, P99), and Bottlenecks",
-        "description": "Understand the true speed experienced by your users and uncover sneaky slowdowns hidden behind simple averages.",
+        "title": "Performance and response time",
         "concept": {
-          "title": "Understanding latency and percentiles",
-          "desc": "Why averages can be misleading and how to measure true user experience.",
           "latency": {
-            "title": "What is Latency? (The Waiting Time)",
-            "desc": "The delay between when a user clicks and when the response appears on screen."
+            "title": "Latency / wait time",
+            "desc": "INSPECT allows to spot latencies: the moments when the delay between the moment the user clicks and the response appears on the screen."
           },
           "percentile": {
-            "title": "Why Averages Lie: Percentiles (P95, P99)",
-            "desc": "If 99 people wait 1s and 1 person waits 60s, the average looks decent. The P99 percentile reveals the reality of that slowest user."
+            "title": "Percentiles",
+            "desc": "INSPECT takes percentiles into account, which allows to have a more accurate value of the wait time experienced by your users."
           },
           "bottleneck": {
-            "title": "What is a Bottleneck? (The Funnel)",
-            "desc": "The specific component (database, network, heavy computation) slowing down the whole chain, like a lane closure on a highway."
-          }
-        },
-        "value": {
-          "title": "The INSPECT Advantage for Your Teams",
-          "subtitle": "Eliminate slowdowns frustrating your users",
-          "first": {
-            "title": "Detect isolated performance drops",
-            "desc": "Spot the 1% or 5% of users experiencing unacceptable load times even when averages seem fine."
-          },
-          "second": {
-            "title": "Surgical bottleneck identification",
-            "desc": "Instantly pinpoint the component causing overall transaction delays."
-          },
-          "third": {
-            "title": "Track optimization gains",
-            "desc": "Immediately measure the impact of engineering optimizations on live user responsiveness."
+            "title": "Bottleneck",
+            "desc": "Detection of bottlenecks: the specific component (database, network, heavy computation) that slows down the entire chain. Identifying a bottleneck helps to understand performance differences between various parts of your applications."
           }
         }
       },

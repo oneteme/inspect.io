@@ -441,42 +441,19 @@
         }
       },
       "performance": {
-        "badges": {
-          "title": "TEMPS DE RÉPONSE & LATENCE"
-        },
         "title": "Performance et Temps de Réponse",
-        "subtitle": "Latence, Percentiles (P95, P99) et Goulots d'étranglement",
-        "description": "Comprenez la vitesse réelle ressentie par vos utilisateurs et repérez les ralentissements sournois cachés derrière les moyennes.",
         "concept": {
-          "title": "Comprendre la latence et les percentiles",
-          "desc": "Pourquoi la moyenne est trompeuse et comment mesurer la vraie expérience client.",
           "latency": {
-            "title": "Qu'est-ce que la Latence ? (Le Temps d'attente)",
-            "desc": "Le délai entre le moment où l'utilisateur clique et le moment où la réponse s'affiche à l'écran."
+            "title": "Latence / Temps d'attente",
+            "desc": "INSPECT permet de répérer les latences : les moments où le délai entre le moment où l'utilisateur clique et que la réponse s'affiche à l'écran."
           },
           "percentile": {
-            "title": "Pourquoi la moyenne ment ? Les Percentiles (P95, P99)",
-            "desc": "Si 99 personnes attendent 1 seconde et 1 personne attend 60 secondes, la moyenne semble bonne. Le percentile P99 montre la réalité de cette personne la moins bien servie."
+            "title": "Percentiles",
+            "desc": "INSPECT prend en compte les percentiles, ce qui permet d'avoir une valeur plus juste du temps d'attente vécu par vos utilisateurs"
           },
           "bottleneck": {
-            "title": "Qu'est-ce qu'un Goulot d'étranglement ? (L'Entonnoir)",
-            "desc": "Le composant précis (base de données, réseau, calcul lourd) qui ralentit toute la chaîne, comme un rétrécissement de voies sur l'autoroute."
-          }
-        },
-        "value": {
-          "title": "L'apport d'INSPECT pour vos équipes",
-          "subtitle": "Éradiquez les lenteurs qui frustrent vos utilisateurs",
-          "first": {
-            "title": "Détection des lenteurs isolées",
-            "desc": "Repérez les 1% ou 5% d'utilisateurs qui subissent des temps de chargement inacceptables même quand la moyenne paraît normale."
-          },
-          "second": {
-            "title": "Identification chirurgicale des goulots",
-            "desc": "Localisez instantanément le composant responsable d'un ralentissement global."
-          },
-          "third": {
-            "title": "Suivi des gains après optimisation",
-            "desc": "Mesurez immédiatement l'impact d'une amélioration technique sur la réactivité réelle du système."
+            "title": "Goulot d'étranglement",
+            "desc": "Détection des goulots d'étranglement : le composant précis (base de données, réseau, calcul lourd) qui ralentit toute la chaîne. Repérer un goulot d'étranglement permet de comprendre les différences de performances entre plusieurs briques de vos applications."
           }
         }
       },
