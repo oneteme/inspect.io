@@ -1,15 +1,25 @@
 import { AfterViewInit, Component, ElementRef, inject, OnDestroy, signal } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ScrollspyService } from '@services/scrollspy.service';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { goToPage } from '@utils/utils';
+import { Router } from '@angular/router';
+import { bootstrapArrowDown} from '@ng-icons/bootstrap-icons';
 
 @Component({
-  imports: [TranslateModule],
+  imports: [TranslateModule, NgIcon],
   selector: 'app-metrics',
   styleUrls: ['./metrics.component.scss'],
   templateUrl: './metrics.component.html',
   standalone: true,
+  providers: [
+    provideIcons({
+      bootstrapArrowDown,
+    }),
+  ],
 })
 export class MetricsComponent implements AfterViewInit, OnDestroy {
+  private readonly router = inject(Router);
   private readonly elementRef = inject(ElementRef);
   private readonly scrollSpy = inject(ScrollspyService);
   private observer?: IntersectionObserver;
@@ -49,5 +59,10 @@ export class MetricsComponent implements AfterViewInit, OnDestroy {
     this.observer?.disconnect();
     this.scrollSpy.setActivePath(null);
   }
+
+  goToNext(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/metrics/availability');
+  }
+
 
 }

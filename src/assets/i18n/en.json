@@ -433,15 +433,12 @@
       }
     },
     "metrics": {
-      "title": "Performance Metrics AND APM",
+      "title": "Performance Metrics and APM",
       "badges": {
         "title": "PERFORMANCE METRICS AND APM"
       },
-      "intro": {
-        "title": "Proactive performance and health monitoring",
-        "subtitle": "Measure, anticipate, and guarantee service quality",
-        "description": "APM (Application Performance Monitoring) continuously measures the vitality of your software to detect performance degradations before users suffer."
-      },
+      "description": "APM (Application Performance Monitoring) continuously measures the vitality of your software to detect performance degradations before users suffer.",
+      "chapters": "INSPECT provides three key metrics to assess the health of your applications: Health and availability, performance and response times, and volume and throughput.",
       "sla": {
         "badges": {
           "title": "HEALTH & AVAILABILITY"

@@ -417,15 +417,12 @@
       }
     },
     "metrics": {
-      "title": "Métriques de Performance & APM",
+      "title": "Métriques de Performance et APM",
       "badges": {
-        "title": "MÉTRIQUES DE PERFORMANCE & APM"
+        "title": "MÉTRIQUES DE PERFORMANCE ET APM"
       },
-      "intro": {
-        "title": "Surveillance proactive de la performance et de la santé",
-        "subtitle": "Mesurer, anticiper et garantir la qualité de service",
-        "description": "L'APM (Application Performance Monitoring) consiste à mesurer en permanence la vitalité de vos logiciels pour détecter les dégradations avant que les utilisateurs n'en souffrent."
-      },
+      "description": "L'APM (Application Performance Monitoring) consiste à mesurer en permanence la vitalité de vos logiciels pour détecter les dégradations avant que les utilisateurs n'en souffrent.",
+      "chapters": "INSPECT vous permet de suivre les indicateurs clés de performance et de fiabilité de vos applications, en mettant l'accent sur la santé, la disponibilité, la performance et le volume.",
       "sla": {
         "badges": {
           "title": "SANTÉ & DISPONIBILITÉ"

@@ -9,11 +9,20 @@
     </div>
 
     <h1 class="hero__headline">
-      {{ "features.metrics.intro.title" | translate }}
+      {{ "features.metrics.title" | translate }}
     </h1>
 
     <p class="hero__desc">
-      {{ "features.metrics.intro.description" | translate }}
+      {{ "features.metrics.description" | translate }}
     </p>
+    <div class="hero__desc">
+      {{ "features.metrics.chapters" | translate }}
+    </div>
   </section>
 </div>
+
+<!-- Relink when scroll down -->
+<section class="scroll-trigger scroll-trigger--down" (click)="goToNext()">
+  <span class="scroll-trigger__label"> {{ "common.button.details" | translate }}</span>
+  <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
+</section>
