@@ -609,38 +609,16 @@
         }
       },
       "reporting": {
-        "badges": {
-          "title": "SELF-REPORTING & RÉSILIENCE"
-        },
-        "title": "Self-Reporting des Collecteurs",
-        "subtitle": "Rapport d'anomalies des collecteurs embarqués et protection circuit-breaker",
-        "description": "Qui surveille le surveillant ? Les agents INSPECT s'auto-diagnostiquent en continu et se mettent en sécurité pour ne jamais perturber votre application métier.",
+        "title": "Self-Reporting",
+        "description": "Les agents INSPECT s'auto-diagnostiquent en continu et se mettent en sécurité pour ne jamais perturber votre application métier.",
         "concept": {
-          "title": "Comprendre le Self-Reporting et la résilience",
-          "desc": "L'assurance que l'outil de supervision ne ralentira ni ne fera jamais planter vos applications.",
           "report": {
-            "title": "Qu'est-ce que le Self-Reporting ? (L'Auto-diagnostic)",
-            "desc": "La capacité de l'agent INSPECT à mesurer sa propre consommation et à signaler d'éventuels retards d'envoi."
+            "title": "Self-Reporting",
+            "desc": "INSPECT est capable de mesurer sa propre consommation et signaler d'éventuels retards d'envoi pour que vous soyez assurés de la fiabilité des données de vos applications."
           },
           "circuit": {
-            "title": "Le Circuit-Breaker (Le Disjoncteur de sécurité)",
-            "desc": "Comme le disjoncteur de votre maison : si le réseau ou la base INSPECT est saturé, l'agent coupe temporairement sa collecte pour préserver 100% des ressources de votre application métier."
-          }
-        },
-        "value": {
-          "title": "L'apport d'INSPECT pour vos équipes",
-          "subtitle": "Sérénité absolue pour les équipes de production",
-          "first": {
-            "title": "Garantie de non-impact en production",
-            "desc": "INSPECT ne consomme jamais les ressources vitales de vos applications clientes en cas de situation de crise."
-          },
-          "second": {
-            "title": "Transparence totale de fonctionnement",
-            "desc": "Consultez à tout moment la santé des collecteurs et l'état de transmission des données."
-          },
-          "third": {
-            "title": "Auto-guérison et reconnexion transparente",
-            "desc": "Dès le retour à la normale, l'agent reprend automatiquement son activité sans intervention d'un administrateur."
+            "title": "Circuit-Breaker",
+            "desc": "Si le réseau ou la base INSPECT est saturé, l'agent coupe temporairement sa collecte pour préserver 100% des ressources de votre application métier."
           }
         }
       }

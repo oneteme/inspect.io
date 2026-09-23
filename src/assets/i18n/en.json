@@ -623,38 +623,16 @@
         }
       },
       "reporting": {
-        "badges": {
-          "title": "SELF-REPORTING & RESILIENCE"
-        },
-        "title": "Collector Self-Reporting",
-        "subtitle": "Embedded anomaly reporting and circuit-breaker safety",
-        "description": "Who watches the watcher? INSPECT agents continuously self-diagnose and protect host applications from any performance impact.",
+        "title": "Self-Reporting",
+        "description": "INSPECT agents continuously self-diagnose and protect host applications from any performance impact.",
         "concept": {
-          "title": "Understanding Self-Reporting and resilience",
-          "desc": "The guarantee that observability will never slow down or crash your business applications.",
           "report": {
-            "title": "What is Self-Reporting? (Self-Diagnosis)",
-            "desc": "The INSPECT agent's ability to measure its own resource usage and report transmission backpressure."
+            "title": "Self-Reporting",
+            "desc": "The INSPECT agent's are able to measure its own resource usage and report transmission backpressure to make sure that the host application is not impacted."
           },
           "circuit": {
-            "title": "Circuit-Breaker (The Safety Fuse)",
-            "desc": "Just like a circuit breaker in your home: if the backend is saturated, the agent temporarily throttles collection to protect 100% of the host app's CPU and RAM."
-          }
-        },
-        "value": {
-          "title": "The INSPECT Advantage for Your Teams",
-          "subtitle": "Complete peace of mind for production operations",
-          "first": {
-            "title": "Guaranteed zero-impact in production",
-            "desc": "INSPECT will never consume critical resources during high-traffic crisis situations."
-          },
-          "second": {
-            "title": "Total operational transparency",
-            "desc": "Inspect the health of collectors and data transmission queues at any time."
-          },
-          "third": {
-            "title": "Self-healing and seamless recovery",
-            "desc": "Automatically resumes full telemetry transmission once backend capacity normalizes."
+            "title": "Circuit-Breaker",
+            "desc": "If INSPECT is saturated, it temporarily throttles collection to protect the host app's CPU and RAM."
           }
         }
       }

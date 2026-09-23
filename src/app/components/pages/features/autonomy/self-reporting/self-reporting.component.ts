@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnDestroy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -17,6 +17,7 @@ import {
   bootstrapHeartPulseFill,
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
+import { ScrollspyService } from '@services/scrollspy.service';
 
 interface CollectorHealthState {
   collectorStatus: 'HEALTHY' | 'DEGRADED' | 'CIRCUIT_OPEN';
@@ -52,57 +53,69 @@ interface CollectorHealthState {
     })
   ]
 })
-export class SelfReportingComponent {
-  agentMode = signal<'NORMAL' | 'BURST' | 'BACKPRESSURE'>('NORMAL');
+export class SelfReportingComponent implements AfterViewInit, OnDestroy {
+  private readonly router = inject(Router);
+  private readonly elementRef = inject(ElementRef);
+  private readonly scrollSpy = inject(ScrollspyService);
+  private observer?: IntersectionObserver;
 
-  collectorStates: Record<'NORMAL' | 'BURST' | 'BACKPRESSURE', CollectorHealthState> = {
-    NORMAL: {
-      collectorStatus: 'HEALTHY',
-      queueCapacity: 50000,
-      queueOccupancy: 420,
-      cpuOverheadPct: 0.4,
-      memoryOverheadMB: 12.8,
-      eventsDispatchedPerSec: 2850,
-      circuitBreakerTripped: false,
-      droppedEventsCount: 0
-    },
-    BURST: {
-      collectorStatus: 'HEALTHY',
-      queueCapacity: 50000,
-      queueOccupancy: 12840,
-      cpuOverheadPct: 1.1,
-      memoryOverheadMB: 28.4,
-      eventsDispatchedPerSec: 18500,
-      circuitBreakerTripped: false,
-      droppedEventsCount: 0
-    },
-    BACKPRESSURE: {
-      collectorStatus: 'DEGRADED',
-      queueCapacity: 50000,
-      queueOccupancy: 48900,
-      cpuOverheadPct: 1.6,
-      memoryOverheadMB: 48.0,
-      eventsDispatchedPerSec: 25000,
-      circuitBreakerTripped: true,
-      droppedEventsCount: 140
+  readonly isTransitioning = signal(false);
+
+  ngAfterViewInit(): void {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      );
+
+      const revealElements = this.elementRef.nativeElement.querySelectorAll('.reveal');
+      revealElements.forEach((element: Element) => observer.observe(element));
+      const sections = [
+        { selector: 'app-data-partitioning', path: '/features/autonomy/partitioning' },
+        { selector: 'app-smart-retention', path: '/features/autonomy/purge' },
+        { selector: 'app-self-reporting', path: '/features/autonomy/self-reporting' },
+      ];
+
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const match = sections.find((s) => entry.target.matches(s.selector));
+              if (match) {
+                this.scrollSpy.setActivePath(match.path);
+              }
+            }
+          }
+        },
+        { rootMargin: '-20% 0px -70% 0px', threshold: 0 },
+      );
+
+      sections.forEach(({ selector }) => {
+        const el = this.elementRef.nativeElement.querySelector(selector);
+        if (el) this.observer?.observe(el);
+      });
     }
-  };
-
-  constructor(private router: Router) {}
-
-  setMode(mode: 'NORMAL' | 'BURST' | 'BACKPRESSURE'): void {
-    this.agentMode.set(mode);
   }
+
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+    this.scrollSpy.setActivePath(null);
+  }
+
 
   goToInstallation(): void {
-    this.router.navigate(['/guide/installation']);
+    this.router.navigate(['/installation']);
   }
 
-  goToArchitecture(): void {
-    this.router.navigate(['/architecture/overview']);
+  goToAutonomy(): void {
+    this.router.navigate(['/features/autonomy']);
   }
 
-  goToCompatibilities(): void {
-    this.router.navigate(['/guide/compatibilities']);
-  }
+
 }
