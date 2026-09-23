@@ -4,36 +4,22 @@
     <div class="hero__glow hero__glow--primary"></div>
     <div class="hero__glow hero__glow--secondary"></div>
 
-    <div class="hero__badge reveal">
+    <div class="hero__badge reveal" (click)="goToCartography()">
       <span class="hero__badge-dot"></span>
-      <span>{{ "features.e2e.cartography.badges.title" | translate }}</span>
+      <span>{{ "features.e2e.badges.title" | translate }}</span>
     </div>
 
     <h1 class="hero__headline reveal">
       {{ "features.e2e.cartography.title" | translate }}
     </h1>
 
-    <h2 class="hero__gradient reveal">{{ "features.e2e.cartography.subtitle" | translate }}</h2>
-
     <p class="hero__desc reveal">
       {{ "features.e2e.cartography.description" | translate }}
     </p>
-
-    <div class="hero__cta-group reveal">
-      <button type="button" class="btn btn--primary" (click)="goToInstallation()">
-        <ng-icon name="bootstrapRocketTakeoffFill" class="btn__icon"></ng-icon>
-        <span>{{ "common.button.install" | translate }}</span>
-      </button>
-    </div>
   </section>
 
   <!-- SECTION 1: CONCEPT EXPLANATION -->
   <section class="section" id="dynamic-cartography-concept">
-    <div class="section__header reveal">
-      <h2 class="section__title">{{ "features.e2e.cartography.concept.title" | translate }}</h2>
-      <p class="section__subtitle">{{ "features.e2e.cartography.concept.desc" | translate }}</p>
-    </div>
-
     <div class="features-grid">
       <article class="feature-card reveal">
         <div class="feature-card__icon-wrap icon--cyan">
@@ -53,29 +39,11 @@
     </div>
   </section>
 
-  <!-- SECTION 2: INSPECT VALUE PROPOSITION -->
-  <section class="section" id="dynamic-cartography-value">
-    <div class="section__header reveal">
-      <h2 class="section__title">{{ "features.e2e.cartography.value.title" | translate }}</h2>
-      <p class="section__subtitle">{{ "features.e2e.cartography.value.subtitle" | translate }}</p>
-    </div>
-
-    <div class="roi-grid">
-      <div class="roi-card reveal">
-        <h4>{{ "features.e2e.cartography.value.first.title" | translate }}</h4>
-        <p>{{ "features.e2e.cartography.value.first.desc" | translate }}</p>
-      </div>
-
-      <div class="roi-card reveal">
-        <h4>{{ "features.e2e.cartography.value.second.title" | translate }}</h4>
-        <p>{{ "features.e2e.cartography.value.second.desc" | translate }}</p>
-      </div>
-
-      <div class="roi-card reveal">
-        <h4>{{ "features.e2e.cartography.value.third.title" | translate }}</h4>
-        <p>{{ "features.e2e.cartography.value.third.desc" | translate }}</p>
-      </div>
-    </div>
+  <!-- Relink when scroll down -->
+  <section class="scroll-trigger scroll-trigger--down" (click)="goToNext()">
+    <span class="scroll-trigger__label">{{ "common.button.next" | translate }}</span>
+    <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
   </section>
+
 </div>
 

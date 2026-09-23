@@ -418,38 +418,16 @@
         }
       },
       "cartography": {
-        "badges": {
-          "title": "DYNAMIC CARTOGRAPHY"
-        },
-        "title": "Global Architecture Map",
-        "subtitle": "Dynamic real-time mapping of systems and dependencies",
-        "description": "Say goodbye to outdated PowerPoint architecture diagrams. INSPECT automatically draws a living, real-time map of your system based on actual traffic.",
+        "title": "Dynamic system cartography",
+        "description": "As said before, INSPECT can automatically generate a living and real-time map of your information systems based on real flows.",
         "concept": {
-          "title": "Understanding Dynamic Cartography",
-          "desc": "Dynamic cartography is the interactive, always up-to-date subway map of your software ecosystem.",
           "map": {
-            "title": "The Flow Map (The Information Highway Map)",
-            "desc": "A graphical diagram where each node is an application, service, or database, and each line reflects live communication."
+            "title": "Flow Map",
+            "desc": "A graphical representation where each service, external partner, or database is visible, with visibility into real exchanges."
           },
           "health": {
-            "title": "Live Health Status (Traffic Color Codes)",
-            "desc": "Nodes and connections change color (green, yellow, red) depending on live saturation and error rates."
-          }
-        },
-        "value": {
-          "title": "The INSPECT Advantage for Your Teams",
-          "subtitle": "Simplified governance and risk management",
-          "first": {
-            "title": "Always up-to-date documentation",
-            "desc": "Get the true map of your architecture without relying on manual diagrams that quickly become obsolete."
-          },
-          "second": {
-            "title": "Impact analysis before changes",
-            "desc": "Before modifying or deprecating a service, instantly visualize every upstream application depending on it."
-          },
-          "third": {
-            "title": "Clear communication with stakeholders",
-            "desc": "Present the state of your infrastructure clearly and visually to leadership and audit committees."
+            "title": "Real-time health status",
+            "desc": "The cartography also allows checking the status of other internal services (more details in the \"Lifecycle and Version Status\" section)."
           }
         }
       }

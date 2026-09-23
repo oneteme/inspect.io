@@ -1,8 +1,17 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  signal,
+  ChangeDetectionStrategy,
+  AfterViewInit,
+  inject,
+  ElementRef,
+  DestroyRef
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  bootstrapArrowDown,
   bootstrapDiagram3Fill,
   bootstrapHddNetworkFill,
   bootstrapDatabaseFill,
@@ -17,25 +26,9 @@ import {
   bootstrapActivity
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
+import { goToPage } from '@utils/utils';
+import { ScrollspyService } from '@services/scrollspy.service';
 
-interface TopologyNode {
-  id: string;
-  label: string;
-  category: 'GATEWAY' | 'SERVICE' | 'DATABASE' | 'BROKER' | 'EXTERNAL';
-  instancesCount: number;
-  avgLatencyMs: number;
-  rps: number;
-  errorRatePct: number;
-  health: 'HEALTHY' | 'WARNING' | 'CRITICAL';
-}
-
-interface TopologyLink {
-  from: string;
-  to: string;
-  protocol: string;
-  trafficVolumeRps: number;
-  latencyMs: number;
-}
 
 @Component({
   selector: 'app-dynamic-cartography',
@@ -46,6 +39,7 @@ interface TopologyLink {
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [
     provideIcons({
+      bootstrapArrowDown,
       bootstrapDiagram3Fill,
       bootstrapHddNetworkFill,
       bootstrapDatabaseFill,
@@ -61,52 +55,80 @@ interface TopologyLink {
     })
   ]
 })
-export class DynamicCartographyComponent {
-  selectedEnvironment = signal<'prod-cloud' | 'staging-mesh' | 'hybrid-dc'>('prod-cloud');
-  selectedNodeId = signal<string>('order-service');
+export class DynamicCartographyComponent implements AfterViewInit {
+  private readonly el = inject(ElementRef);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly scrollSpy = inject(ScrollspyService);
+  private scrollspyObserver?: IntersectionObserver;
 
-  nodes: TopologyNode[] = [
-    { id: 'api-gateway', label: 'API Gateway (Spring Cloud)', category: 'GATEWAY', instancesCount: 4, avgLatencyMs: 8.2, rps: 4200, errorRatePct: 0.02, health: 'HEALTHY' },
-    { id: 'auth-service', label: 'Auth & JWT Service', category: 'SERVICE', instancesCount: 3, avgLatencyMs: 14.5, rps: 1200, errorRatePct: 0.0, health: 'HEALTHY' },
-    { id: 'order-service', label: 'Order Processing Engine', category: 'SERVICE', instancesCount: 6, avgLatencyMs: 48.0, rps: 2800, errorRatePct: 0.15, health: 'HEALTHY' },
-    { id: 'payment-service', label: 'Payment Gateway Client', category: 'SERVICE', instancesCount: 4, avgLatencyMs: 380.0, rps: 850, errorRatePct: 2.1, health: 'WARNING' },
-    { id: 'postgres-db', label: 'PostgreSQL Cluster (Primary + Read)', category: 'DATABASE', instancesCount: 2, avgLatencyMs: 3.8, rps: 8900, errorRatePct: 0.0, health: 'HEALTHY' },
-    { id: 'kafka-broker', label: 'Apache Kafka Event Bus', category: 'BROKER', instancesCount: 3, avgLatencyMs: 2.1, rps: 15400, errorRatePct: 0.0, health: 'HEALTHY' },
-    { id: 'stripe-api', label: 'Stripe External Payment API', category: 'EXTERNAL', instancesCount: 1, avgLatencyMs: 420.0, rps: 420, errorRatePct: 1.8, health: 'WARNING' }
-  ];
+  readonly isTransitioning = signal(false);
 
-  links: TopologyLink[] = [
-    { from: 'api-gateway', to: 'auth-service', protocol: 'HTTP/2 (mTLS)', trafficVolumeRps: 1200, latencyMs: 12 },
-    { from: 'api-gateway', to: 'order-service', protocol: 'HTTP/2 (mTLS)', trafficVolumeRps: 2800, latencyMs: 18 },
-    { from: 'order-service', to: 'payment-service', protocol: 'gRPC', trafficVolumeRps: 850, latencyMs: 22 },
-    { from: 'order-service', to: 'postgres-db', protocol: 'JDBC / TCP', trafficVolumeRps: 5600, latencyMs: 4 },
-    { from: 'order-service', to: 'kafka-broker', protocol: 'TCP (Kafka Wire)', trafficVolumeRps: 3400, latencyMs: 3 },
-    { from: 'payment-service', to: 'stripe-api', protocol: 'HTTPS (REST)', trafficVolumeRps: 420, latencyMs: 380 }
-  ];
+  ngAfterViewInit(): void {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      );
 
+      const revealElements = this.el.nativeElement.querySelectorAll('.reveal');
+      revealElements.forEach((element: Element) => observer.observe(element));
+
+      const spySections = [
+        { selector: '#dynamic-cartography-hero', path: '/features/e2e/architecture' },
+        { selector: '#dynamic-cartography-pillars', path: '/features/e2e/architecture' },
+        { selector: '#dynamic-cartography-deepdive', path: '/features/e2e/architecture' },
+        { selector: '#dynamic-cartography-comparison', path: '/features/e2e/architecture' },
+      ];
+
+      if (!this.scrollSpy.activePath() || this.scrollSpy.activePath()?.startsWith('/features/e2e')) {
+        this.scrollSpy.setActivePath('/features/e2e/architecture');
+      }
+
+      this.scrollspyObserver = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const match = spySections.find((s) => entry.target.matches(s.selector));
+              if (match) {
+                this.scrollSpy.setActivePath(match.path);
+              }
+            }
+          }
+        },
+        { rootMargin: '-15% 0px -60% 0px', threshold: 0 },
+      );
+
+      spySections.forEach(({ selector }) => {
+        const el = this.el.nativeElement.querySelector(selector);
+        if (el) this.scrollspyObserver?.observe(el);
+      });
+
+      this.destroyRef.onDestroy(() => {
+        observer.disconnect();
+        this.scrollspyObserver?.disconnect();
+        this.scrollSpy.setActivePath(null);
+      });
+    }
+  }
   constructor(private router: Router) {}
 
-  selectNode(id: string): void {
-    this.selectedNodeId.set(id);
-  }
-
-  setEnvironment(env: 'prod-cloud' | 'staging-mesh' | 'hybrid-dc'): void {
-    this.selectedEnvironment.set(env);
-  }
-
-  getSelectedNode(): TopologyNode {
-    return this.nodes.find(n => n.id === this.selectedNodeId()) || this.nodes[0];
-  }
 
   goToInstallation(): void {
     this.router.navigate(['/guide/installation']);
   }
 
-  goToArchitecture(): void {
-    this.router.navigate(['/architecture/overview']);
+  goToCartography(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/e2e');
   }
 
-  goToCompatibilities(): void {
-    this.router.navigate(['/guide/compatibilities']);
+
+  goToNext(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/metrics');
   }
 }

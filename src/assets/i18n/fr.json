@@ -410,38 +410,16 @@
         }
       },
       "cartography": {
-        "badges": {
-          "title": "CARTOGRAPHIE DYNAMIQUE"
-        },
-        "title": "Vue d'Architecture Globale",
-        "subtitle": "Cartographie dynamique des systèmes et des dépendances",
-        "description": "Fini les schémas d'architecture sur PowerPoint obsolètes dès le lendemain. INSPECT dessine automatiquement la carte vivante et en temps réel de vos systèmes d'information à partir du trafic réel.",
+        "title": "Cartographie dynamique des systèmes",
+        "description": "Comme dit précédemment, INSPECT peut automatiquement générer une cartographie vivante et en temps réel de vos systèmes d'information à partir des flux réels.",
         "concept": {
-          "title": "Comprendre la cartographie dynamique",
-          "desc": "La cartographie dynamique est le plan de métro interactif et toujours à jour de votre écosystème informatique.",
           "map": {
-            "title": "La Carte des flux (Le Plan des autoroutes de l'information)",
-            "desc": "Une représentation graphique où chaque bulle est une application, un service ou une base de données, et chaque flèche représente des échanges réels."
+            "title": "Carte des flux",
+            "desc": "Une représentation graphique où chaque service est visible, un partenaire externe ou une base de données, avec visibilité des échanges réels."
           },
           "health": {
-            "title": "L'État de santé en temps réel (Le Trafic routier)",
-            "desc": "Les liens et bulles changent de couleur (vert, orange, rouge) selon le niveau de saturation ou d'erreurs en cours."
-          }
-        },
-        "value": {
-          "title": "L'apport d'INSPECT pour vos équipes",
-          "subtitle": "Gouvernance et maîtrise des risques simplifiées",
-          "first": {
-            "title": "Documentation vivante et infalsifiable",
-            "desc": "Obtenez la vraie cartographie de vos flux sans dépendre de schémas manuels souvent incomplets ou dépassés."
-          },
-          "second": {
-            "title": "Analyse d'impact avant changement",
-            "desc": "Avant de modifier ou couper un service, visualisez instantanément toutes les autres applications qui en dépendent."
-          },
-          "third": {
-            "title": "Communication fluide avec la direction",
-            "desc": "Présentez l'état du système d'information de manière claire et visuelle aux comités de direction et équipes d'audit."
+            "title": "État de santé en temps réel",
+            "desc": "La cartographie permet aussi de vérifier l'état des autres services internes (plus de détails dans la partie \"Cycle de vie et état des versions\")."
           }
         }
       }
