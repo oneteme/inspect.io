@@ -1,75 +1,73 @@
-# Architecture
+# Global Architecture of INSPECT
 
-## Organisation
+## Organization into 3 Pillars
 
-INSPECT is composed of 3 main components: the collector, the server and the application. 
-The collector is responsible for collecting data from various sources, such as logs, metrics, and traces. 
-The server is responsible for processing and storing the collected data, and providing a user interface for visualizing and analyzing the data. 
-The application is responsible for generating the data that is collected by the collector.
+INSPECT is built around **3 complementary pillars** working in harmony:
 
+1. **The Collectors (`inspect-core` & `inspect-ng-collector`)**: Embedded telemetry libraries integrated directly into your applications (browser-side Angular and Java server-side). They capture runtime events, outgoing requests, and exceptions as they occur.
+2. **The Server (`inspect-server`)**: The central ingestion and persistence engine. It ingests incoming telemetry streams, cushions peak loads through in-memory buffering, partitions data in the database for instant searches, and automatically enforces retention purges.
+3. **The Application (`inspect-app` & your business applications)**: The web-based monitoring dashboard. It queries the server API to render dynamic dependency cartography, sequential trace trees, and essential APM performance indicators.
 
-## INSPECT services
+---
 
+## INSPECT Service Interactions
 
 ```mermaid
-  flowchart TD
+flowchart TD
+  subgraph P1["Pillar 1: The Collectors (Instrumented Applications)"]
+    direction LR
+    subgraph EnvFront["Front-end (Browser / Client)"]
+      AppFront["Web Application\n(Angular / Browser)"] -->|User actions & Errors| ColFront["inspect-ng-collector\n(Front-end Collector)"]
+    end
+    subgraph EnvBack["Back-end (Application Server)"]
+      AppBack["Application Services\n(Java / Spring Boot)"] -->|Traces & SQL Queries| ColBack["inspect-core\n(Back-end Collector)"]
+    end
+    AppFront -.->|Correlated HTTP Requests| AppBack
+  end
 
-  classDef IHM fill:#FDE7F3,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef Angular_Collector fill:#FEF3C7,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef App fill:#E3B2BF,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef BDD fill:#E0F2FE,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef Requests fill:#F7F1E6,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef Core fill:#D8EACD,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef Server fill:#C5EEF1,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef Team fill:#FDE7F3,stroke:#000000,color:#1f2937, font-family: Inter;
+  subgraph P2["Pillar 2: The Server (Ingestion & Storage)"]
+    direction LR
+    Server["inspect-server\n(Central Ingestion Server & REST API)"]
+    BDD[("Relational Database\nPostgreSQL / H2\n(Time-based Partitioning)")]
+    Server <-->|Batch Writes & Indexing| BDD
+  end
 
+  subgraph P3["Pillar 3: The Application (Visualization & Analytics)"]
+    App["inspect-app\n(Web UI & Interactive Dashboards)\n\n• Dynamic system cartography\n• Sequential trace trees & timeline\n• APM metrics, SLAs & volumetry\n• Centralized incident diagnostics"]
+  end
 
-  IHM([Applications front-end\nAngular / Browser]) -->|User actions| Angular_Collector([inspect-ng-collector])
-  Angular_Collector -->|Traces + events| Server([inspect-server])
+  subgraph Users["Complementary Target Audiences"]
+    direction LR
+    Tech["💻 Technical Profiles\n(Devs, Ops, Architects)\n\n• Deep diagnostics & stack traces\n• Bottleneck resolution\n• Software architecture mastery"]
+    Fonc["💼 Functional Profiles\n(Product Owners, QA, Support)\n\n• End-to-end user journey tracking\n• Fast incident qualification\n• SLA compliance & business metrics"]
+  end
 
-  Core([Applications Java / services\ninspect-core]) -->|Sessions + requests + metrics| Server
-  Server -->|Storage + indexation| BDD[(Database\nH2 / PostgreSQL)]
-  Server -->|API REST| App([inspect-app])
-  App -->|Dashboards + analysis| Team[Dev team / support / ops]
+  ColFront -->|HTTP Telemetry Stream| Server
+  ColBack -->|HTTP Telemetry Stream| Server
+  Server -->|REST API JSON| App
 
-  Requests[Architecture + traces + requests] --> App
+  App --> Tech & Fonc
 
-  click Core "architecture/collector"
-  click App "architecture/application"
+  click ColFront "architecture/collector"
+  click ColBack "architecture/collector"
   click Server "architecture/server"
+  click App "architecture/application"
 
-  class IHM IHM;
-  class Angular_Collector Angular_Collector;
-  class App App;
-  class BDD BDD;
-  class Requests Requests;
-  class Core Core;
-  class Server Server;
-  class Team Team;
-```
+  classDef appNode fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1f2937;
+  classDef colFront fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#1f2937;
+  classDef colBack fill:#D8EACD,stroke:#16A34A,stroke-width:2px,color:#1f2937;
+  classDef server fill:#C5EEF1,stroke:#0891B2,stroke-width:2px,color:#1f2937;
+  classDef bdd fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#1f2937;
+  classDef app fill:#E3B2BF,stroke:#BE185D,stroke-width:2px,color:#1f2937;
+  classDef userTech fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#1f2937;
+  classDef userFonc fill:#FDE7F3,stroke:#9D174D,stroke-width:2px,color:#1f2937;
 
-## Second graph
-
-```mermaid
-%%{init: {'sequence': {'mirrorActors': false}}}%%
-sequenceDiagram
-    participant U as User
-    participant A as Angular Application
-    participant NG as inspect-ng-collector
-    participant C as inspect-core
-    participant S as inspect-server
-    participant DB as Database
-    participant UI as inspect-app
-
-    U->>A: Action in the application
-    A->>NG: Browser event / interaction / HTTP
-    NG->>S: Sending front traces
-
-    A->>C: Java backend call
-    C->>S: Session + request + metrics
-    S->>DB: Persisting traces
-
-    UI->>S: Analysis request
-    S-->>UI: Aggregated data
-    UI-->>U: Dashboard / details / architecture
+  class AppFront,AppBack appNode;
+  class ColFront colFront;
+  class ColBack colBack;
+  class Server server;
+  class BDD bdd;
+  class App app;
+  class Tech userTech;
+  class Fonc userFonc;
 ```

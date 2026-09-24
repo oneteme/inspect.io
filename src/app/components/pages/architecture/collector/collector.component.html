@@ -1,8 +1,42 @@
-<div class="title">
-  {{ 'architecture.collector.title' | translate }}
+<div class="architecture-sub-container">
+  <!-- Hero Section -->
+  <header class="architecture-hero">
+    <div class="hero__glow hero__glow--primary"></div>
+    <div class="hero__glow hero__glow--secondary"></div>
+
+    <div class="hero__badge" (click)="goToArchitecture()">
+      <span class="hero__badge-dot"></span>
+      <span>{{ "architecture.badge" | translate }}</span>
+    </div>
+
+    <h1 class="hero__headline">
+      {{ "architecture.collector.title" | translate }}
+    </h1>
+
+    <p class="hero__desc">
+      {{ "architecture.collector.content" | translate }}
+    </p>
+  </header>
+
+  <!-- Technical Documentation Window -->
+  <main class="architecture-doc-section">
+    <div class="title">
+      <span>inspect-core / inspect-ng-collector</span>
+    </div>
+
+    <div class="doc-window__body">
+      <markdown
+        mermaid
+        class="architecture__doc"
+        [src]="'assets/pages/architecture/collector/collector_' + (translate.currentLang || 'en') + '.md'">
+      </markdown>
+    </div>
+  </main>
 </div>
 
-<markdown
-  class="doc"
-  [src]="'assets/pages/architecture/collector/collector_' + (translate.currentLang || 'en') + '.md'">
-</markdown>
+<!-- Relink when scroll down -->
+<section class="scroll-trigger scroll-trigger--down" (click)="goToNext()">
+  <span class="scroll-trigger__label"> {{ "common.button.next" | translate }}</span>
+  <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
+</section>
+

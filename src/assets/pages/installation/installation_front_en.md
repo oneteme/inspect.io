@@ -1,9 +1,3 @@
-## Projets
-
-- [Front-end (inspect-ng-collector)](#inspect-ng-collector)
-- [Back-end (inspect-core)](#inspect-core)
-
-
 ## inspect-ng-collector
 
 ### Import the Module

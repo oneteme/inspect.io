@@ -1,74 +1,73 @@
-# Architecture
+# Architecture globale d'INSPECT
 
-## Organisation
+## Organisation en 3 piliers
 
-INSPECT est composé de 3 composants principaux : le collecteur, le serveur et l'application.
-Le collecteur est responsable de la collecte des données à partir de diverses sources, telles que les journaux, les métriques et les traces.
-Le serveur est responsable du traitement et du stockage des données collectées, ainsi que de la fourniture d'une interface utilisateur pour visualiser et analyser les données.
-L'application est responsable de la génération des données collectées par le collecteur.
+INSPECT s'organise autour de **3 piliers** :
 
-## Services d'INSPECT
+1. **Les Collecteurs (`inspect-core` & `inspect-ng-collector`)** : Des bibliothèques intégrées directement au cœur de vos applications (côté navigateur web Angular et côté serveurs d'applications Java). Elles capturent les événements techniques, les requêtes et les erreurs au fil de l'eau.
+2. **Le Serveur (`inspect-server`)** : Le serveur central d'ingestion et de persistance. Il reçoit les flux télémétriques, régule les écritures grâce à une mémoire tampon, découpe les tables par partitionnement temporel pour des recherches instantanées, et applique les politiques de purge automatique.
+3. **L'Application (`inspect-app`)** : L'interface web de restitution et d'analyse. Elle interroge le serveur pour afficher la cartographie dynamique des dépendances, rejouer l'arbre d'exécution des requêtes et fournir les indicateurs nécessaires.
 
+---
+
+## Vue d'ensemble des flux INSPECT
 
 ```mermaid
- flowchart TD
+flowchart TD
+  subgraph P1["Les Collecteurs"]
+    direction LR
+    subgraph EnvFront["Front-end (Client / Navigateur)"]
+      AppFront["Application Web\n(Angular / Client)"] -->|Actions & Erreurs| ColFront["inspect-ng-collector\n(Collecteur Front-end)"]
+    end
+    subgraph EnvBack["Back-end (Serveur d'application)"]
+      AppBack["Services Applicatifs\n(Java / Spring Boot)"] -->|Traces & Requêtes SQL| ColBack["inspect-core\n(Collecteur Back-end)"]
+    end
+    AppFront -.->|Requêtes HTTP corrélées| AppBack
+  end
 
-  classDef IHM fill:#FDE7F3,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef Angular_Collector fill:#FEF3C7,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef App fill:#E3B2BF,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef BDD fill:#E0F2FE,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef Requests fill:#F7F1E6,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef Core fill:#D8EACD,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef Server fill:#C5EEF1,stroke:#000000,color:#1f2937, font-family: Inter;
-  classDef Team fill:#FDE7F3,stroke:#000000,color:#1f2937, font-family: Inter;
+  subgraph P2["Le Serveur (Ingestion & Stockage)"]
+    direction LR
+    Server["inspect-server\n(Serveur central & API REST)"]
+    BDD[("Base de données relationnelle\nPostgreSQL / H2\n(Partitionnement temporel)")]
+    Server <-->|Écritures groupées & Indexation| BDD
+  end
 
+  subgraph P3["L'Application (Restitution & Analyse)"]
+    App["inspect-app\n(Interface Web & Tableaux de bord)\n\n• Cartographie dynamique des flux\n• Arbre de traces & chronologie\n• Métriques APM, SLA & volumétrie\n• Analyse centralisée des incidents"]
+  end
 
-  IHM([Applications front-end\nAngular / Browser]) -->|Collecte utilisateur + navigation + erreurs| Angular_Collector([inspect-ng-collector])
-  Angular_Collector -->|Traces + événements| Server([inspect-server])
+  subgraph Users["Utilisateurs"]
+    direction LR
+    Tech["💻 Profils Techniques\n(Devs, Ops, Architectes)\n\n• Diagnostic fin & piles d'appels\n• Résolution des goulots d'étranglement\n• Maîtrise de l'architecture logicielle"]
+    Fonc["💼 Profils Fonctionnels\n(PO, QA, Support Métier)\n\n• Suivi des parcours utilisateur de bout en bout\n• Qualification & impact des anomalies\n• Respect des SLA & volumétrie métier"]
+  end
 
-  Core([Applications Java / services\ninspect-core]) -->|Sessions + requêtes + métriques| Server
-  Server -->|Stockage + indexation| BDD[(Base de données\nH2 / PostgreSQL)]
-  Server -->|API REST| App([inspect-app])
-  App -->|Tableaux de bord + analyse| Team[Équipes techniques / support / ops]
+  ColFront -->|Flux télémétrique HTTP| Server
+  ColBack -->|Flux télémétrique HTTP| Server
+  Server -->|API REST JSON| App
 
-  Requests[Architecture + traces + requêtes] --> App
+  App --> Tech & Fonc
 
-  click Core "architecture/collector"
-  click App "architecture/application"
+  click ColFront "architecture/collector"
+  click ColBack "architecture/collector"
   click Server "architecture/server"
+  click App "architecture/application"
 
-  class IHM IHM;
-  class Angular_Collector Angular_Collector;
-  class App App;
-  class BDD BDD;
-  class Requests Requests;
-  class Core Core;
-  class Server Server;
-  class Team Team;
-```
+  classDef appNode fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1f2937;
+  classDef colFront fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#1f2937;
+  classDef colBack fill:#D8EACD,stroke:#16A34A,stroke-width:2px,color:#1f2937;
+  classDef server fill:#C5EEF1,stroke:#0891B2,stroke-width:2px,color:#1f2937;
+  classDef bdd fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#1f2937;
+  classDef app fill:#E3B2BF,stroke:#BE185D,stroke-width:2px,color:#1f2937;
+  classDef userTech fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#1f2937;
+  classDef userFonc fill:#FDE7F3,stroke:#9D174D,stroke-width:2px,color:#1f2937;
 
-## Deuxième graphique
-
-```mermaid
-%%{init: {'sequence': {'mirrorActors': false}}}%%
-sequenceDiagram
-  participant U as Utilisateur
-  participant A as Application Angular
-  participant NG as inspect-ng-collector
-  participant C as inspect-core
-  participant S as inspect-server
-  participant DB as Base de données
-  participant UI as inspect-app
-
-  U->>A: Action dans l'application
-  A->>NG: Événement navigateur / interaction / HTTP
-  NG->>S: Envoi des traces front
-
-  A->>C: Appel backend Java
-  C->>S: Session + requête + métriques
-  S->>DB: Persistance des traces
-
-  UI->>S: Requête d'analyse
-  S-->>UI: Données agrégées
-  UI-->>U: Dashboard / détails / architecture
+  class AppFront,AppBack appNode;
+  class ColFront colFront;
+  class ColBack colBack;
+  class Server server;
+  class BDD bdd;
+  class App app;
+  class Tech userTech;
+  class Fonc userFonc;
 ```

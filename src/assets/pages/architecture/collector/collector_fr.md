@@ -1,76 +1,59 @@
+# Les Collecteurs INSPECT
 
+## Qu'est-ce qu'un collecteur dans INSPECT ?
 
-Il y a 2 collecteurs : le collecteur java (inspect-core) et le collecteur angular (inspect-ng-collector)
+Un **collecteur** (ou agent de télémétrie) est une bibliothèque de code que l'on intègre directement à l'intérieur d'un programme pour mesurer son activité et enregistrer ce qui s'y passe en cours d'exécution.
 
-## INSPECT-Core
-
-Le module `inspect-core` est la bibliothèque Java de collecte de traces côté applicatif.
-
-Il est conçu pour instrumenter des applications Java ou Spring. Il capture :
-
-- des sessions logiques,
-- des requêtes HTTP, JDBC, LDAP, FTP, SMTP et locales,
-- des contextes de thread pour conserver la corrélation entre tâches asynchrones,
-- des métriques de ressource,
-- des erreurs et exceptions,
-- une corrélation entre les opérations.
-
-Il est donc la pièce technique qui permet d'enregistrer les événements au niveau applicatif et de les transmettre au serveur INSPECT.
-
-
-`inspect-core` est un moteur de collecte technique et fonctionnelle pour applications Java. Il est pensé pour :
-
-- ouvrir une session logique,
-- enregistrer les requêtes associées,
-- associer les informations de contexte par thread,
-- gérer des tâches asynchrones de manière corrélée,
-- envoyer les traces à distance ou les enregistrer localement.
-
-Les concepts clés sont :
-
-- Session : unité logique d'exécution,
-- Request : opération sous-jacente ou appel système,
-- TraceSignal / TraceUpdate : capture au début et à la fin d'une opération,
-- Thread-local context : logique de propagation du contexte à travers les threads.
-
-Cela permet de reconstituer le parcours d'un traitement, même en environnement distribué ou asynchrone.
+Le collecteur fonctionne de manière autonome :
+- Il observe les événements système (clics, requêtes réseau, requêtes en base de données, erreurs).
+- Il mesure les durées d'exécution et les ressources consommées.
+- Il enregistre ces informations sans modifier la logique métier de votre application et sans bloquer l'expérience utilisateur.
 
 ---
 
-## INSPECT-NG-Collector
+## Pourquoi deux collecteurs distincts ?
 
-Le module `inspect-ng-collector` est la bibliothèque Angular front-end de collecte de traces.
+Une application web repose sur deux environnements d'exécution différents :
+1. **Le côté client (Front-end)**
+2. **Le côté serveur (Back-end)** 
 
-Son rôle est de surveiller ce qui se passe dans le navigateur ou dans une application Angular :
+Pour couvrir l'ensemble du cycle de vie d'un traitement, INSPECT propose deux modules de collecte spécialisés :
 
-- navigation et changement de route,
-- interactions utilisateur,
-- requêtes HTTP,
-- erreurs globales,
-- performances de l'application,
-- événements applicatifs personnalisés.
+```mermaid
+flowchart LR
+  subgraph Client["1. Environnement Client (Navigateur Web)"]
+    direction TB
+    UI["Application Angular"] -->|Interactions & Appels HTTP| ColFront["inspect-ng-collector\n(Collecteur Front-end)"]
+  end
 
-Il automate la collecte de traces utiles à la compréhension du comportement utilisateur et de l'expérience fonctionnelle.
+  subgraph Serveur["2. Environnement Serveur (Machine distante)"]
+    direction TB
+    Backend["Application Java / Spring"] -->|Traitements - Threads| ColBack["inspect-core\n(Collecteur Back-end)"]
+  end
 
+  ColFront -->|Envoi périodique par lots| ServerHub[("inspect-server\n(Serveur central d'ingestion)")]
+  ColBack -->|Envoi périodique par lots| ServerHub
 
+  classDef front fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#1f2937;
+  classDef back fill:#D8EACD,stroke:#16A34A,stroke-width:2px,color:#1f2937;
+  classDef server fill:#C5EEF1,stroke:#0891B2,stroke-width:2px,color:#1f2937;
 
-`inspect-ng-collector` est conçu comme un module Angular qui s'active à la racine d'une application. Il peut :
+  class ColFront front;
+  class ColBack back;
+  class ServerHub server;
+```
 
-- collecter automatiquement les actions utilisateur,
-- tracer les appels HTTP sortants,
-- enregistrer les changements de page,
-- détecter les exceptions globales,
-- exporter les événements à intervalle régulier vers le backend,
-- fournir des mécanismes de personnalisation via des décorateurs ou services.
+---
 
-Exemples de données capturées :
+## La corrélation de bout en bout (End-to-End)
 
-- clics,
-- changements de formulaire,
-- navigation,
-- durée de requête,
-- statut HTTP,
-- erreurs réseau,
-- activité utilisateur et contexte applicatif.
+Le point fort de cette architecture est la capacité à relier ce qui se passe dans le navigateur avec ce qui s'exécute sur le serveur :
 
-Cette bibliothèque rend la couche front beaucoup plus “observée” et permet d'aligner le vécu utilisateur avec les traces backend.
+1. L'utilisateur déclenche une action dans l'application Angular (par exemple, un clic pour charger un profil).
+2. `inspect-ng-collector` génère un identifiant de corrélation et l'ajoute dans les en-têtes de la requête HTTP envoyée au serveur.
+3. `inspect-core` reçoit cette requête sur le serveur Java, extrait l'identifiant et lui rattache toutes les opérations internes qui suivent (les requêtes SQL en base, les calculs métier, les éventuelles erreurs).
+4. Les données envoyées à `inspect-server` partagent cette référence commune.
+
+Le système est ainsi capable de relier directement l'action côté navigateur aux opérations correspondantes en base de données.
+
+---

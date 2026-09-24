@@ -16,13 +16,13 @@
     }
   },
   "menu": {
-    "home": "Description",
     "button": {
       "tooltip": {
         "close": "Fermer le menu",
         "open": "Ouvrir le menu"
       }
     },
+    "home": "Description",
     "features": {
       "title": "Fonctionnalités",
       "monitoring": {
@@ -97,19 +97,19 @@
       "description": "Une suite d'outils complète pour observer, comprendre et optimiser vos architectures distribuées.",
       "observability": {
         "title": "Observabilité",
-        "content": "INSPECT est un outil pouvant facilité l'observabilité de votre application. Elle permet de détecter et diagnostiquer les problèmes dans des systèmes complexes. Vous avez une observabilité optimale sur votre application"
+        "content": "Observez, diagnostiquez les problèmes dans des systèmes complexes n'aura jamais été aussi simple qu'après avoir découvert INSPECT. Vous aurez une observabilité optimale sur vos applications"
       },
       "metrics": {
         "title": "Métriques",
-        "content": "INSPECT permet de récupérer de nombreuses informations et de quantifier les requêtes de votre application. Cela permet de comprendre les tendances, repérer au mieux les requêtes critiques et d'améliorer l'expérience utilisateur."
+        "content": "Comprenez les tendances de vos utilisateurs, repérer au mieux les requêtes critiques et offrez la meilleure expérience utilisateur."
       },
       "time": {
         "title": "Temps réel",
-        "content": "INSPECT permet de suivre en temps réel les appels d'API et les performances de votre application. Cela permet de détecter rapidement les problèmes et d'y remédier avant qu'ils n'affectent les utilisateurs finaux."
+        "content": "Suivez en temps réel les appels et les performances de vos applications. Vos utilisateurs finaux n'auront plus le temps de tomber sur des bugs ou anomalies."
       },
       "e2e": {
         "title": "Suivi de bout en bout",
-        "content": "Lors d'une analyse de logs classique, il faut repérer une erreur spécifique dans des milliers de lignes des logs, puis chercher la suite des événements à l'aide d'un fil rouge difficilement repérable. INSPECT vous épargne ce travail car il y a un suivi de bout en bout entre une première action et sa fin."
+        "content": "Fini le travail fastidieux d'analyse de logs interminables. INSPECT vous épargne ce travail car il y a un suivi de bout en bout entre une première action et sa fin, permettant de comprendre facilement le flux des événements."
       },
       "uniformize": {
         "title": "Uniformisation des données",
@@ -117,7 +117,7 @@
       },
       "heartbeat": {
         "title": "Monitoring",
-        "content": "Avec INSPECT, vous pourrez surveiller et monitorer l'ensemble des applications de votre projet, voir le dernier redémarrage, la version déployée, le nombre de tentatives, tout ça en quelques secondes."
+        "content": "Avec INSPECT, vous pourrez surveiller et monitorer l'ensemble des applications de votre projet, voir le dernier redémarrage, la version déployée, le nombre de tentatives, et bien d'autres informations tout ça en quelques secondes."
       }
     },
     "profiles": {
@@ -643,22 +643,23 @@
   },
   "architecture": {
     "title": "Architecture",
-    "content": "INSPECT est composé de 3 composants principaux : le collecteur, le serveur et l'application. Le collecteur est responsable de la collecte des données à partir de diverses sources, telles que les journaux, les métriques et les traces. Le serveur est responsable du traitement et du stockage des données collectées, et fournit une interface utilisateur pour visualiser et analyser les données. L'application est responsable de la génération des données collectées par le collecteur.",
+    "badge": "ARCHITECTURE",
+    "content": "INSPECT est conçu autour de 3 piliers : les Collecteurs (bibliothèques de traçabilité intégrées à vos applications), le Serveur (moteur central d'ingestion, de stockage et d'automatisation) et l'Application (l'interface web de restitution et d'analyse).",
     "application": {
       "title": "Application",
-      "content": "L'application est le composant qui génère les données collectées par le collecteur. Il peut s'agir d'une application web, d'un service backend ou de tout autre type d'application qui produit des données de performance et de suivi."
+      "content": "L'interface web inspect-app transforme les traces collectées en tableaux de bord visuels, cartographies dynamiques des dépendances et chronologies détaillées pour analyser vos applications."
     },
     "collector": {
-      "title": "Collecteur",
-      "content": "Le collecteur est le composant responsable de la collecte des données à partir de diverses sources. Il peut collecter des données à partir de journaux, de métriques et de traces, et les envoyer au serveur pour traitement et stockage."
+      "title": "Collecteurs",
+      "content": "Les bibliothèques inspect-core (Java) et inspect-ng-collector (Angular) s'intègrent dans vos applications pour enregistrer les actions utilisateur, requêtes réseau et erreurs sans impacter les temps de réponse."
     },
     "server": {
       "title": "Serveur",
-      "content": "Le serveur est le composant responsable du traitement et du stockage des données collectées par le collecteur. Il fournit également une interface utilisateur pour visualiser et analyser les données collectées, permettant aux utilisateurs de comprendre les performances et le comportement de leur application."
+      "content": "Le serveur central inspect-server reçoit les flux télémétriques, régule l'écriture en base via sa mémoire tampon, partitionne les tables pour des requêtes rapides et applique les règles de purge automatique."
     },
     "flow": {
       "title": "Flux",
-      "content": "Voici un exemple de flux applicatif typique :"
+      "content": "Voici comment l'information circule d'un bout à l'autre entre vos applications et les composants d'INSPECT :"
     }
   },
   "components": {

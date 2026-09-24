@@ -1,13 +1,14 @@
+<div class="architecture__doc">
   <markdown
     mermaid
     class="architecture__doc"
     [src]="'assets/pages/architecture/architecture_' + (translate.currentLang || 'en') + '.md'">
   </markdown>
 <br>
-
+</div>
 
 <!-- Relink when scroll down -->
-<section class="scroll-trigger scroll-trigger--down" (click)="goToCompatibilities()">
-  <span class="scroll-trigger__label"> {{ "common.button.next" | translate }}</span>
+<section class="scroll-trigger scroll-trigger--down" (click)="goToNext()">
+  <span class="scroll-trigger__label"> {{ "common.button.details" | translate }}</span>
   <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
 </section>

@@ -121,27 +121,27 @@
       "description": "A full package of tools in order to supervise, understand, and improve your application performances.",
       "observability": {
         "title": "Observability",
-        "content": "INSPECT is a tool that can facilitate the observability of your application. It allows you to detect and diagnose problems in complex systems. You have optimal observability on your application."
+        "content": "Observing and diagnosing problems in complex systems has never been easier than after discovering INSPECT. You will get optimal observability across your applications."
       },
       "metrics": {
         "title": "Metrics",
-        "content": "INSPECT allows you to extract useful insights from the collected data. This helps understand trends, identify queries more effectively, and improve system performance."
+        "content": "Understand user trends, identify critical requests effectively, and deliver the best user experience."
       },
       "time": {
         "title": "Real time",
-        "content": "INSPECT allows you to follow in real time the API calls and the global performances. It helps for detecting quickly some issues and to resolve them before your users are getting impacted from it"
+        "content": "Track your applications' calls and performance in real time. Your end users won't even have time to encounter bugs or anomalies."
       },
       "e2e": {
-        "title": "Start to end informations",
-        "content": "When you are trying to find the root cause of an issue, you might be used to look for one log in a lot of files and lines. INSPECT makes you improve time because it's able to follow an action to it's start until it's end, even if the trace id are changing."
+        "title": "End-to-end tracking",
+        "content": "No more analyzing endless logs. INSPECT spares you this effort through end-to-end tracking from the initial action to its completion, making it easy to understand the event flow."
       },
       "uniformize": {
-        "title": "Data uniformization",
-        "content": "Request analyzed are uniformized at a maximum level. If the callback are HTTP requests, JDBC, SMTP... The responses are studied so you can understand easily where the issue is located, even without any technical knowledge."
+        "title": "Data standardization",
+        "content": "INSPECT standardizes the analyzed request types as much as possible. Response codes are tailored so you can easily understand the root cause of an error, even without specialized technical knowledge."
       },
       "heartbeat": {
         "title": "Monitoring",
-        "content": "With INSPECT, you can watch and monitor all applications of your project, know when was the last restart, what is the deployed version, the number of restarts, all of it in a few seconds."
+        "content": "With INSPECT, you can supervise and monitor all applications in your project, view the last restart, deployed version, retry count, and many other insights, all in a matter of seconds."
       }
     }
   },
@@ -656,13 +656,24 @@
     }
   },
   "architecture": {
+    "title": "Architecture",
+    "badge": "ARCHITECTURE",
+    "content": "INSPECT is built around 3 pillars: Collectors (runtime telemetry libraries integrated into applications), Server (central ingestion, storage and lifecycle engine), and Application (web dashboard for monitoring and analytics).",
+    "application": {
+      "title": "Application",
+      "content": "The inspect-app web dashboard transforms collected traces into intuitive charts, dynamic system dependency maps, and sequential timelines to inspect and diagnose applications."
+    },
     "collector": {
-      "title": "Collector",
-      "content": "The collector is the component responsible for collecting data from various sources. It can collect data from logs, metrics, and traces, and send them to the server for processing and storage."
+      "title": "Collectors",
+      "content": "Lightweight libraries inspect-core (Java) and inspect-ng-collector (Angular) embed directly into your applications to record user actions, network calls, and errors without degrading application responsiveness."
     },
     "server": {
       "title": "Server",
-      "content": "The server is the component responsible for processing and storing the data collected by the collector. It also provides a user interface for visualizing and analyzing the collected data, allowing users to understand the performance and behavior of their application."
+      "content": "The central inspect-server ingests telemetry streams, cushions peak loads through in-memory buffering, partitions relational database tables for instant queries, and enforces retention policies."
+    },
+    "flow": {
+      "title": "Flow",
+      "content": "Here is how information travels end-to-end between your applications and INSPECT components:"
     }
   },
   "components": {

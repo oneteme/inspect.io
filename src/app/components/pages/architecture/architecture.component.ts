@@ -39,7 +39,7 @@ export class ArchitectureComponent implements AfterViewInit {
     goToPage(this.isTransitioning(), this.router, '/compatibilities');
   }
 
-  goToComponents(): void {
-    goToPage(this.isTransitioning(), this.router, '/components');
+  goToNext(): void {
+    goToPage(this.isTransitioning(), this.router, '/architecture/application');
   }
 }
