@@ -66,33 +66,4 @@ export class HomeComponent implements AfterViewInit {
   goToInstallation(): void {
     goToPage(this.isTransitioning(), this.router, '/installation');
   }
-
-  @HostListener('window:wheel', ['$event'])
-  onWheel(event: WheelEvent): void {
-    if (this.isTransitioning()) {
-      return;
-    }
-
-    if (event.deltaY > 50 && isAtBottom()) {
-      this.goToFeatures();
-    }
-  }
-
-  @HostListener('window:touchstart', ['$event'])
-  onTouchStart(event: TouchEvent): void {
-    this.touchStartY = event.touches[0]?.clientY ?? 0;
-  }
-
-  @HostListener('window:touchmove', ['$event'])
-  onTouchMove(event: TouchEvent): void {
-    if (this.isTransitioning()) {
-      return;
-    }
-
-    const currentY = event.touches[0]?.clientY ?? 0;
-    const deltaY = this.touchStartY - currentY;
-    if (deltaY > 50 && isAtBottom()) {
-      this.goToFeatures();
-    }
-  }
 }

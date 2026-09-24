@@ -57,7 +57,7 @@ export class ThemeService {
     if (typeof localStorage !== 'undefined') {
       const stored = localStorage.getItem(this.storageKey);
       if (stored === 'light' || stored === 'dark' || stored === 'auto') {
-        return stored;
+        return 'light'; // Remove dark theme temporarily
       }
     }
     return 'auto';

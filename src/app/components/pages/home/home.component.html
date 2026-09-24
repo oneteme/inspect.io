@@ -208,11 +208,10 @@
       </div>
     </div>
   </section>
-
-  <!-- Scroll down trigger -->
-  <section class="scroll-trigger" (click)="goToFeatures()" title="Découvrir la suite">
-    <div class="tui-scroll-indicator" [class.tui-scroll-indicator--active]="isTransitioning()">
-      <div class="tui-scroll-indicator__wheel"></div>
-    </div>
-  </section>
 </div>
+
+<!-- Relink when scroll down -->
+<section class="scroll-trigger scroll-trigger--down" (click)="goToFeatures()">
+  <span class="scroll-trigger__label"> {{ "common.button.details" | translate }}</span>
+  <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
+</section>
