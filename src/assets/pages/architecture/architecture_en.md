@@ -2,7 +2,7 @@
 
 ## Organization into 3 Pillars
 
-INSPECT is built around **3 complementary pillars** working in harmony:
+INSPECT is built around **3 pillars**:
 
 1. **The Collectors (`inspect-core` & `inspect-ng-collector`)**: Embedded telemetry libraries integrated directly into your applications (browser-side Angular and Java server-side). They capture runtime events, outgoing requests, and exceptions as they occur.
 2. **The Server (`inspect-server`)**: The central ingestion and persistence engine. It ingests incoming telemetry streams, cushions peak loads through in-memory buffering, partitions data in the database for instant searches, and automatically enforces retention purges.
@@ -14,7 +14,7 @@ INSPECT is built around **3 complementary pillars** working in harmony:
 
 ```mermaid
 flowchart TD
-  subgraph P1["Pillar 1: The Collectors (Instrumented Applications)"]
+  subgraph P1["The Collectors (Instrumented Applications)"]
     direction LR
     subgraph EnvFront["Front-end (Browser / Client)"]
       AppFront["Web Application\n(Angular / Browser)"] -->|User actions & Errors| ColFront["inspect-ng-collector\n(Front-end Collector)"]
@@ -25,14 +25,14 @@ flowchart TD
     AppFront -.->|Correlated HTTP Requests| AppBack
   end
 
-  subgraph P2["Pillar 2: The Server (Ingestion & Storage)"]
+  subgraph P2["The Server (Ingestion & Storage)"]
     direction LR
     Server["inspect-server\n(Central Ingestion Server & REST API)"]
     BDD[("Relational Database\nPostgreSQL / H2\n(Time-based Partitioning)")]
     Server <-->|Batch Writes & Indexing| BDD
   end
 
-  subgraph P3["Pillar 3: The Application (Visualization & Analytics)"]
+  subgraph P3["The Application (Visualization & Analytics)"]
     App["inspect-app\n(Web UI & Interactive Dashboards)\n\n• Dynamic system cartography\n• Sequential trace trees & timeline\n• APM metrics, SLAs & volumetry\n• Centralized incident diagnostics"]
   end
 
