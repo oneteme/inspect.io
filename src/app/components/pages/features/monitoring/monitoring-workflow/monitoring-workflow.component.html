@@ -72,3 +72,8 @@
   </section>
 </div>
 
+<!-- Relink when scroll down -->
+<section class="scroll-trigger scroll-trigger--down" (click)="goToNext()">
+  <span class="scroll-trigger__label"> {{ "common.button.next" | translate }}</span>
+  <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
+</section>

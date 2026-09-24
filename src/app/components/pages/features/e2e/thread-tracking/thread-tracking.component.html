@@ -41,29 +41,10 @@
       </article>
     </div>
   </section>
-
-  <!-- SECTION 2: INSPECT VALUE PROPOSITION -->
-  <section class="section" id="thread-tracking-value">
-    <div class="section__header reveal">
-      <h2 class="section__title">{{ "features.e2e.thread.value.title" | translate }}</h2>
-    </div>
-
-    <div class="roi-grid">
-      <div class="roi-card reveal">
-        <h4>{{ "features.e2e.thread.value.first.title" | translate }}</h4>
-        <p>{{ "features.e2e.thread.value.first.desc" | translate }}</p>
-      </div>
-
-      <div class="roi-card reveal">
-        <h4>{{ "features.e2e.thread.value.second.title" | translate }}</h4>
-        <p>{{ "features.e2e.thread.value.second.desc" | translate }}</p>
-      </div>
-
-      <div class="roi-card reveal">
-        <h4>{{ "features.e2e.thread.value.third.title" | translate }}</h4>
-        <p>{{ "features.e2e.thread.value.third.desc" | translate }}</p>
-      </div>
-    </div>
-  </section>
 </div>
 
+<!-- Relink when scroll down -->
+<section class="scroll-trigger scroll-trigger--down" (click)="goToNext()">
+  <span class="scroll-trigger__label"> {{ "common.button.next" | translate }}</span>
+  <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
+</section>

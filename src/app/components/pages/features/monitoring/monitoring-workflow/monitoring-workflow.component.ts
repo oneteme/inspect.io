@@ -16,7 +16,7 @@ import {
   bootstrapSpeedometer2,
   bootstrapClockHistory,
   bootstrapExclamationTriangleFill,
-  bootstrapLayersFill
+  bootstrapLayersFill, bootstrapArrowDown
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
 import { goToPage } from '@utils/utils';
@@ -31,6 +31,7 @@ import { ScrollspyService } from '@services/scrollspy.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [
     provideIcons({
+      bootstrapArrowDown,
       bootstrapDatabaseFill,
       bootstrapEnvelopeFill,
       bootstrapFolderFill,
@@ -101,6 +102,11 @@ export class MonitoringWorkflowComponent implements AfterViewInit, OnDestroy {
   goToMonitoring(): void {
     goToPage(this.isTransitioning(), this.router, '/features/monitoring');
   }
+
+  goToNext(): void {
+    goToPage(this.isTransitioning(), this.router, '/features/monitoring/user');
+  }
+
 
   ngOnDestroy() {
     this.scrollspyObserver?.disconnect();

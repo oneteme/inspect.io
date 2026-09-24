@@ -377,27 +377,11 @@
           "title": "Qu'est-ce que le multi-thread et l'asynchronisme ?",
           "thread": {
             "title": "Multi-Thread",
-            "desc": "Le multi-thread est le fait de lancer plusieurs tâches simultanément dans un même programme. Chaque tâche est exécutée par un fil d'exécution (thread) distinct."
+            "desc": "Le multi-thread est le fait de lancer plusieurs tâches simultanément dans un même programme. Chaque tâche est exécutée par un fil d'exécution (thread) distinct. INSPECT suit automatiquement l'action utilisateur d'un thread à l'autre et à travers les exécutions différées. Même si une tâche est traitée par un thread différent 5 minutes plus tard, elle reste rattachée à la demande initiale."
           },
           "async": {
             "title": "Asynchronisme",
-            "desc": "C'est une tâche qui est déléguée en arrière-plan sans bloquer l'utilisateur (ex. génération d'un rapport, envoi d'emails, appels d'API tiers). L'application répond immédiatement au métier pendant que le travail se poursuit en tâche de fond."
-          },
-          "context": "Sans outil adapté, lorsqu'une action bascule sur un autre thread ou en asynchrone, le traitement est rompu. En cas d'erreur ou d'échec en arrière-plan, il devient très difficile de relier l'incident à l'action métier d'origine."
-        },
-        "value": {
-          "title": "Prise en compte de ces besoins dans INSPECT",
-          "first": {
-            "title": "Continuité des traitements métiers",
-            "desc": " INSPECT suit automatiquement l'action utilisateur d'un thread à l'autre et à travers les exécutions différées. Même si une tâche est traitée par un thread différent 5 minutes plus tard, elle reste rattachée à la demande initiale."
-          },
-          "second": {
-            "title": "Visibilité sur les tâches d'arrière-plan",
-            "desc": " INSPECT regroupe sous une même vue fonctionnelle l'action principale et toutes celles qui sont liées asynchrones (traitements parallèles, notifications, écritures en base)."
-          },
-          "third": {
-            "title": "Explication simplifiée des erreurs",
-            "desc": "Si un traitement asynchrone échoue, le métier peut remonter directement à l'événement déclencheur sans perte d'information, simplifiant le diagnostic et le support."
+            "desc": "C'est une tâche qui est déléguée en arrière-plan sans bloquer l'utilisateur (ex. génération d'un rapport, envoi d'emails, appels d'API tiers). L'application répond immédiatement au métier pendant que le travail se poursuit en tâche de fond. INSPECT regroupe sous une même vue fonctionnelle l'action principale et toutes celles qui sont liées asynchrones (traitements parallèles, notifications, écritures en base). Si un traitement asynchrone échoue, vous pouvez remonter directement à l'événement déclencheur sans perte d'information, simplifiant le diagnostic et le support."
           }
         }
       },

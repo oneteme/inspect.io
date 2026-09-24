@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
+  bootstrapArrowDown,
   bootstrapArrowRight,
   bootstrapCheckCircleFill,
   bootstrapRocketTakeoffFill,
@@ -23,6 +24,7 @@ import { ScrollspyService } from '@services/scrollspy.service';
   imports: [CommonModule, TranslateModule, NgIcon],
   providers: [
     provideIcons({
+      bootstrapArrowDown,
       bootstrapArrowRight,
       bootstrapCheckCircleFill,
       bootstrapRocketTakeoffFill,
@@ -100,11 +102,6 @@ export class ThreadTrackingComponent implements AfterViewInit {
         this.scrollSpy.setActivePath(null);
       });
     }
-  }
-
-
-  goToInstallation(): void {
-    goToPage(this.isTransitioning(), this.router, '/installation');
   }
 
   goToCartography(): void {

@@ -393,27 +393,11 @@
           "title": "What are multi-thread and asynchronism?",
           "thread": {
             "title": "Multi-Thread",
-            "desc": "Multi-Thread is the ability of a program to execute multiple threads concurrently. Each thread can run independently, allowing for parallel execution of tasks."
+            "desc": "Multi-Thread is the ability of a program to execute multiple threads concurrently. Each thread can run independently, allowing for parallel execution of tasks. INSPECT automatically tracks user actions from one thread to another and across deferred executions. Even if a task is processed by a different thread 5 minutes later, it remains linked to the initial request."
           },
           "async": {
             "title": "Asynchronism",
-            "desc": "It's a task that can be executed in the background without blocking the main thread. It allows for better resource utilization and responsiveness."
-          },
-          "context": "Without proper tracking, it can be difficult to understand the flow of execution and identify performance bottlenecks or errors in complex asynchronous architectures."
-        },
-        "value": {
-          "title": "INSPECT including these needs",
-          "first": {
-            "title": "Continuity of execution tracking",
-            "desc": " INSPECT automatically tracks user actions from one thread to another and across deferred executions. Even if a task is processed by a different thread 5 minutes later, it remains linked to the initial request."
-          },
-          "second": {
-            "title": "Visibility into background tasks",
-            "desc": " INSPECT provides a unified view of the main action and all related asynchronous tasks (parallel processing, notifications, database writes)."
-          },
-          "third": {
-            "title": "Simplified error explanation",
-            "desc": "If an asynchronous task fails, the user can trace back directly to the triggering event without losing any information, simplifying diagnosis and support."
+            "desc": "It's a task that can be executed in the background without blocking the main thread. It allows for better resource utilization and responsiveness. INSPECT provides a unified view of the main action and all related asynchronous tasks (parallel processing, notifications, database writes). If an asynchronous task fails, the user can trace back directly to the triggering event without losing any information, simplifying diagnosis and support."
           }
         }
       },
