@@ -36,6 +36,12 @@
     <td>{{ "compatibilities.table.function.jquery-charts" | translate }}</td>
   </tr>
   <tr>
+    <td>inspect-app</td>
+    <td>jquery-table</td>
+    <td>v0.0+</td>
+    <td>{{ "compatibilities.table.function.jquery-table" | translate }}</td>
+  </tr>
+  <tr>
     <td>inspect-core</td>
     <td>Java</td>
     <td>v21.x</td>
@@ -56,8 +62,8 @@
   </tbody>
 </table>
 
-<section class="installation__scroll-trigger" (click)="goToArchitecture()">
-  <div class="tui-scroll-indicator tui-scroll-indicator--down" [class.tui-scroll-indicator--active]="isTransitioning()">
-    <div class="tui-scroll-indicator__wheel"></div>
-  </div>
+<!-- Relink when scroll down -->
+<section class="scroll-trigger scroll-trigger--down" (click)="goToArchitecture()">
+  <span class="scroll-trigger__label"> {{ "common.button.next" | translate }}</span>
+  <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
 </section>

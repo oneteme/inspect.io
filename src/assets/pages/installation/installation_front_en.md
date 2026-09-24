@@ -1,8 +1,14 @@
+## Projets
+
+- [Front-end (inspect-ng-collector)](#inspect-ng-collector)
+- [Back-end (inspect-core)](#inspect-core)
+
+
 ## inspect-ng-collector
 
-### Importer le Module
+### Import the Module
 
-Dans le `app.module.ts`:
+In your `app.module.ts`:
 
 ```typescript
 import { NgModule } from '@angular/core';
@@ -31,9 +37,9 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 
-### Ajouter un traçage personnalisé
+### (Optional) Add Custom Tracing
 
-Utilisez le décorateur `@TraceableStage()` pour suivre les étapes personnalisées de l'application :
+Use the `@TraceableStage()` decorator to track custom application stages:
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -54,7 +60,7 @@ export class DataService {
 }
 ```
 
-### Journaliser les événements de l'application
+### (Optional) Log Application Events
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -62,9 +68,9 @@ import { LogService } from '@oneteme/inspect-ng-collector';
 
 @Injectable()
 export class MyService {
-  
+
   constructor(private logger: LogService) {}
-  
+
   doSomething() {
     this.logger.info('Operation started');
     // ... operations ...
@@ -78,7 +84,7 @@ ___
 ## inspect-core
 
 ### Quick Start
-
+-----------
 Maven
 ```xml
 <dependency>
@@ -88,13 +94,12 @@ Maven
 </dependency>
 ```
 
-### Configuration (example application.yml)
-
+Configuration (example application.yml)
 ```yaml
 inspect:
   collector:
-    enabled: true # permet d'activer ou non
-    debug-mode: false # boolean pour debug
+    enabled: true
+    debug-mode: false
     scheduling:
       interval: 5s
     monitoring:
@@ -114,7 +119,7 @@ inspect:
         enabled: false
       remote:
         mode: REST
-        host: https://inspect-server.example.com # modifier ici l'URL pour l'appli que vous voulez utiliser
+        host: https://inspect-server.example.com
         retention-max-age: 30d
 ```
 
@@ -138,22 +143,40 @@ Maven:
 mvn clean test
 mvn -DskipTests package
 ```
-## Utiliser l'IHM d'INSPECT
 
-Dans le répertoire inspect-app, lancer une installation :
+<div id="platform-section"></div>
+
+## Using the INSPECT UI & Server
+
+In the `inspect-app` directory, install dependencies:
 ```shell
 npm install
 ```
-Puis lancer l'application :
+Then launch the application:
 ```shell
 npm run start
 ``` 
-L'IHM est disponible sur le port 4200. Vous pouvez y accéder via http://localhost:4200.
+The UI is available on port 4200 (http://localhost:4200).
 
-Dans le répertoire inspect-server, lancer une installation maven :
+In the `inspect-server` directory, run a Maven build:
 ```shell
 mvn clean install
 ```
 
-Préparer un fichier de configuration `application.yml` dans le répertoire `src/main/resources` avec le contenu suivant :
+Prepare an `application.yml` configuration file in the `src/main/resources` directory:
 
+```yaml
+server:
+  port: 8080
+
+inspect:
+  server:
+    enabled: true
+    storage:
+      path: ./data
+```
+
+Then start the server:
+```shell
+mvn spring-boot:run
+```

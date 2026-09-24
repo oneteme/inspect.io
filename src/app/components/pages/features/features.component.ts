@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, inject, OnDestroy, signal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnDestroy, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
@@ -37,7 +37,7 @@ import { ScrollspyService } from '@services/scrollspy.service';
   styleUrls: ['./features.component.scss'],
   standalone: true,
 })
-export class FeaturesComponent {
+export class FeaturesComponent implements AfterViewInit, OnDestroy {
   private readonly router = inject(Router);
   private readonly elementRef = inject(ElementRef);
   private readonly scrollSpy = inject(ScrollspyService);
@@ -95,32 +95,9 @@ export class FeaturesComponent {
     goToPage(this.isTransitioning(), this.router, '/features/monitoring');
   }
 
-  goToInstallation(): void {
-    goToPage(this.isTransitioning(), this.router, '/installation');
-  }
-
 
   goToHome(): void {
     goToPage(this.isTransitioning(), this.router, '/');
   }
 
-  @HostListener('window:scroll')
-  onScroll(): void {
-    this.scrollNav.onScroll();
-  }
-
-  @HostListener('window:wheel', ['$event'])
-  onWheel(event: WheelEvent): void {
-    this.scrollNav.onWheel(event);
-  }
-
-  @HostListener('window:touchstart', ['$event'])
-  onTouchStart(event: TouchEvent): void {
-    this.scrollNav.onTouchStart(event);
-  }
-
-  @HostListener('window:touchmove', ['$event'])
-  onTouchMove(event: TouchEvent): void {
-    this.scrollNav.onTouchMove(event);
-  }
 }

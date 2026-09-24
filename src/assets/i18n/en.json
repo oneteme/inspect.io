@@ -624,7 +624,20 @@
   },
   "installation": {
     "title": "Installation",
-    "content": "To install INSPECT, there are 2 dependencies to add to your project: INSPECT-core and INSPECT-ng-collector"
+    "badge": "INSTALLATION",
+    "content": "Add INSPECT in your applications. Components to add for your front-end are inspect-app and inspect-ng-collector. For your back-end, it's inspect-core and inspect-server.",
+    "cards": {
+      "collector": {
+        "tag": "Front-end",
+        "title": "inspect-ng-collector",
+        "desc": "Angular module for tracking HTTP requests and application lifecycle stages"
+      },
+      "core": {
+        "tag": "Back-end",
+        "title": "inspect-core",
+        "desc": "Java & Spring Boot dependency for thread tracking and system metrics capture"
+      }
+    }
   },
   "compatibilities": {
     "title": "Compatibilities",
@@ -637,6 +650,7 @@
         "angular": "Front end framework",
         "inspect-ng-collector": "Collector for angular applications",
         "jquery-charts": "Charts for generating KPIs",
+        "jquery-table": "Datatable to display informations",
         "jakarta": "API used for the email management"
       }
     }

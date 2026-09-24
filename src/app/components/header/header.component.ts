@@ -64,7 +64,7 @@ export class HeaderComponent {
   }
 
   goHome(): void {
-    window.location.assign('/');
+    window.location.assign('/inspect.io/');
   }
 
   goToGithub() {

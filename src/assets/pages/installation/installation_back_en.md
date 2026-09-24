@@ -79,10 +79,11 @@ export class MyService {
   }
 }
 ```
+___
 
-### inspect-core
+## inspect-core
 
-Quick Start
+### Quick Start
 -----------
 Maven
 ```xml
@@ -141,4 +142,41 @@ Maven:
 ```bash
 mvn clean test
 mvn -DskipTests package
+```
+
+<div id="platform-section"></div>
+
+## Using the INSPECT UI & Server
+
+In the `inspect-app` directory, install dependencies:
+```shell
+npm install
+```
+Then launch the application:
+```shell
+npm run start
+``` 
+The UI is available on port 4200 (http://localhost:4200).
+
+In the `inspect-server` directory, run a Maven build:
+```shell
+mvn clean install
+```
+
+Prepare an `application.yml` configuration file in the `src/main/resources` directory:
+
+```yaml
+server:
+  port: 8080
+
+inspect:
+  server:
+    enabled: true
+    storage:
+      path: ./data
+```
+
+Then start the server:
+```shell
+mvn spring-boot:run
 ```

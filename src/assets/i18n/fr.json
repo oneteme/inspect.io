@@ -113,7 +113,7 @@
       },
       "uniformize": {
         "title": "Uniformisation des données",
-        "content": "INSPECT uniformise au maximum les types de requêtes analysées. Que ce soit des retours HTTP, PostgreSQL, Oracle, les codes réponses sont adaptés au maximum pour que vous puissiez comprendre l'origine de l'erreur, même sans connaissance technique particulière."
+        "content": "INSPECT uniformise au maximum les types de requêtes analysées. Les codes réponses sont adaptés au maximum pour que vous puissiez comprendre l'origine de l'erreur, même sans connaissance technique particulière."
       },
       "heartbeat": {
         "title": "Monitoring",
@@ -610,7 +610,20 @@
   },
   "installation": {
     "title": "Installation",
-    "content": "Pour installer INSPECT, il y a 2 dépendances à ajouter dans votre projet : INSPECT-core et INSPECT-ng-collector"
+    "badge": "INSTALLATION",
+    "content": "Intégrez INSPECT dans vos applications. Les composants à intégrer sont : inspect-app et inspect-ng-collector pour le front-end. Pour le back-end, il faut intégrer inspect-core et inspect-server.",
+    "cards": {
+      "collector": {
+        "tag": "Front-end",
+        "title": "inspect-ng-collector",
+        "desc": "Module Angular"
+      },
+      "core": {
+        "tag": "Back-end",
+        "title": "inspect-core",
+        "desc": "Dépendance Java/Spring Boot"
+      }
+    }
   },
   "compatibilities": {
     "title": "Compatibilités",
@@ -623,6 +636,7 @@
         "angular": "Front end framework",
         "inspect-ng-collector": "Collecteur pour les applications angular",
         "jquery-charts": "Graphiques pour générer les KPIs",
+        "jquery-table": "Tableau listant toutes les données",
         "jakarta": "API utilisée pour la gestion des emails"
       }
     }

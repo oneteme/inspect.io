@@ -1,12 +1,3 @@
-<!-- Relink when scroll up -->
-<section class="scroll-trigger scroll-trigger--up"
-         [class.is-visible]="isScrollUpVisible()"
-         (click)="goToCompatibilities()">
-  <div class="tui-scroll-indicator tui-scroll-indicator--up" [class.tui-scroll-indicator--active]="isTransitioning()">
-    <div class="tui-scroll-indicator__wheel"></div>
-  </div>
-</section>
-
   <markdown
     mermaid
     class="architecture__doc"
@@ -16,8 +7,7 @@
 
 
 <!-- Relink when scroll down -->
-<section class="scroll-trigger" (click)="goToComponents()">
-  <div class="tui-scroll-indicator tui-scroll-indicator--down" [class.tui-scroll-indicator--active]="isTransitioning()">
-    <div class="tui-scroll-indicator__wheel"></div>
-  </div>
+<section class="scroll-trigger scroll-trigger--down" (click)="goToCompatibilities()">
+  <span class="scroll-trigger__label"> {{ "common.button.next" | translate }}</span>
+  <ng-icon name="bootstrapArrowDown" class="scroll-trigger__icon"></ng-icon>
 </section>

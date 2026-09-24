@@ -11,7 +11,7 @@ table {
 }
 
 thead {
-  background: var(--clr-surface-muted, linear-gradient(135deg, #f8fafc, #eef2ff));
+  background: var(--clr-background);
 }
 
 th, td {
@@ -27,25 +27,13 @@ th {
 }
 
 tbody tr:nth-child(even) {
-  background: var(--clr-surface-muted, #f8fafc);
+  background: var(--bg-surface-hover, #f8fafc);
 }
 
 tbody tr:hover {
-  background: var(--clr-primary-subtle, #f1f5f9);
+  background: var(--bg-surface-subtle);
 }
 
-:host {
-  display: block;
-  animation: tui-entrance 0.5s cubic-bezier(0, 0, 0.2, 1) both;
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), filter 0.45s ease;
-  will-change: transform, opacity, filter;
-
-  &.installation-transitioning {
-    transform: translate3d(0, 40px, 0) scale(0.97);
-    opacity: 0;
-    filter: blur(2px);
-  }
-}
 
 @keyframes tui-entrance {
   from {
