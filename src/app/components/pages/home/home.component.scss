@@ -151,6 +151,15 @@ $card-border-hover: var(--clr-primary, rgba(99, 102, 241, 0.4));
     -webkit-text-fill-color: transparent;
   }
 
+  &__suffix {
+    position: relative;
+    font-size: clamp(1.4rem, 3vw, 3rem);
+    font-weight: 600;
+    color: var(--clr-text-primary);
+    line-height: 1.1;
+    max-width: 860px;
+  }
+
   &__desc {
     position: relative;
     z-index: 1;
@@ -556,6 +565,8 @@ $card-border-hover: var(--clr-primary, rgba(99, 102, 241, 0.4));
     width: 36px;
     height: 36px;
     object-fit: contain;
+    filter: var(--icon-invert-filter, none);
+    transition: filter 0.3s ease;
   }
 
   &__badge {
@@ -599,6 +610,22 @@ $card-border-hover: var(--clr-primary, rgba(99, 102, 241, 0.4));
       font-size: 0.9rem;
       color: $text-main;
       font-weight: 500;
+    }
+  }
+}
+
+:host-context([data-theme="dark"]),
+:host-context(.dark),
+:host-context(.dark-theme) {
+  .profile-card__icon {
+    filter: brightness(0) invert(1);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :host-context(:root:not([data-theme="light"])) {
+    .profile-card__icon {
+      filter: brightness(0) invert(1);
     }
   }
 }

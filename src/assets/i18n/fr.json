@@ -78,9 +78,8 @@
     "headline": {
       "prefix": "Ne devinez plus.",
       "highlight": "INSPECTez",
-      "suffix": "ce qui se passe réellement dans votre application."
+      "suffix": "ce qui se passe réellement dans votre application. Suivez, analysez, maitrisez tous les appels et toutes les interactions entre les différents composants de vos applications."
     },
-    "content": "INSPECT est une plateforme de suivi et d'analyse des appels de différents types conçue pour offrir une visibilité approfondie sur les interactions entre les différents composants d'un système distribué.",
     "cta": {
       "explore": "Découvrir les fonctionnalités",
       "architecture": "Explorer l'architecture",

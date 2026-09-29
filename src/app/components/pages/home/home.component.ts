@@ -1,17 +1,18 @@
-import { AfterViewInit, Component, DestroyRef, ElementRef, HostListener, inject, signal } from '@angular/core';
+import { AfterViewInit, Component, DestroyRef, ElementRef, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroArrowLeftStartOnRectangleMicro, heroArrowRightMicro } from '@ng-icons/heroicons/micro';
-import { bootstrapRocketTakeoffFill, bootstrapArrowRight, bootstrapCheckCircleFill } from '@ng-icons/bootstrap-icons';
-import { goToPage, isAtBottom } from '@utils/utils';
+import { bootstrapArrowDown, bootstrapRocketTakeoffFill, bootstrapArrowRight, bootstrapCheckCircleFill } from '@ng-icons/bootstrap-icons';
+import { goToPage } from '@utils/utils';
 
 @Component({
   selector: 'app-home',
   imports: [CommonModule, TranslateModule, RouterLink, NgIcon],
   providers: [
     provideIcons({
+      bootstrapArrowDown,
       heroArrowLeftStartOnRectangleMicro,
       heroArrowRightMicro,
       bootstrapRocketTakeoffFill,

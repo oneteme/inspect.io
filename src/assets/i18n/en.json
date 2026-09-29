@@ -78,9 +78,8 @@
     "headline": {
       "prefix": "Stop guessing.",
       "highlight": "INSPECT",
-      "suffix": "what is truly happening in your application."
+      "suffix": "what is truly happening in your application. Follow, analyze, and master all calls and interactions between the different components of your applications."
     },
-    "content": "INSPECT is a platform for monitoring and analyzing multiple types of calls and designed to provide deep visibility into the interactions between different components of a distributed system. INSPECT allows you to monitor and analyze the performance of your application, identify potential issues, and optimize your system's performance.",
     "cta": {
       "explore": "Explore features",
       "architecture": "Explore architecture",
