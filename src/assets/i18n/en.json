@@ -88,26 +88,24 @@
       "subtitle": "Integrate INSPECT easily and get total visibility over your microservices in minutes."
     },
     "profiles": {
-      "title": "Who is INSPECT for ?",
-      "description": "At first look, you might think that INSPECT is a developer tool only. But its value comes from the fact that every profile can use it. Developers are indeed the ones that have to implement it in the code. But after the implementation, everyone will find their work easier by using it.",
+      "title": "Who can use INSPECT?",
+      "description": "At first glance, one might think that INSPECT is only made for developers. But its added value lies in the fact that everyone can use it. Developers are, of course, the ones who need to implement it in the code. But after implementation, all profiles benefit from using it.",
       "technical": {
         "title": "Technical profile",
-        "people": "Developers and Ops",
-        "content": "Technical profiles can check the health of microservices, if the deployment has errors. INSPECT can also be used for log analysis, to find the root cause of an issue. Many protocols are unified to avoid a long search in multiple log files.",
+        "content": "Technical profiles can check the health of microservices, if the deployment has errors. INSPECT can also be used for incident analysis, as a debugging tool to find the root cause. With the architecture view that updates automatically, you can easily spot the components that interest you, or detect potential antipatterns that might have gone unnoticed.",
         "description": {
           "first": "Quick diagnosis and root cause isolation",
           "second": "Monitoring the health of deployments and versions",
-          "third": "Centralization and unification of heterogeneous logs"
+          "third": "Uniformization of protocols"
         }
       },
       "functional": {
         "title": "Functional profile",
-        "people": "PO, PM and business stakeholders",
-        "content": "A functional profile might be able to find out easily what is wrong without asking the dev team to check for logs because INSPECT provides detailed informations. It is also possible to see which requests are the most used and which are the most critical, helping to prioritize the backlog.",
+        "content": "A functional profile can easily identify a problem without asking the development team to check the logs, as INSPECT provides detailed information. It is also possible to see which queries are the most used, which helps prioritize the backlog. KPIs are accessible to better understand the query volume. INSPECT also allows generating an up-to-date architecture of your services to better understand the flows and interactions that occur over a given period.",
         "description": {
-          "first": "Clear visibility on business flows without technical expertise",
-          "second": "Identification of the most used requests and services",
-          "third": "Informed backlog prioritization based on real data"
+          "first": "Clear visibility into business flows",
+          "second": "Identification of queries and generation of KPIs",
+          "third": "Up-to-date architecture to understand flows and interactions"
         }
       }
     },
@@ -116,31 +114,31 @@
       "profiles": " More details on the use cases "
     },
     "description": {
-      "advantages": "Why use INSPECT ?",
+      "advantages": "Why use INSPECT ? ",
       "description": "A full package of tools in order to supervise, understand, and improve your application performances.",
       "observability": {
-        "title": "Observability",
-        "content": "Observing and diagnosing problems in complex systems has never been easier than after discovering INSPECT. You will get optimal observability across your applications."
+        "title": "Optimal observability",
+        "content": "Observing and diagnosing problems in complex systems has never been easier than after discovering INSPECT. You will get optimal observability across your applications"
       },
       "metrics": {
-        "title": "Metrics",
-        "content": "Understand user trends, identify critical requests effectively, and deliver the best user experience."
+        "title": "Master your metrics",
+        "content": "Understand user trends, identify critical requests, and deliver the best user experience."
       },
       "time": {
-        "title": "Real time",
-        "content": "Track your applications' calls and performance in real time. Your end users won't even have time to encounter bugs or anomalies."
+        "title": "Detect incidents as quickly as possible",
+        "content": "Monitor calls and application performance in real-time. Your end users will no longer encounter bugs or anomalies."
       },
       "e2e": {
-        "title": "End-to-end tracking",
-        "content": "No more analyzing endless logs. INSPECT spares you this effort through end-to-end tracking from the initial action to its completion, making it easy to understand the event flow."
+        "title": "Track your end-to-end flows",
+        "content": "Stop wasting considerable time searching logs across a multitude of services in vain. INSPECT allows you to track your end-to-end flows and directly determine which service interests you based on the event you want to analyze."
       },
       "uniformize": {
-        "title": "Data standardization",
-        "content": "INSPECT standardizes the analyzed request types as much as possible. Response codes are tailored so you can easily understand the root cause of an error, even without specialized technical knowledge."
+        "title": "Uniform traces",
+        "content": "INSPECT standardizes the types of traces collected. Everything is analyzed to ensure that anyone can understand the error information, even without specific technical knowledge."
       },
       "heartbeat": {
-        "title": "Monitoring",
-        "content": "With INSPECT, you can supervise and monitor all applications in your project, view the last restart, deployed version, retry count, and many other insights, all in a matter of seconds."
+        "title": "Maximum monitoring",
+        "content": "Monitor and supervise all the applications in your project. You will have access to the date of the last service restart, the deployed version, the number of attempts, and many other pieces of information, all within seconds."
       }
     }
   },

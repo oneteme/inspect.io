@@ -95,28 +95,28 @@
       "advantages": "Pourquoi utiliser INSPECT ? ",
       "description": "Une suite d'outils complète pour observer, comprendre et optimiser vos architectures distribuées.",
       "observability": {
-        "title": "Observabilité",
+        "title": "Une observabilité optimale",
         "content": "Observez, diagnostiquez les problèmes dans des systèmes complexes n'aura jamais été aussi simple qu'après avoir découvert INSPECT. Vous aurez une observabilité optimale sur vos applications"
       },
       "metrics": {
-        "title": "Métriques",
+        "title": "Maitrisez vos métriques",
         "content": "Comprenez les tendances de vos utilisateurs, repérer au mieux les requêtes critiques et offrez la meilleure expérience utilisateur."
       },
       "time": {
-        "title": "Temps réel",
+        "title": "Repérez au plus vite les incidents",
         "content": "Suivez en temps réel les appels et les performances de vos applications. Vos utilisateurs finaux n'auront plus le temps de tomber sur des bugs ou anomalies."
       },
       "e2e": {
-        "title": "Suivi de bout en bout",
-        "content": "Fini le travail fastidieux d'analyse de logs interminables. INSPECT vous épargne ce travail car il y a un suivi de bout en bout entre une première action et sa fin, permettant de comprendre facilement le flux des événements."
+        "title": "Suivez vos flux de bout en bout",
+        "content": "Ne gaspillez plus un temps considérable dans la recherche de logs entre une multitude de services. INSPECT vous permet de suivre vos flux de bout en bout, et de déterminer directement quel service vous intéresse selon l'événement que vous voulez analyser."
       },
       "uniformize": {
-        "title": "Uniformisation des données",
-        "content": "INSPECT uniformise au maximum les types de requêtes analysées. Les codes réponses sont adaptés au maximum pour que vous puissiez comprendre l'origine de l'erreur, même sans connaissance technique particulière."
+        "title": "Des traces uniformes",
+        "content": "INSPECT permet d'uniformiser au maximum les types de traces remontées. Tout est analysé au maximum pour que n'importe qui puisse comprendre les informations de l'erreur, même sans connaissance technique particulière."
       },
       "heartbeat": {
-        "title": "Monitoring",
-        "content": "Avec INSPECT, vous pourrez surveiller et monitorer l'ensemble des applications de votre projet, voir le dernier redémarrage, la version déployée, le nombre de tentatives, et bien d'autres informations tout ça en quelques secondes."
+        "title": "Une surveillance maximale",
+        "content": "Surveillez, supervisez l'ensemble des applications de votre projet. Vous aurez accès à la date du dernier redémarrage d'un service, la version déployée, le nombre de tentatives, et bien d'autres informations tout ça en quelques secondes."
       }
     },
     "profiles": {
@@ -124,22 +124,20 @@
       "description": "À première vue, on peut penser qu'INSPECT est uniquement fait pour les développeurs. Mais sa plus-value réside dans le fait que tout le monde peut l'utiliser. Les développeurs sont, certes, ceux qui doivent l'implémenter dans le code. Mais après l'implémentation, tous les profils sont gagnants en l'utilisant.",
       "technical": {
         "title": "Profil technique",
-        "people": "Développeurs et Ops",
-        "content": "Les profils techniques peuvent vérifier la santé des microservices, si le déploiement a des erreurs. INSPECT peut également être utilisé pour l'analyse des logs, afin de trouver la root cause. Plusieurs réponses de protocoles sont unifiées au maximum pour éviter une longue recherche dans plusieurs fichiers de logs volumineux.",
+        "content": "Les profils techniques peuvent vérifier la santé des microservices, si le déploiement a des erreurs. INSPECT peut également être utilisé pour l'analyse d'incidents, comme outil de debuggage pour trouver la root cause. Avec la vue architecture qui se met automatiquement à jour, vous pourrez facilement repérer les briques qui vous intéressent, ou détecter d'éventuels antipattern qui n'auraient pas été repérés.",
         "description": {
           "first": "Diagnostic rapide et isolation de la root-cause",
           "second": "Suivi de l'état de santé des déploiements et des versions",
-          "third": "Centralisation et unification des logs hétérogènes"
+          "third": "Uniformisation des protocoles"
         }
       },
       "functional": {
         "title": "Profil fonctionnel",
-        "people": "PO, PM et métier",
-        "content": "Un profil fonctionnel peut facilement identifier un problème sans demander à l'équipe de développement de vérifier les logs, car INSPECT fournit des informations détaillées. Il est également possible de voir quelles requêtes sont les plus utilisées et quelles sont les plus critiques, ce qui aide à prioriser le backlog.",
+        "content": "Un profil fonctionnel peut facilement identifier un problème sans demander à l'équipe de développement de vérifier les logs, car INSPECT fournit des informations détaillées. Il est également possible de voir quelles requêtes sont les plus utilisées ce qui aide à prioriser le backlog. Des KPI sont accessibles pour connaitre au mieux le volume de requêtes. INSPECT permet aussi de générer une architecture, à jour, de vos services pour comprendre au mieux les flux et les interactions qui ont lieu sur une période donnée. ",
         "description": {
-          "first": "Visibilité claire sur les flux métier sans expertise technique",
-          "second": "Identification des requêtes et services les plus sollicités",
-          "third": "Priorisation éclairée du backlog basée sur des données réelles"
+          "first": "Visibilité claire sur les flux métier",
+          "second": "Identification des requêtes et génération de KPI",
+          "third": "Architecture à jour pour comprendre les flux et interactions"
         }
       }
     }
