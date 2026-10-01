@@ -389,7 +389,7 @@
           "title": "What are multi-thread and asynchronism?",
           "thread": {
             "title": "Multi-Thread",
-            "desc": "Multi-Thread is the ability of a program to execute multiple threads concurrently. Each thread can run independently, allowing for parallel execution of tasks. INSPECT automatically tracks user actions from one thread to another and across deferred executions. Even if a task is processed by a different thread 5 minutes later, it remains linked to the initial request."
+            "desc": "Multi-Thread is  de lancer plusieurs tâches simultanément dans un même programme. Chaque tâche est exécutée par un fil d'exécution (thread) distinct. INSPECT suit l'action utilisateur d'un thread à l'autre en propageant automatiquement le contexte de la session initiale à travers les différents threads d'exécution. Aucune rupture de traçabilité ne survient lors des opérations complexes en arrière-plan."
           },
           "async": {
             "title": "Asynchronism",

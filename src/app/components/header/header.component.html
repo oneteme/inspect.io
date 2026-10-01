@@ -138,15 +138,16 @@
 
 
 
-  <button
-    type="button"
-    class="theme-button"
-    [attr.aria-label]="'header.theme-toggle' | translate"
-    [title]="'header.theme-toggle' | translate"
-    (click)="themeService.toggleTheme()"
-  >
-    <!-- Sun icon when light -->
-    <svg *ngIf="!isDark()" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <div class="header-actions">
+    <button
+      type="button"
+      class="theme-button"
+      [attr.aria-label]="'header.theme-toggle' | translate"
+      [title]="'header.theme-toggle' | translate"
+      (click)="themeService.toggleTheme()"
+    >
+      <!-- Sun icon when light -->
+      <svg *ngIf="!isDark()" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -156,30 +157,30 @@
       <line x1="21" y1="12" x2="23" y2="12"></line>
       <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
       <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-    <!-- Moon icon when dark -->
-    <svg *ngIf="isDark()" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      </svg>
+      <!-- Moon icon when dark -->
+      <svg *ngIf="isDark()" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-    </svg>
-  </button>
+      </svg>
+    </button>
 
-  <button
-    type="button"
-    class="language-button"
-    [attr.aria-label]="'header.language-tooltip' | translate"
-    [title]="'header.language-tooltip' | translate"
-    (click)="toggleLanguage()"
-  >
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <button
+      type="button"
+      class="language-button"
+      [attr.aria-label]="'header.language-tooltip' | translate"
+      [title]="'header.language-tooltip' | translate"
+      (click)="toggleLanguage()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm6.93 9h-3.14a15.7 15.7 0 0 0-1.19-4.34A8.03 8.03 0 0 1 18.93 11ZM12 4.07A13.7 13.7 0 0 1 13.74 11h-3.48A13.7 13.7 0 0 1 12 4.07ZM4.26 13h3.48A13.7 13.7 0 0 0 9.4 18.34A8.03 8.03 0 0 1 4.26 13ZM4.07 11a8.03 8.03 0 0 1 4.33-4.34A15.7 15.7 0 0 0 7.21 11Zm3.14 2h3.14A15.7 15.7 0 0 0 11.54 19.93 8.03 8.03 0 0 1 7.21 13Zm3.14-2h3.3A13.7 13.7 0 0 1 12 18a13.7 13.7 0 0 1-1.65-5Zm3.3 2h3.14a8.03 8.03 0 0 1-4.33 4.34A15.7 15.7 0 0 0 15.65 13Z"/>
-    </svg>
-    <span class="language-button__label">{{ currentLang().toUpperCase() }}</span>
-  </button>
+      </svg>
+      <span class="language-button__label">{{ currentLang().toUpperCase() }}</span>
+    </button>
 
-  <button
-    type="button"
-    class="social-links"
-    (click)="goToGithub()">
+    <button
+      type="button"
+      class="social-links"
+      (click)="goToGithub()">
       <svg
         width="25"
         height="24"
@@ -192,27 +193,28 @@
           d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
         />
       </svg>
-  </button>
+    </button>
 
-<!-- List of the github repositories linked to the project -->
-  <div class="repo-menu">
-    <button
+    <!-- List of the github repositories linked to the project -->
+    <div class="repo-menu">
+      <button
       type="button"
       class="repo-menu-button"
       [class.is-open]="repoMenuOpen()"
       [attr.aria-expanded]="repoMenuOpen()"
       (click)="toggleMenu()"
-    >
+      >
       <span>{{ "header.repo" | translate }}</span>
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7 10l5 5 5-5" />
       </svg>
-    </button>
+      </button>
 
-    <nav *ngIf="repoMenuOpen()" class="menu-panel" aria-label="Inspect menu">
+      <nav *ngIf="repoMenuOpen()" class="menu-panel" aria-label="Inspect menu">
       <a *ngFor="let item of menuItems; trackBy: trackByLabel" [href]="item.link" target="_blank" rel="noopener noreferrer" (click)="closeMenu()">
         {{ item.label }}
       </a>
-    </nav>
+      </nav>
+    </div>
   </div>
 </header>

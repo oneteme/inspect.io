@@ -5,6 +5,7 @@
   top: 0;
   z-index: 1000;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 0.75rem 1.5rem;
@@ -20,7 +21,6 @@
   align-items: center;
   gap: var(--sp-2, 8px);
   padding: 0.4rem 0.75rem;
-  margin-left: auto;
   background: var(--clr-surface-raised, #f1f5f9);
   border: 1px solid var(--clr-border, #e2e8f0);
   border-radius: var(--radius-md, 8px);
@@ -28,7 +28,9 @@
   font-size: 0.82rem;
   cursor: pointer;
   transition: all 0.15s ease;
-  min-width: 180px;
+  width: 200px;
+  box-sizing: border-box;
+  flex-shrink: 0;
 
   svg { flex-shrink: 0; }
 
@@ -47,6 +49,14 @@
     border-color: var(--clr-text-primary, #111827);
     color: var(--clr-text-secondary, #475569);
   }
+}
+
+// Conteneur d'actions droite pour une position stable
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
 }
 
 // Jarvis button
@@ -101,14 +111,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
-  padding: 0.45rem 0.6rem;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   border: 1px solid transparent;
   border-radius: var(--radius-md, 8px);
   background: transparent;
   color: var(--clr-text-secondary);
   cursor: pointer;
   transition: all 0.2s ease;
+  flex-shrink: 0;
+  box-sizing: border-box;
 
   &:hover {
     color: var(--clr-text-primary);
@@ -129,15 +142,19 @@
 .language-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.45rem;
-  margin-left: 0.4rem;
-  padding: 0.45rem 0.7rem;
+  width: 66px;
+  height: 36px;
+  padding: 0 0.5rem;
   border: 1px solid transparent;
   border-radius: var(--radius-md, 8px);
   background: transparent;
   color: var(--clr-text-secondary);
   cursor: pointer;
   transition: all 0.2s ease;
+  flex-shrink: 0;
+  box-sizing: border-box;
 
   &:hover {
     color: var(--clr-text-primary);
@@ -157,31 +174,45 @@
 .language-button__label {
   font-size: 0.85rem;
   font-weight: 500;
-  margin-right: auto;
+  width: 22px;
+  text-align: center;
+  display: inline-block;
 }
 
 .repo-menu {
   position: relative;
-  margin-left: 0.5rem;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  flex-shrink: 0;
 }
 
 .repo-menu-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.35rem;
-  padding: 0.45rem 0.7rem;
+  width: 130px;
+  height: 36px;
+  padding: 0 0.6rem;
   border: 1px solid transparent;
   border-radius: var(--radius-md, 8px);
   background: transparent;
   color: var(--clr-text-primary);
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
   line-height: 1;
   transition: all 0.2s ease;
+  flex-shrink: 0;
+  box-sizing: border-box;
+
+  span {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   &:hover {
     background: var(--clr-surface-muted);
@@ -201,6 +232,7 @@
     stroke-width: 2;
     fill: none;
     transition: transform 0.2s ease;
+    flex-shrink: 0;
   }
 
   &.is-open svg {
@@ -209,17 +241,20 @@
 }
 
 .social-links {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: 0.4rem;
-  padding: 0.45rem;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   border-radius: var(--radius-md, 8px);
   cursor: pointer;
   border: 1px solid transparent;
   background-color: transparent;
   color: var(--clr-text-secondary);
   transition: all 0.2s ease;
+  flex-shrink: 0;
+  box-sizing: border-box;
 
   &:hover {
     color: var(--clr-text-primary);
