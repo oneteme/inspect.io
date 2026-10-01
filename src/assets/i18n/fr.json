@@ -157,14 +157,7 @@
     "telemetry": {
       "title": "Télémétrie",
       "subtitle": "La collecte automatique et continue des signaux vitaux",
-      "description": "La télémétrie désigne l'ensemble des mesures, signaux et données brutes capturés automatiquement au cœur des applications : le temps d'exécution d'une tâche, les erreurs rencontrées, la consommation de mémoire ou le chemin emprunté par une transaction."
-    },
-    "solution": {
-      "title": "INSPECT unifie ces 2 principes",
-      "points": {
-        "observability": "Observabilité : alors que la surveillance traditionnelle se contente de remonter des alertes isolées, la plateforme INSPECT offre une vision unifiée et en temps réel de la santé applicative, des parcours utilisateurs, de l'APM et de la cartographie des composants. Elle réunit décisionnaires, responsables métiers et équipes techniques autour d'une seule et même source de vérité.",
-        "telemetry": "Télémétrie : vous avez accès à toutes les données télémétriques. Vous pouvez voir les métriques, les temps d'exécution, le nombre d'erreurs et la consommation en termes de performances."
-      }
+      "description": "La télémétrie désigne l'ensemble des mesures, signaux et données brutes capturés automatiquement au cœur des applications : le temps d'exécution d'une tâche, les erreurs rencontrées, la consommation de mémoire ou le chemin emprunté par une transaction. Avec INSPECT, vous avez accès à toutes les données télémétriques. Vous pouvez voir les métriques, les temps d'exécution, le nombre d'erreurs et la consommation en termes de performances."
     },
     "dualTrace": {
       "title": "Dual Event Trace",

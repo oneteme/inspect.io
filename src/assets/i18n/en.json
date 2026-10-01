@@ -161,19 +161,10 @@
     "telemetry": {
       "title": "Telemetry",
       "subtitle": "Automatic and continuous collection of vital signals",
-      "description": "Telemetry refers to the automated collection of raw measurements and signals from the core of your applications: execution times, errors encountered, memory consumption, or the journey taken by a transaction.",
+      "description": "Telemetry refers to the automated collection of raw measurements and signals from the core of your applications: execution times, errors encountered, memory consumption, or the journey taken by a transaction. INSPECT provides objective, indisputable facts. You no longer rely on assumptions: every user action or nightly batch job has a timestamped factual record.",
       "value": {
         "title": "What it brings to you:",
         "desc": "Telemetry provides objective, indisputable facts. You no longer rely on assumptions: every user action or nightly batch job has a timestamped factual record."
-      }
-    },
-    "solution": {
-      "title": "INSPECT unifies these two principles",
-      "subtitle": "The universal bridge between technical reality and business stakes",
-      "description": "INSPECT gathers all telemetry, transforming it instantly into clear, visual observability.",
-      "points": {
-        "observability": "Observability: you can observe the health of your services through INSPECT. You can tell immediately if some requests are failing.",
-        "telemetry": "Telemetry: you have access to all the telemetry data, like execution time, errors, and memory consumption."
       }
     },
     "dualTrace": {
