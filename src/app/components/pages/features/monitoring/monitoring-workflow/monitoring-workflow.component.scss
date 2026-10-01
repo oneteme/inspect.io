@@ -404,6 +404,28 @@
 .text-indigo { color: #818cf8; }
 .text-amber { color: #fbbf24; }
 
+.workflow-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 3rem;
+  max-width: 580px;
+  width: 100%;
+  padding: 1.25rem;
+  background: var(--header-bg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
+
+  &__img {
+    width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px;
+  }
+}
+
 /* GENERAL SECTIONS */
 .section {
   padding: 4.5rem 0;
@@ -441,7 +463,6 @@
 /* FEATURES GRID */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 
   @media (max-width: 768px) {
@@ -505,82 +526,7 @@
   }
 }
 
-/* COMPARISON TABLE */
-.table-wrap {
-  overflow-x: auto;
-  border-radius: 0.75rem;
-  border: 1px solid var(--border-color, #e2e8f0);
-}
 
-.comp-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 0.875rem;
-
-  th, td {
-    padding: 1rem 1.25rem;
-    border-bottom: 1px solid var(--border-color, #e2e8f0);
-  }
-
-  th {
-    font-weight: 600;
-    color: var(--text-color, #0f172a);
-  }
-
-  td {
-    color: var(--text-muted, #64748b);
-  }
-
-  .highlight-col {
-    color: var(--text-color, #0f172a);
-    font-weight: 700;
-    border-left: 2px solid #6366f1;
-    border-right: 2px solid #6366f1;
-  }
-
-  .badge-check {
-    color: #10b981;
-    font-weight: 600;
-  }
-}
-
-/* ROI GRID */
-.roi-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.roi-card {
-  padding: 2rem;
-  text-align: center;
-
-  .roi-metric {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #6366f1;
-    margin-bottom: 0.5rem;
-  }
-
-  h4 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text-color, #0f172a);
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 0.875rem;
-    color: var(--text-muted, #64748b);
-    line-height: 1.5;
-    margin: 0;
-  }
-}
 
 /* CTA BANNER */
 .cta-banner {

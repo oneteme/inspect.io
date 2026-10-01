@@ -12,61 +12,22 @@
     <h1 class="hero__headline reveal">
       {{ "features.monitoring.workflow.title" | translate }}
     </h1>
-
-    <h2 class="hero__gradient reveal">{{ "features.monitoring.workflow.subtitle" | translate }}</h2>
-
-    <p class="hero__desc reveal">
-      {{ "features.monitoring.workflow.description" | translate }}
-    </p>
   </section>
 
-  <!-- SECTION 1: CONCEPT EXPLANATION -->
-  <section class="section" id="monitoring-workflow-concept">
-    <div class="section__header reveal">
-      <h3 class="section__title">{{ "features.monitoring.workflow.concept.title" | translate }}</h3>
-    </div>
-
-    <div class="features-grid">
-      <article class="feature-card reveal">
-        <div class="feature-card__icon-wrap icon--cyan">
-          <ng-icon name="bootstrapDatabaseFill"></ng-icon>
-        </div>
-        <h3 class="feature-card__title">{{ "features.monitoring.workflow.concept.jdbc.title" | translate }}</h3>
-        <p class="feature-card__desc">{{ "features.monitoring.workflow.concept.jdbc.desc" | translate }}</p>
-      </article>
-
-      <article class="feature-card reveal">
-        <div class="feature-card__icon-wrap icon--indigo">
-          <ng-icon name="bootstrapGlobe2"></ng-icon>
-        </div>
-        <h3 class="feature-card__title">{{ "features.monitoring.workflow.concept.rest.title" | translate }}</h3>
-        <p class="feature-card__desc">{{ "features.monitoring.workflow.concept.rest.desc" | translate }}</p>
-      </article>
-
-      <article class="feature-card reveal">
-        <div class="feature-card__icon-wrap icon--amber">
-          <ng-icon name="bootstrapFolderFill"></ng-icon>
-        </div>
-        <h3 class="feature-card__title">{{ "features.monitoring.workflow.concept.ftp.title" | translate }}</h3>
-        <p class="feature-card__desc">{{ "features.monitoring.workflow.concept.ftp.desc" | translate }}</p>
-      </article>
-
-      <article class="feature-card reveal">
-        <div class="feature-card__icon-wrap icon--emerald">
-          <ng-icon name="bootstrapEnvelopeFill"></ng-icon>
-        </div>
-        <h3 class="feature-card__title">{{ "features.monitoring.workflow.concept.smtp.title" | translate }}</h3>
-        <p class="feature-card__desc">{{ "features.monitoring.workflow.concept.smtp.desc" | translate }}</p>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- SECTION 2: INSPECT VALUE PROPOSITION -->
   <section class="section" id="monitoring-workflow-value">
+    <div class="workflow-illustration reveal">
+      <img
+        src="assets/icons/features/monitoring/multiprotocols.png"
+        alt="Multiprotocols"
+        class="workflow-illustration__img"
+      />
+    </div>
+    <div class="section__header reveal">
+      <h2 class="section__header">{{ "features.monitoring.workflow.monitore.title" | translate }}</h2>
+      <p class="hero__desc reveal">{{ "features.monitoring.workflow.monitore.desc" | translate }}</p>
+    </div>
     <div class="section__header reveal">
       <h2 class="section__header">{{ "features.monitoring.workflow.stages.title" | translate }}</h2>
-      <h3 class="hero__gradient">{{ "features.monitoring.workflow.stages.subtitle" | translate }}</h3>
       <p class="hero__desc reveal">{{ "features.monitoring.workflow.stages.desc" | translate }}</p>
     </div>
   </section>

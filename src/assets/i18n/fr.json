@@ -224,30 +224,13 @@
       "workflow": {
         "title": "Flux sortants et dépendances systèmes",
         "subtitle": "Polyvalence des protocoles",
-        "description": "Une application étant amenée à échanger avec d'autres, il est parfois compliqué d'avoir une manière uniforme d'analyser les échanges car il n'y a pas de manière uniforme d'échanger. De nombreux protocoles existent. INSPECT s'adapte à une multitude de protocoles.",
-        "concept": {
-          "title": "Protocoles intégrables via INSPECT",
-          "jdbc": {
-            "title": "JDBC / Base de données",
-            "desc": "INSPECT est capable de lire et d'analyser les requêtes qui ont eu lieu dans votre base de données. Si des transactions prennent du temps, cela devient facilement repérable et des actions peuvent être mises en place (comme la mise en place d'index)."
-          },
-          "rest": {
-            "title": "Requêtes HTTP",
-            "desc": "Superviser les appels vers d'autres applications ou partenaires. Les différents codes de réponse HTTP sont pris en compte (200, 400, 500...)"
-          },
-          "ftp": {
-            "title": "FTP / SFTP",
-            "desc": "L'envoi ou la récupération de fichiers sur des serveurs distants. INSPECT surveille le débit, la taille des fichiers et les erreurs de connexion."
-          },
-          "smtp": {
-            "title": "SMTP / Emails",
-            "desc": "L'envoi des notifications, confirmations de commande et alertes. INSPECT vérifie que les emails partent bien et mesure les délais de remise."
-          }
+        "monitore": {
+          "title": "Surveillance des interactions externes",
+          "desc": "Une application dépend rarement d'elle-même. INSPECT intercepte automatiquement tous les échanges vers l'extérieur : requêtes vers la base de données (JDBC), transferts de fichiers (FTP/SFTP), envois de courriels (SMTP), requêtes d'annuaire (LDAP) ou appels d'API Web (HTTP)."
         },
         "stages": {
-          "title": "Mode de vue Stages",
-          "subtitle": "Comment faire lorsque tous ces protocoles sont appelés dans une seule action ?",
-          "desc": " L'avantage clé d'INSPECT est de pouvoir suivre une action complète, même si elle fait appel à plusieurs protocoles différents. Si une action utilisateur déclenche une requête HTTP, qui elle-même déclenche une requête JDBC, INSPECT suit l'ensemble du flux et vous montre exactement ce qui a lieu grâce à la partie Stages. Les actions sont toutes listées chronologiquement pour comprendre comment est organisée la chaine."
+          "title": "Analyse par stages (étapes de traitement)",
+          "desc": "En décomposant chaque appel en \"stages\" (étapes), la solution isole précisément le temps passé dans chaque sous-système pour identifier instantanément le maillon faible."
         }
       },
       "user": {

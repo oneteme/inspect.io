@@ -262,36 +262,16 @@
       "workflow": {
         "title": "Outbound flows and system dependencies",
         "subtitle": "Multi protocols",
-        "description": "No application lives in isolation. It's complicated to have a unique method to analyze all flows because there is no unique exchange protocol. There are multiples. INSPECT takes in consideration this issue by handling multiple protocols.",
-        "concept": {
-          "title": "INSPECT compatible protocols",
-          "jdbc": {
-            "title": "JDBC / Database",
-            "desc": "INSPECT can read and analyze queries executed in your database. If transactions take time, it becomes easily noticeable and actions can be taken (such as adding indexes)."
-          },
-          "rest": {
-            "title": "HTTP Requests",
-            "desc": "Monitor calls to partner applications. Response codes are taken into account (200, 400, 500...)"
-          },
-          "ftp": {
-            "title": "FTP / SFTP",
-            "desc": "Sending or fetching files from remote servers. INSPECT monitors throughput, file sizes, and network connection errors."
-          },
-          "smtp": {
-            "title": "SMTP / Emails",
-            "desc": "Sending notifications, order confirmations, and alerts. INSPECT ensures emails are dispatched and tracks delivery latencies."
-          }
+        "monitore": {
+          "title": "Monitoring external interactions",
+          "desc": "An application rarely depends solely on itself. INSPECT automatically intercepts all outbound exchanges: database queries (JDBC), file transfers (FTP/SFTP), email sending (SMTP), directory queries (LDAP), or Web API calls (HTTP)."
         },
         "stages": {
-          "title": "Stages analysis",
-          "subtitle": "How should we do when a single action launches multiple protocols at one time?",
-          "desc": "Key concept of INSPECT is the ability to track down a complete feature execution, even if it involves multiple protocols and services. If a user launch one http request, and that request makes an action in the database, INSPECT tracks the whole flow and show exactly what happened in a tab called 'Stages'. All chain is available to understand how it's organized."
+          "title": "Stages analysis (processing steps)",
+          "desc": "By breaking down each call into \"stages\" (steps), the solution precisely isolates the time spent in each subsystem to instantly identify the weak link."
         }
       },
       "user": {
-        "badges": {
-          "title": "USER EXPERIENCE"
-        },
         "title": "User Experience & Journey Analytics",
         "subtitle": "Navigation and Product Analytics to maximize customer satisfaction",
         "description": "Technical performance only matters if it delivers value to the end user. INSPECT links navigation journeys directly to the real performance felt by your customers.",
