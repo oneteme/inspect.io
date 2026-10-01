@@ -16,7 +16,9 @@ import {
   bootstrapClockHistory,
   bootstrapExclamationTriangleFill,
   bootstrapGraphUpArrow,
-  bootstrapGlobe2
+  bootstrapGlobe2,
+  bootstrapDisplay,
+  bootstrapPeopleFill
 } from '@ng-icons/bootstrap-icons';
 import { Router } from '@angular/router';
 import { goToPage } from '@utils/utils';
@@ -45,7 +47,9 @@ import { ContextKey } from '@app/components/pages/features/monitoring/monitoring
       bootstrapClockHistory,
       bootstrapExclamationTriangleFill,
       bootstrapGraphUpArrow,
-      bootstrapGlobe2
+      bootstrapGlobe2,
+      bootstrapDisplay,
+      bootstrapPeopleFill
     })
   ]
 })

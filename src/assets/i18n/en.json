@@ -272,73 +272,79 @@
         }
       },
       "user": {
-        "title": "User Experience & Journey Analytics",
-        "subtitle": "Navigation and Product Analytics to maximize customer satisfaction",
+        "title": "User experience and journey analytics",
         "description": "Technical performance only matters if it delivers value to the end user. INSPECT links navigation journeys directly to the real performance felt by your customers.",
         "concept": {
-          "title": "What are User Journey and User Experience (UX) in a Web Application?",
-          "desc": "Understanding the sequence of user actions and their overall perception when interacting with the application.",
+          "title": "What is user journey and user experience (UX) in a web application?",
+          "desc": "Understanding the user's actions and overall experience when using the application.",
           "journey": {
-            "title": "User Journey",
-            "desc": "Refers to the sequence of steps, screens, and actions (clicks, inputs, navigations) that a user performs to achieve a goal (e.g., logging in, searching for a file, submitting a form)."
+            "title": "User journey",
+            "desc": "Refers to the sequence of steps, screens, and actions (clicks, inputs, navigations) a user takes to achieve a goal (e.g., logging in, searching for a file, submitting a form)."
           },
           "ux": {
-            "title": "User Experience (UX)",
-            "desc": "Encompasses the user's overall feeling: fluidity, display speed, workflow clarity, and the absence of errors or technical roadblocks."
+            "title": "User experience (UX)",
+            "desc": "Encompasses the user's overall perception: smoothness, display speed, clarity of flow, and absence of errors or technical blockages."
           }
         },
+        "measurement": {
+          "title": "Measuring real user experience",
+          "desc": "Using the lightweight Angular collector (@oneteme/inspect-ng-collector), INSPECT captures frontend activity directly in the user's browser."
+        },
+        "universal": {
+          "title": "Bridging business and technical perspectives",
+          "desc": "Teams can track actual user navigation, identify friction or drop-off points, and determine whether perceived slowness is due to the network, the browser, or the server."
+        },
         "role": {
-          "title": "INSPECT's Role in Navigation and User Experience",
-          "subtitle": "In many architectures, when a user encounters an anomaly or slowdown, it is difficult to know exactly what they did. INSPECT bridges this gap by directly linking browser-side behavior to backend executions:",
+          "title": "The role of INSPECT in navigation and user experience",
+          "subtitle": "In many architectures, when a user encounters an anomaly or slowness, it is difficult to know exactly what they did.",
           "navigation": {
-            "title": "Automatic Navigation Tracking",
+            "title": "Automatic navigation tracing",
             "router": {
-              "title": "Router lifecycle monitoring (navigation.monitor.ts)",
-              "desc": "INSPECT detects every URL change (NavigationStart, NavigationEnd, NavigationCancel) and timestamps transition durations."
+              "title": "State monitoring",
+              "desc": "INSPECT detects each URL change and timestamps the transition times."
             },
             "cache": {
-              "title": "Advanced behavior handling",
-              "desc": "Support for browser Back-Forward Cache (pageshow / bfcache) and page unload events (beforeunload)."
+              "title": "Advanced behavior management",
+              "desc": "Takes into account the browser cache and page exits."
             },
             "session": {
-              "title": "Session correlation (SessionManager)",
-              "desc": "Each view or navigation is linked to a logical session, propagating technical IDs to backend HTTP requests."
+              "title": "Session correlation",
+              "desc": "Each view or navigation is linked to a logical session, propagating technical identifiers to backend HTTP requests."
             }
           },
           "interaction": {
-            "title": "User Interaction Capture",
+            "title": "User interaction capture",
             "dom": {
-              "title": "DOM (Document Object Model) event listening",
-              "desc": "The UserActionMonitor module automatically listens to DOM events, which are all basic user actions like click, scroll, and load."
+              "title": "Automatic DOM (Document Object Model) event listening",
+              "desc": "A module in INSPECT automatically listens to DOM events, which are all basic user actions such as click, scroll, and load."
             },
             "semantic": {
               "title": "Intelligent resolution",
-              "desc": "INSPECT identifies target elements without manual setup by extracting labels via technical attributes."
+              "desc": "INSPECT identifies the targeted element without manual configuration by extracting its label through its technical attributes."
             }
           },
           "correlation": {
-            "title": "Instant Link with Errors & Performance",
+            "title": "Immediate correlation with errors and performance",
             "error": {
-              "title": "Direct link to anomalies",
-              "desc": "Any crash or network latency is instantly tied to the exact action and page where the user was."
+              "title": "Direct attachment to anomalies",
+              "desc": "Any crash or network slowdown is instantly linked to the exact action and the page where the user was."
             }
           }
         },
         "analytics": {
-          "badge": "inspect-app/src/app/views/analytic/",
-          "title": "The \"Product Analytics (Beta)\" Module in INSPECT",
-          "subtitle": "The Product Analytics module transforms technical traces into an actionable visual timeline:",
+          "title": "The « Product Analytics (Beta) » module in INSPECT",
+          "subtitle": "The Product Analytics module transforms technical traces into an exploitable visual timeline:",
           "timeline": {
-            "title": "User Journey Timeline",
-            "desc": "By selecting a user and a date, technical or support teams access the exact session replay as a chronological feed (\"Page load\", \"Click on Submit button\", \"Field change\")."
+            "title": "User journey timeline",
+            "desc": "INSPECT provides an exact restitution of a session in the form of a chronological thread."
           },
           "reproduction": {
-            "title": "Ultra-Fast Incident Reproduction",
-            "desc": "No need to ask users to describe their steps, the scenario is easily reproduced."
+            "title": "Rapid incident reproduction",
+            "desc": "No need to ask the user to describe their steps, the scenario is easily reproduced."
           },
           "insights": {
-            "title": "Understanding Real Usage",
-            "desc": "Enables product and development teams to identify most frequented paths, neglected screens."
+            "title": "Understanding real usage",
+            "desc": "Product and development teams can identify the most used tabs and the less viewed screens."
           }
         }
       }

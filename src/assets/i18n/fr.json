@@ -248,6 +248,14 @@
             "desc": "Englobe le ressenti global de l'utilisateur : la fluidité, la rapidité d'affichage, la clarté du flux et l'absence d'erreurs ou de blocages techniques."
           }
         },
+        "measurement": {
+          "title": "Mesure de l'expérience réelle",
+          "desc": "Grâce au collecteur léger Angular (@oneteme/inspect-ng-collector), INSPECT capte l'activité frontend directement dans le navigateur de l'utilisateur."
+        },
+        "universal": {
+          "title": "Rapprochement métier et technique",
+          "desc": "Les équipes peuvent suivre la navigation réelle des utilisateurs, repérer les zones de friction ou d'abandon, et vérifier si une lenteur perçue est due au réseau, au navigateur ou au serveur."
+        },
         "role": {
           "title": "Le rôle d'INSPECT dans la navigation et l'expérience utilisateur",
           "subtitle": "Dans beaucoup d'architectures, lorsqu'un utilisateur rencontre une anomalie ou une lenteur, il est difficile de savoir exactement ce qu'il a fait.",
@@ -290,7 +298,7 @@
           "subtitle": "Le module Product Analytics transforme les traces techniques en une chronologie visuelle exploitable :",
           "timeline": {
             "title": "Timeline du parcours utilisateur",
-            "desc": "En sélectionnant un utilisateur et une date, l'équipe technique ou le support accède à la restitution exacte de sa session sous forme de fil chronologique (\"Chargement de la page\", \"Clique sur le bouton Valider\", \"Changement de champ\")."
+            "desc": "INSPECT fournit une restitution exacte d'une session sous forme de fil chronologique."
           },
           "reproduction": {
             "title": "Reproduction rapide des incidents",
