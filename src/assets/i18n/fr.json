@@ -334,14 +334,13 @@
         "title": "Arbre de trace détaillé",
         "description": "Un arbre de traces offre une vision hiérarchique et chronologique complète du parcours emprunté par une action métier donnée (un clic utilisateur, une transaction ou un batch).",
         "concept": {
-          "title": "Application dans INSPECT",
           "diagnostic": {
-            "title": "Représentation claire du parcours ",
-            "desc": "INSPECT décompose visuellement chaque traitement sous forme d'arborescence parents/enfants, révélant la chaîne complète des composants sollicités (IHM, microservices, bases de données, tiers)."
+            "title": "Diagnostic visuel immédiat",
+            "desc": "Un manager ou un développeur peut déterminer en un coup d'œil quelle a été la durée d'un traitement. Par exemple, un traitement qui aurait duré 3 secondes n'a pas une durée égale entre les service. INSPECT permet de savoir que le code de l'application a été traité en 50 ms mais que l'attente d'une base de données externe a duré 2950 ms, soit la grande majorité de la requête."
           },
           "understanding": {
-            "title": "Compréhension des interactions",
-            "desc": "Un métier pourrait, grâce à INSPECT, auditer les flux réels déclenchés par une fonctionnalité de son application sans avoir besoin de lire une ligne de code."
+            "title": "Graphique temporel interactif",
+            "desc": "INSPECT présente une arborescence visuelle où chaque composant sollicité apparaît sous forme de bloc chronologique."
           }
         }
       },

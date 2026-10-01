@@ -370,17 +370,15 @@
       },
       "tree": {
         "title": "Detailed Trace Tree",
-        "description": "Trace tree gives a hierarchical and chronological view of the journey taken by a given business action (a user click, a transaction, or a batch).",
+        "description": "A trace tree provides a complete hierarchical and chronological view of the path taken by a given business action (a user click, a transaction, or a batch).",
         "concept": {
-          "title": "Application in INSPECT",
-          "desc": "A trace tree is like an itemized receipt or a family tree of execution: the parent action triggers child sub-actions.",
           "diagnostic": {
-            "title": "Clear representation of the flow",
-            "desc": "INSPECT decomposes each treatment into a parent-child tree, with each node representing a specific call."
+            "title": "Immediate Visual Diagnosis",
+            "desc": "A manager or developer can determine at a glance the duration of a process. For example, a process that took 3 seconds does not have an equal duration across services. INSPECT allows you to know that the application code was processed in 50 ms but that the wait for an external database took 2950 ms, which is the majority of the request."
           },
           "understanding": {
-            "title": "Hierarchical View",
-            "desc": "A clean visual tree showing how components execute sequentially or concurrently."
+            "title": "Interactive Temporal Graph",
+            "desc": "INSPECT presents a visual tree where each solicited component appears as a chronological block."
           }
         }
       },
