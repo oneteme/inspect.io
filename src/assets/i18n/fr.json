@@ -317,8 +317,7 @@
         "title": "CARTOGRAPHIE ET TRAÇABILITÉ"
       },
       "intro": {
-        "subtitle": "Suivre chaque action du clic utilisateur jusqu'à la base de données",
-        "description": "Un SI composé de multiples applications, serveurs et bases de données, peut suivre des chemins complexes."
+        "description": "Dans les architectures modernes composées de multiples services, suivre le cheminement d'une information s'apparente souvent à chercher une aiguille dans une botte de foin. La traçabilité End-to-End d'INSPECT reconstruit automatiquement le parcours complet de chaque transaction à travers toutes les couches du SI."
       },
       "pillars": {
         "title": "La cartographie et la traçabilité sont les outils qui permettent à INSPECT de palier ce problème de suivi de ces chemins",

@@ -350,13 +350,12 @@
       }
     },
     "e2e": {
-      "title": "Cartography & Traceability",
+      "title": "Cartography and traceability",
       "badges": {
         "title": "CARTOGRAPHY AND TRACEABILITY"
       },
       "intro": {
-        "subtitle": "Track actions from the user click down to the database",
-        "description": "An application is formed by multiple microservices, servers, and databases, which can follow complex paths."
+        "description": "In modern architectures composed of multiple services, tracking the flow of information is often like looking for a needle in a haystack. INSPECT's End-to-End traceability automatically reconstructs the complete path of each transaction across all layers of the IT system."
       },
       "pillars": {
         "title": "Cartography and traceability are the tools that solve this problem",

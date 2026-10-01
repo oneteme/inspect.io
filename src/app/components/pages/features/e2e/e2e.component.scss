@@ -107,7 +107,6 @@ $card-border-hover: var(--clr-primary, rgba(99, 102, 241, 0.4));
   &__desc {
     position: relative;
     z-index: 1;
-    font-size: clamp(0.95rem, 1.1vw, 1.08rem);
     line-height: 1.65;
     color: $text-muted;
     max-width: 800px;
@@ -129,8 +128,9 @@ $card-border-hover: var(--clr-primary, rgba(99, 102, 241, 0.4));
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  line-height: 1.65;
   transition: all 0.25s ease;
-F
+
   &__header {
     display: flex;
     align-items: center;
