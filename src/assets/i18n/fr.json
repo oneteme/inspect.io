@@ -143,8 +143,8 @@
     }
   },
   "features": {
-    "title": "INSPECT : un outil de télémétrie, d'observabilité et de supervision",
-    "subtitle": "Une visibilité totale pour les équipes techniques et fonctionnelles, sans toucher au code.",
+    "title": "INSPECT : un outil de télémétrie, d'observabilité et de supervision.",
+    "subtitle": "Le Dual Event Trace : garant d'un suivi optimal",
     "badge": {
       "title": "FONCTIONNALITÉS",
       "redirect": "+ de fonctionnalités"
@@ -152,7 +152,7 @@
     "observability": {
       "title": "Observabilité",
       "subtitle": "Comprendre l'état interne de vos systèmes à travers leurs signaux",
-      "description": "L'observabilité est la capacité à déduire l'état de santé, le comportement et les dysfonctionnements internes d'un système informatique complexe uniquement en observant ses sorties externes."
+      "description": "Dans un système d'information moderne, une panne ou un ralentissement peuvent rapidement impacter l'expérience client et le chiffre d'affaires. L'observabilité permet de constater qu'une erreur est survenue, mais surtout de comprendre pourquoi et comment un traitement s'est déroulé à travers tout le système. Alors que la surveillance traditionnelle se contente de remonter des alertes isolées, la plateforme INSPECT offre une vision unifiée et en temps réel de la santé applicative, des parcours utilisateurs, de l'APM et de la cartographie des composants. Elle réunit décisionnaires, responsables métiers et équipes techniques autour d'une seule et même source de vérité."
     },
     "telemetry": {
       "title": "Télémétrie",
@@ -162,8 +162,41 @@
     "solution": {
       "title": "INSPECT unifie ces 2 principes",
       "points": {
-        "observability": "Observabilité : vous pouvez observer l'état de vos services à travers INSPECT. Vous pouvez voir immédiatement si des requêtes ne passent plus.",
+        "observability": "Observabilité : alors que la surveillance traditionnelle se contente de remonter des alertes isolées, la plateforme INSPECT offre une vision unifiée et en temps réel de la santé applicative, des parcours utilisateurs, de l'APM et de la cartographie des composants. Elle réunit décisionnaires, responsables métiers et équipes techniques autour d'une seule et même source de vérité.",
         "telemetry": "Télémétrie : vous avez accès à toutes les données télémétriques. Vous pouvez voir les métriques, les temps d'exécution, le nombre d'erreurs et la consommation en termes de performances."
+      }
+    },
+    "dualTrace": {
+      "title": "Dual Event Trace",
+      "subtitle": "La corrélation de deux traces distinctes (début et fin) pour chaque opération",
+      "description": "INSPECT introduit la méthode innovante du Dual Event Trace : émettre deux traces distinctes pour une même opération. Une trace de lancement dès l'initialisation du traitement signale instantanément son exécution en cours, et une trace de clôture complète le bilan (durée totale, volumétrie, statut de succès ou erreurs). Cette approche permet de suivre en temps réel les traitements longs, de détecter immédiatement les blocages et garantit qu'en cas de crash brutal, l'opération interrompue reste parfaitement identifiable.",
+      "intro": "INSPECT introduit la méthode innovante du Dual Event Trace, qui consiste à émettre deux traces distinctes pour une même opération :",
+      "traces": {
+        "start": {
+          "title": "La trace de lancement (Début)",
+          "desc": "Émise immédiatement dès l'initialisation du traitement, elle signale instantanément au serveur que l'opération est en cours d'exécution."
+        },
+        "end": {
+          "title": "La trace de clôture (Fin)",
+          "desc": "Émise à la fin de l'opération, elle complète la trace initiale avec le bilan complet (durée totale, volumétrie, statut de succès ou détail des exceptions)."
+        }
+      },
+      "value": {
+        "title": "Pourquoi c'est une valeur ajoutée majeure pour les décideurs et les équipes ?",
+        "points": {
+          "tracking": {
+            "title": "Suivi en temps réel des traitements longs",
+            "desc": "Plus besoin d'attendre la fin d'un job de plusieurs heures pour vérifier s'il a bien démarré ou s'il est en cours."
+          },
+          "blockage": {
+            "title": "Détection précoce des blocages",
+            "desc": "Si un traitement a démarré mais n'émet pas sa trace de fin dans les délais habituels, les équipes repèrent immédiatement le ralentissement ou le blocage."
+          },
+          "reliability": {
+            "title": "Fiabilité opérationnelle renforcée",
+            "desc": "Même en cas de crash brutal du serveur au milieu d'un traitement, la trace de début reste enregistrée, ce qui permet de savoir exactement quel traitement a été interrompu."
+          }
+        }
       }
     },
     "monitoring": {

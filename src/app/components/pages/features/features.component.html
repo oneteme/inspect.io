@@ -34,7 +34,11 @@
         </div>
         <p class="pillar-card__desc">{{ "features.observability.description" | translate }}</p>
       </article>
+    </div>
+  </section>
 
+  <section class="section" id="features-pillars">
+    <div class="pillars-grid">
       <!-- Card 2: Telemetry -->
       <article class="pillar-card pillar-card--telemetry">
         <div class="pillar-card__header">
@@ -51,23 +55,21 @@
     </div>
   </section>
 
-  <!-- Solution Section -->
-  <section class="solution-section" id="features-solution">
-    <div class="solution-card">
-      <h2 class="solution-card__title">
-        {{ "features.solution.title" | translate }}
-      </h2>
-      <br>
-      <div class="solution-card__points">
-        <div class="solution-point">
-          <ng-icon name="bootstrapCheckCircleFill" class="solution-point__icon"></ng-icon>
-          <span class="solution-point__text">{{ "features.solution.points.observability" | translate }}</span>
+  <section class="section" id="features-pillars">
+    <div class="pillars-grid">
+      <!-- Card 3: Dual Event Trace -->
+      <article class="pillar-card pillar-card--dual-trace">
+        <div class="pillar-card__header">
+          <div class="pillar-card__icon-wrap icon--emerald">
+            <ng-icon name="bootstrapArrowLeftRight"></ng-icon>
+          </div>
+          <div class="pillar-card__header-text">
+            <h3 class="pillar-card__title">{{ "features.dualTrace.title" | translate }}</h3>
+            <span class="pillar-card__subtitle">{{ "features.dualTrace.subtitle" | translate }}</span>
+          </div>
         </div>
-        <div class="solution-point">
-          <ng-icon name="bootstrapCheckCircleFill" class="solution-point__icon"></ng-icon>
-          <span class="solution-point__text">{{ "features.solution.points.telemetry" | translate }}</span>
-        </div>
-      </div>
+        <p class="pillar-card__desc">{{ "features.dualTrace.description" | translate }}</p>
+      </article>
     </div>
   </section>
 </div>

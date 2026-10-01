@@ -11,6 +11,7 @@ import {
   bootstrapCheckCircleFill,
   bootstrapArrowDown,
   bootstrapChevronDown,
+  bootstrapArrowLeftRight,
 } from '@ng-icons/bootstrap-icons';
 import { goToPage, ScrollNavigationHandler } from '@utils/utils';
 import { ScrollspyService } from '@services/scrollspy.service';
@@ -31,6 +32,7 @@ import { ScrollspyService } from '@services/scrollspy.service';
       bootstrapCheckCircleFill,
       bootstrapArrowDown,
       bootstrapChevronDown,
+      bootstrapArrowLeftRight,
     }),
   ],
   templateUrl: './features.component.html',

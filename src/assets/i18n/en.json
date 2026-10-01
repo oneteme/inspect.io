@@ -176,6 +176,40 @@
         "telemetry": "Telemetry: you have access to all the telemetry data, like execution time, errors, and memory consumption."
       }
     },
+    "dualTrace": {
+      "badge": "INNOVATIVE METHOD",
+      "title": "Dual Event Trace",
+      "subtitle": "Correlating two distinct traces (start and end) for every operation",
+      "description": "INSPECT introduces the innovative Dual Event Trace method: emitting two distinct traces for a single operation. An initial launch trace signals that execution is underway, followed by a closing trace completing the full assessment (total duration, volume, success status, or errors). This approach enables real-time tracking of long-running processes, early bottleneck detection, and ensures that in the event of an abrupt crash, the interrupted operation remains clearly identifiable.",
+      "intro": "INSPECT introduces the innovative Dual Event Trace method, which involves emitting two distinct traces for a single operation:",
+      "traces": {
+        "start": {
+          "title": "Launch trace (Start)",
+          "desc": "Emitted immediately upon process initialization, it instantly signals to the server that the operation is running."
+        },
+        "end": {
+          "title": "Closing trace (End)",
+          "desc": "Emitted at the end of the operation, it complements the initial trace with the complete assessment (total duration, volume, success status, or details of exceptions)."
+        }
+      },
+      "value": {
+        "title": "Why is it a major added value for decision-makers and teams?",
+        "points": {
+          "tracking": {
+            "title": "Real-time tracking of long-running processes",
+            "desc": "No need to wait for a multi-hour job to complete to check if it has started properly or is currently in progress."
+          },
+          "blockage": {
+            "title": "Early bottleneck detection",
+            "desc": "If a process has started but does not emit its closing trace within normal timeframe, teams immediately spot the slowdown or blockage."
+          },
+          "reliability": {
+            "title": "Enhanced operational reliability",
+            "desc": "Even in the event of an abrupt server crash mid-processing, the start trace remains recorded, allowing you to know exactly which process was interrupted."
+          }
+        }
+      }
+    },
     "monitoring": {
       "title": "Monitoring",
       "badges": {
