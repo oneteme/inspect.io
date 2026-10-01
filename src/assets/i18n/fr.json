@@ -162,35 +162,7 @@
     "dualTrace": {
       "title": "Dual Event Trace",
       "subtitle": "La corrélation de deux traces distinctes (début et fin) pour chaque opération",
-      "description": "INSPECT introduit la méthode innovante du Dual Event Trace : émettre deux traces distinctes pour une même opération. Une trace de lancement dès l'initialisation du traitement signale instantanément son exécution en cours, et une trace de clôture complète le bilan (durée totale, volumétrie, statut de succès ou erreurs). Cette approche permet de suivre en temps réel les traitements longs, de détecter immédiatement les blocages et garantit qu'en cas de crash brutal, l'opération interrompue reste parfaitement identifiable.",
-      "intro": "INSPECT introduit la méthode innovante du Dual Event Trace, qui consiste à émettre deux traces distinctes pour une même opération :",
-      "traces": {
-        "start": {
-          "title": "La trace de lancement (Début)",
-          "desc": "Émise immédiatement dès l'initialisation du traitement, elle signale instantanément au serveur que l'opération est en cours d'exécution."
-        },
-        "end": {
-          "title": "La trace de clôture (Fin)",
-          "desc": "Émise à la fin de l'opération, elle complète la trace initiale avec le bilan complet (durée totale, volumétrie, statut de succès ou détail des exceptions)."
-        }
-      },
-      "value": {
-        "title": "Pourquoi c'est une valeur ajoutée majeure pour les décideurs et les équipes ?",
-        "points": {
-          "tracking": {
-            "title": "Suivi en temps réel des traitements longs",
-            "desc": "Plus besoin d'attendre la fin d'un job de plusieurs heures pour vérifier s'il a bien démarré ou s'il est en cours."
-          },
-          "blockage": {
-            "title": "Détection précoce des blocages",
-            "desc": "Si un traitement a démarré mais n'émet pas sa trace de fin dans les délais habituels, les équipes repèrent immédiatement le ralentissement ou le blocage."
-          },
-          "reliability": {
-            "title": "Fiabilité opérationnelle renforcée",
-            "desc": "Même en cas de crash brutal du serveur au milieu d'un traitement, la trace de début reste enregistrée, ce qui permet de savoir exactement quel traitement a été interrompu."
-          }
-        }
-      }
+      "description": "INSPECT introduit la méthode innovante du Dual Event Trace : émettre deux traces distinctes pour une même opération. Une trace de lancement dès l'initialisation du traitement signale instantanément son exécution en cours, et une trace de clôture complète le bilan (durée totale, volumétrie, statut de succès ou erreurs). Cette approche permet de suivre en temps réel les traitements longs, de détecter immédiatement les blocages et garantit qu'en cas de crash brutal, l'opération interrompue reste parfaitement identifiable."
     },
     "monitoring": {
       "title": "Supervision et suivi d'activité",
@@ -224,18 +196,13 @@
         "subtitle": "API, BATCH, Démarrage, Tests : comprendre tous les types d'activité",
         "description": "Pour superviser un ensemble d'applications, il faut superviser plusieurs méthodes et protocoles d'échanges. Tous transmettent différentes informations, de façon différente et à des moments différents : synchrone, asynchrone, à une fréquence régulière dans la nuit, pour une occurrence unique par un utilisateur etc.",
         "concept": {
-          "title": "Quelques événements supervisés par INSPECT",
-          "batch": {
-            "title": "Requêtes web et traitements réguliers",
-            "desc": "Les requêtes exécutées par les utilisateurs et les batch réguliers exécutés selon une fréquence déterminée sont correctement supervisés."
+          "unified": {
+            "title": "Visualisation unifiée des traitements",
+            "desc": "Qu'il s'agisse d'un clic sur une API Web, d'un traitement BATCH nocturne, d'une phase de démarrage d'application ou d'une suite de tests, INSPECT regroupe chaque activité sous la forme d'une Session d'exécution structurée."
           },
-          "startup": {
-            "title": "Démarrage et initialisation",
-            "desc": "Le moment où l'application se charge, se connecte aux bases de données et vérifie sa configuration. INSPECT identifie immédiatement les composants qui retardent le démarrage."
-          },
-          "tests": {
-            "title": "Tests automatisés",
-            "desc": "Les vérifications automatiques exécutées avant une mise en production. INSPECT capture les régressions de performance et les erreurs dès la phase de test."
+          "context": {
+            "title": "Contexte métier et technique",
+            "desc": "Chaque session conserve son identité (durée, statut d'exécution, environnement, instance applicative) pour un diagnostic immédiat sans bruit inutile."
           }
         },
         "value": {

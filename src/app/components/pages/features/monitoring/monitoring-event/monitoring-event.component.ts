@@ -11,7 +11,10 @@ import {
   bootstrapGearFill,
   bootstrapPower,
   bootstrapCheck2Circle,
-  bootstrapArrowDown
+  bootstrapArrowDown,
+  bootstrapLayersFill,
+  bootstrapCardChecklist,
+  bootstrapTransparency
 } from '@ng-icons/bootstrap-icons';
 import { hugeComputerProgramming01 } from '@ng-icons/huge-icons';
 import { goToPage } from '@utils/utils';
@@ -24,6 +27,7 @@ export type ContextKey = 'api' | 'batch' | 'startup' | 'test';
   imports: [CommonModule, TranslateModule, NgIcon],
   providers: [
     provideIcons({
+      bootstrapTransparency,
       bootstrapArrowRight,
       bootstrapCheckCircleFill,
       bootstrapRocketTakeoffFill,
@@ -32,7 +36,9 @@ export type ContextKey = 'api' | 'batch' | 'startup' | 'test';
       bootstrapPower,
       bootstrapCheck2Circle,
       hugeComputerProgramming01,
-      bootstrapArrowDown
+      bootstrapArrowDown,
+      bootstrapLayersFill,
+      bootstrapCardChecklist
     }),
   ],
   templateUrl: './monitoring-event.component.html',

@@ -229,14 +229,17 @@ $card-border-hover: var(--clr-primary, rgba(99, 102, 241, 0.4));
   }
 }
 
-// 4 Contexts Pillars Grid
+// Contexts Pillars Grid
 .contexts-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   margin-top: 1rem;
   gap: 1.75rem;
   width: 100%;
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .context-card {
@@ -278,6 +281,8 @@ $card-border-hover: var(--clr-primary, rgba(99, 102, 241, 0.4));
   }
 
 
+  &--unified &__icon-wrap { background: rgba(99, 102, 241, 0.1); color: #6366f1; }
+  &--context &__icon-wrap { background: rgba(6, 182, 212, 0.1); color: #06b6d4; }
   &--batch &__icon-wrap { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
   &--startup &__icon-wrap { background: rgba(14, 165, 233, 0.1); color: #0ea5e9; }
   &--test &__icon-wrap { background: rgba(16, 185, 129, 0.1); color: $accent; }

@@ -234,17 +234,13 @@
         "description": "To monitor a set of applications, you need to monitor multiple methods and exchange protocols. They all transmit different information, in different ways and at different times: synchronous, asynchronous, at a regular frequency during the night, for a single occurrence by a user, etc.",
         "concept": {
           "title": "Some events monitored by INSPECT",
-          "batch": {
-            "title": "Web requests and regular tasks",
-            "desc": "Every application executes web requests, using API. But there are also batchs jobs, who execute synchronously tasks, as for example deleting old datas every month or every year. These APIs and these batches can be monitored by INSPECT."
+          "unified": {
+            "title": "Unified Processing Visualization",
+            "desc": "Whether it is a click on a Web API, an overnight BATCH process, an application startup phase, or a test suite, INSPECT groups every activity into a structured execution Session."
           },
-          "startup": {
-            "title": "Startup & Initialization",
-            "desc": "The moment the application boots up, connects to databases, and loads configurations. INSPECT highlights components causing slow boot times."
-          },
-          "tests": {
-            "title": "Automated Tests",
-            "desc": "Automated checks run before releasing to production. INSPECT detects performance regressions and bugs during staging."
+          "context": {
+            "title": "Business and technical context",
+            "desc": "Each session maintains its identity (duration, execution status, environment, application instance) for immediate diagnosis without unnecessary noise."
           }
         },
         "value": {

@@ -20,45 +20,31 @@
     </p>
   </section>
 
-  <h3 class="subtitle reveal"> {{ "features.monitoring.events.concept.title" | translate }} </h3>
   <section class="section" id="monitoring-contexts">
     <div class="contexts-grid">
-      <!-- 1. API BATCH & Background Jobs -->
-      <article class="context-card context-card--batch reveal">
+      <!-- 1. Visualisation unifiée des traitements -->
+      <article class="context-card context-card--unified reveal">
         <div class="context-card__top">
           <div class="context-card__icon-wrap">
-            <ng-icon name="bootstrapGlobe" class="context-card__icon"></ng-icon>
+            <ng-icon name="bootstrapTransparency " class="context-card__icon"></ng-icon>
           </div>
         </div>
-        <h3 class="context-card__title">{{ "features.monitoring.events.concept.batch.title" | translate }}</h3>
+        <h3 class="context-card__title">{{ "features.monitoring.events.concept.unified.title" | translate }}</h3>
         <p class="context-card__desc">
-          {{ "features.monitoring.events.concept.batch.desc" | translate }}
+          {{ "features.monitoring.events.concept.unified.desc" | translate }}
         </p>
       </article>
 
-      <!-- 2. Startup & Initialization -->
-      <article class="context-card context-card--startup reveal">
+      <!-- 2. Contexte métier et technique -->
+      <article class="context-card context-card--context reveal">
         <div class="context-card__top">
           <div class="context-card__icon-wrap">
-            <ng-icon name="bootstrapPower" class="context-card__icon"></ng-icon>
+            <ng-icon name="bootstrapCardChecklist" class="context-card__icon"></ng-icon>
           </div>
         </div>
-        <h3 class="context-card__title">{{ "features.monitoring.events.concept.startup.title" | translate }}</h3>
+        <h3 class="context-card__title">{{ "features.monitoring.events.concept.context.title" | translate }}</h3>
         <p class="context-card__desc">
-          {{ "features.monitoring.events.concept.startup.desc" | translate }}
-        </p>
-      </article>
-
-      <!-- 3. Automated Tests -->
-      <article class="context-card context-card--test reveal">
-        <div class="context-card__top">
-          <div class="context-card__icon-wrap">
-            <ng-icon name="bootstrapCheck2Circle" class="context-card__icon"></ng-icon>
-          </div>
-        </div>
-        <h3 class="context-card__title">{{ "features.monitoring.events.concept.tests.title" | translate }}</h3>
-        <p class="context-card__desc">
-          {{ "features.monitoring.events.concept.tests.desc" | translate }}
+          {{ "features.monitoring.events.concept.context.desc" | translate }}
         </p>
       </article>
     </div>
