@@ -200,35 +200,30 @@
       }
     },
     "monitoring": {
-      "title": "Supervision",
+      "title": "Supervision et suivi d'activité",
       "badges": {
         "title": "SUPERVISION"
       },
       "intro": {
         "subtitle": "Visibilité continue sur la santé de l'application.",
-        "description": "Superviser une application consiste à surveiller son état en continu. INSPECT détecte chaque événement (succès ou échec), chaque métrique de rapidité et chaque anomalie, en corrélant les événements métier avec leurs traces techniques."
+        "description": "Superviser une application consiste à surveiller son état en continu. INSPECT détecte chaque événement, chaque métrique de rapidité, chaque exception, en corrélant les événements métier avec leurs traces techniques."
       },
       "pillars": {
-        "title": "Comment INSPECT garantit la supervision",
+        "title": "Ce suivi d'activité s'appuie sur le triptyque de l'observabilité : les traces, les métriques et les exceptions.",
         "traces": {
-          "title": "Traces d'exécution",
+          "title": "Traces",
           "description": "Le parcours chronologique complet d'une demande à travers l'application, étape par étape.",
           "benefit": "Savoir exactement où et pourquoi un traitement a ralenti ou échoué."
         },
         "metrics": {
-          "title": "Métriques de performance",
+          "title": "Métriques",
           "description": "Les indicateurs chiffrés réguliers : temps moyen d'exécution, volume de requêtes.",
           "benefit": "Évaluer la santé globale et anticiper les besoins d'évolution."
         },
         "exceptions": {
-          "title": "Exceptions et erreurs",
+          "title": "Exceptions",
           "description": "Les exceptions et les erreurs sont repérées et détaillées pour comprendre au mieux l'origine d'une anomalie.",
           "benefit": "Être capable de faire un premier travail d'analyse sans compétences techniques, juste avec des connaissances fonctionnelles de votre application."
-        },
-        "dualtrace": {
-          "title": "Suivi de trace",
-          "description": "Le suivi d'événements est possible entre plusieurs briques différentes à travers un seul identifiant quelle que soit la technologie utilisée.",
-          "benefit": "Une compréhension commune immédiate entre les équipes métier et techniques."
         }
       },
       "events": {

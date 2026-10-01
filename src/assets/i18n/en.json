@@ -152,7 +152,7 @@
     "observability": {
       "title": "Observability",
       "subtitle": "Understanding internal system state through external signals",
-      "description": "Observability is the ability to understand a software system's internal health, behavior, and failures simply by analyzing its external outputs.",
+      "description": "In a modern information system, a failure or slowdown can quickly impact customer experience and revenue. Observability allows you to see that an error has occurred, but more importantly, to understand why and how a process unfolded across the entire system. While traditional monitoring only raises isolated alerts, the INSPECT platform provides a unified, real-time view of application health, user journeys, APM, and component mapping. It brings together decision-makers, business leaders, and technical teams around a single source of truth.",
       "value": {
         "title": "What it brings to you:",
         "desc": "No more crisis meetings where teams blame each other. Observability enables everyone (business, support, developers) to understand within seconds what truly happened during an incident."
@@ -211,7 +211,7 @@
       }
     },
     "monitoring": {
-      "title": "Monitoring",
+      "title": "Monitoring and observability",
       "badges": {
         "title": "MONITORING"
       },
@@ -235,11 +235,6 @@
           "title": "Exceptions and errors",
           "description": "Exceptions and errors are detected and logged with details to understand fully an anomaly",
           "benefit": "Being able to make a diagnosis without technical skills, just by knowing how your application works functionnaly."
-        },
-        "dualtrace": {
-          "title": "Dual Event Trace",
-          "description": "Event trace is possible between multiple applications no matter if there are multiple protocols involved.",
-          "benefit": "Instant shared understanding between business and technical teams."
         }
       },
       "events": {

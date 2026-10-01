@@ -71,7 +71,7 @@ $card-border-hover: var(--clr-primary, rgba(99, 102, 241, 0.4));
     border-radius: 999px;
     background: var(--badge-bg);
     border: 1px solid var(--badge-border);
-    color: $primary;
+    color: var(--primary);
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 1.25rem;
@@ -81,7 +81,7 @@ $card-border-hover: var(--clr-primary, rgba(99, 102, 241, 0.4));
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: $primary;
+    background: var(--primary);
   }
 
   &__headline {
@@ -117,7 +117,7 @@ $card-border-hover: var(--clr-primary, rgba(99, 102, 241, 0.4));
 
 .intro-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
 
   @media (max-width: 768px) {
