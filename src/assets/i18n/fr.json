@@ -362,7 +362,7 @@
       },
       "cartography": {
         "title": "Cartographie dynamique des systèmes",
-        "description": "Comme dit précédemment, INSPECT peut automatiquement générer une cartographie vivante et en temps réel de vos systèmes d'information à partir des flux réels.",
+        "description": "Comme dit précédemment, INSPECT peut automatiquement générer une cartographie vivante et en temps réel de vos systèmes d'information en analysant les flux réels.",
         "concept": {
           "map": {
             "title": "Carte des flux",
@@ -371,6 +371,10 @@
           "health": {
             "title": "État de santé en temps réel",
             "desc": "La cartographie permet aussi de vérifier l'état des autres services internes (plus de détails dans la partie \"Cycle de vie et état des versions\")."
+          },
+          "urbanization": {
+            "title": "Maîtrise de l'urbanisation",
+            "desc": "Les architectes visualisent en temps réel les liaisons effectives entre applications, bases de données et services tiers."
           }
         }
       }

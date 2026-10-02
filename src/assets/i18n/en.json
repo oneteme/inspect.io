@@ -408,6 +408,10 @@
           "health": {
             "title": "Real-time health status",
             "desc": "The cartography also allows checking the status of other internal services (more details in the \"Lifecycle and Version Status\" section)."
+          },
+          "urbanization": {
+            "title": "Mastering urbanization",
+            "desc": "Architects visualize real-time actual connections between applications, databases, and third-party services."
           }
         }
       }
