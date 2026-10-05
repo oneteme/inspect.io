@@ -404,11 +404,7 @@
         "concept": {
           "latency": {
             "title": "Latence / Temps d'attente",
-            "desc": "INSPECT permet de répérer les latences : les moments où le délai entre le moment où l'utilisateur clique et que la réponse s'affiche à l'écran."
-          },
-          "percentile": {
-            "title": "Percentiles",
-            "desc": "INSPECT prend en compte les percentiles, ce qui permet d'avoir une valeur plus juste du temps d'attente vécu par vos utilisateurs"
+            "desc": "INSPECT permet de répérer les latences : les moments où le délai entre le moment où l'utilisateur clique et que la réponse s'affiche à l'écran.  Au-delà des moyennes qui masquent souvent les vrais problèmes, la console d'affichage (inspect-app) analyse la distribution des temps de réponse sur des fenêtres configurables (ex. 30 min, 24 heures) pour déceler les goulots d'étranglement."
           },
           "bottleneck": {
             "title": "Goulot d'étranglement",

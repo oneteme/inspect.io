@@ -437,55 +437,51 @@
         }
       },
       "performance": {
-        "title": "Performance et Temps de Réponse",
+        "title": "Performance and Response Time",
         "concept": {
           "latency": {
-            "title": "Latence / Temps d'attente",
-            "desc": "INSPECT permet de répérer les latences : les moments où le délai entre le moment où l'utilisateur clique et que la réponse s'affiche à l'écran."
-          },
-          "percentile": {
-            "title": "Percentiles",
-            "desc": "INSPECT prend en compte les percentiles, ce qui permet d'avoir une valeur plus juste du temps d'attente vécu par vos utilisateurs"
+            "title": "Latency / Waiting time",
+            "desc": "INSPECT allows you to identify latencies: the moments when the delay between the user clicking and the response being displayed on the screen occurs. Beyond averages that often hide the real problems, the display console (inspect-app) analyzes the distribution of response times over configurable windows (e.g., 30 min, 24 hours) to detect bottlenecks."
           },
           "bottleneck": {
-            "title": "Goulot d'étranglement",
-            "desc": "Détection des goulots d'étranglement : le composant précis (base de données, réseau, calcul lourd) qui ralentit toute la chaîne. Repérer un goulot d'étranglement permet de comprendre les différences de performances entre plusieurs briques de vos applications."
+            "title": "Bottleneck",
+            "desc": "Detection of bottlenecks: the specific component (database, network, heavy computation) that slows down the entire chain. Identifying a bottleneck helps understand performance differences between various parts of your applications."
           }
         }
       },
       "volume": {
-        "title": "Volumétrie et débit",
-        "description": "Suivez le volume de transactions traitées par seconde et anticipez les montées en charge pour garantir la fluidité du service.",
+        "title": "Volume and Throughput",
+        "description": "Monitor the volume of transactions processed per second and anticipate load increases to ensure service smoothness.",
         "concept": {
           "rps": {
-            "title": "Débit (Throughput)",
-            "desc": "En suivant le nombre de requêtes, commandes ou transactions traitées avec succès par unité de temps, INSPECT permet de connaitre au mieux le débit de vos applications."
+            "title": "Throughput (RPS)",
+            "desc": "By tracking the number of requests, commands, or transactions successfully processed per unit of time, INSPECT allows you to better understand the throughput of your applications."
           },
           "spike": {
-            "title": "Pic de charge",
-            "desc": "Les moments d'affluence exceptionnelle sont facilement repérables."
+            "title": "Load Spike",
+            "desc": "Exceptional traffic moments are easily identifiable."
           },
           "capacity": {
-            "title": "Capacité et dimensionnement",
-            "desc": "Capacité d'anticiper les montées de charge et dimensionner l'infrastructure avant la saturation des serveurs."
+            "title": "Capacity and Sizing",
+            "desc": "Ability to anticipate load increases and size the infrastructure before server saturation."
           }
         }
       },
       "resources": {
-        "title": "Ressources système et machine",
-        "description": "Voici les différents indicateurs clés de vos applications surveillés par INSPECT",
+        "title": "System and Machine Resources",
+        "description": "Here are the key indicators of your applications monitored by INSPECT",
         "concept": {
           "cpu": {
             "title": "CPU",
-            "desc": "Un CPU saturé à 100% fait ramer toutes les applications du serveur. INSPECT permettant de surveiller son état garantit au mieux la fiabilité de vos applications."
+            "desc": "A CPU saturated at 100% slows down all applications on the server. INSPECT monitoring its state ensures the reliability of your applications."
           },
           "ram": {
             "title": "RAM / JVM",
-            "desc": "INSPECT surveille la RAM (espace où les données actives sont stockées). Si elle est pleine (Out of Memory), l'application s'arrête, sa surveillance est un besoin principal"
+            "desc": "INSPECT monitors the RAM (space where active data is stored). If it is full (Out of Memory), the application stops, so monitoring it is a primary need."
           },
           "gc": {
             "title": "Garbage Collector",
-            "desc": "Le mécanisme automatique qui libère la mémoire inutilisée. S'il met trop de temps à agir, il provoque des pauses perceptibles"
+            "desc": "The automatic mechanism that frees unused memory. If it takes too long to act, it causes noticeable pauses."
           }
         }
       }
