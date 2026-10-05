@@ -421,78 +421,71 @@
       "badges": {
         "title": "PERFORMANCE METRICS AND APM"
       },
-      "description": "APM (Application Performance Monitoring) involves continuously measuring the health of your applications to detect degradations before users report them.",
-      "chapters": "INSPECT allows you to track key performance and reliability indicators of your applications, focusing on health, availability, performance, and volume.",
+      "description": "Application Performance Monitoring (APM) transforms raw data into decision-making indicators (KPIs) to ensure compliance with service level agreements (SLAs) and anticipate infrastructure saturation.",
+      "chapters": "INSPECT allows you to monitor key performance and reliability indicators of your applications, focusing on health, availability, performance, and volume.",
       "sla": {
         "title": "Health and Availability",
         "concept": {
-          "sla": {
-            "title": "SLA",
-            "desc": "The Service Level Agreement is the formal commitment contract. INSPECT allows to best track the SLAs."
+          "control": {
+            "title": "Error Impact Analysis",
+            "desc": "INSPECT allows centralized capture of exception stacks with intelligent depth limitation to target the root cause without overloading the display."
           },
           "uptime": {
-            "title": "Uptime",
-            "desc": "The time during which the application was accessible and fully operational without any downtime. Data that INSPECT allows to know."
-          },
-          "error": {
-            "title": "Error rate",
-            "desc": "INSPECT follow the number of errors and exceptions, allowing to know the error rate and to detect anomalies."
+            "title": "Continuous Availability Monitoring",
+            "desc": "INSPECT also manages a measure of service uptime and automated calculation of error rates by application and environment."
           }
         }
       },
       "performance": {
-        "title": "Performance and response time",
+        "title": "Performance et Temps de Réponse",
         "concept": {
           "latency": {
-            "title": "Latency / wait time",
-            "desc": "INSPECT allows to spot latencies: the moments when the delay between the moment the user clicks and the response appears on the screen."
+            "title": "Latence / Temps d'attente",
+            "desc": "INSPECT permet de répérer les latences : les moments où le délai entre le moment où l'utilisateur clique et que la réponse s'affiche à l'écran."
           },
           "percentile": {
             "title": "Percentiles",
-            "desc": "INSPECT takes percentiles into account, which allows to have a more accurate value of the wait time experienced by your users."
+            "desc": "INSPECT prend en compte les percentiles, ce qui permet d'avoir une valeur plus juste du temps d'attente vécu par vos utilisateurs"
           },
           "bottleneck": {
-            "title": "Bottleneck",
-            "desc": "Detection of bottlenecks: the specific component (database, network, heavy computation) that slows down the entire chain. Identifying a bottleneck helps to understand performance differences between various parts of your applications."
+            "title": "Goulot d'étranglement",
+            "desc": "Détection des goulots d'étranglement : le composant précis (base de données, réseau, calcul lourd) qui ralentit toute la chaîne. Repérer un goulot d'étranglement permet de comprendre les différences de performances entre plusieurs briques de vos applications."
           }
         }
       },
       "volume": {
-        "title": "Volume and throughput",
-        "description": "Track the volume of transactions processed per second and anticipate traffic spikes to ensure seamless service.",
+        "title": "Volumétrie et débit",
+        "description": "Suivez le volume de transactions traitées par seconde et anticipez les montées en charge pour garantir la fluidité du service.",
         "concept": {
           "rps": {
-            "title": "Throughput",
-            "desc": "The number of requests, orders, or transactions successfully processed per time unit (e.g. 2,000 requests/sec)."
+            "title": "Débit (Throughput)",
+            "desc": "En suivant le nombre de requêtes, commandes ou transactions traitées avec succès par unité de temps, INSPECT permet de connaitre au mieux le débit de vos applications."
           },
           "spike": {
-            "title": "Load Peak",
-            "desc": "Moments of surge traffic are easily identifiable."
+            "title": "Pic de charge",
+            "desc": "Les moments d'affluence exceptionnelle sont facilement repérables."
           },
           "capacity": {
-            "title": "Capacity Planning and Scaling",
-            "desc": "Anticipating traffic growth and scaling resources before infrastructure saturation occurs."
+            "title": "Capacité et dimensionnement",
+            "desc": "Capacité d'anticiper les montées de charge et dimensionner l'infrastructure avant la saturation des serveurs."
           }
         }
       },
       "resources": {
-        "badges": {
-          "title": "SYSTEM RESOURCES"
-        },
-        "title": "System & Machine Resources",
-        "description": "Here are the main system resources that INSPECT monitors to ensure optimal application performance and stability.",
+        "title": "Ressources système et machine",
+        "description": "Voici les différents indicateurs clés de vos applications surveillés par INSPECT",
         "concept": {
           "cpu": {
-            "title": "The CPU",
-            "desc": "A CPU running at 100% slows down every application on that server. INSPECT monitors CPU usage to prevent overloads."
+            "title": "CPU",
+            "desc": "Un CPU saturé à 100% fait ramer toutes les applications du serveur. INSPECT permettant de surveiller son état garantit au mieux la fiabilité de vos applications."
           },
           "ram": {
-            "title": "RAM / JVM Memory",
-            "desc": "RAM memory usage is monitored to prevent application crashes due to Out of Memory errors."
+            "title": "RAM / JVM",
+            "desc": "INSPECT surveille la RAM (espace où les données actives sont stockées). Si elle est pleine (Out of Memory), l'application s'arrête, sa surveillance est un besoin principal"
           },
           "gc": {
-            "title": "Garbage Collector ",
-            "desc": "The Garbage Collector is responsible for reclaiming memory used by objects that are no longer needed. INSPECT tracks GC activity to ensure efficient memory management."
+            "title": "Garbage Collector",
+            "desc": "Le mécanisme automatique qui libère la mémoire inutilisée. S'il met trop de temps à agir, il provoque des pauses perceptibles"
           }
         }
       }

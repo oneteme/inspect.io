@@ -384,22 +384,18 @@
       "badges": {
         "title": "MÉTRIQUES DE PERFORMANCE ET APM"
       },
-      "description": "L'APM (Application Performance Monitoring) consiste à mesurer en permanence la vitalité de vos applications pour détecter les dégradations avant que les utilisateurs ne le remontent.",
+      "description": "L'Application Performance Monitoring (APM) transforme des données brutes en indicateurs décisionnels (KPIs) permettant de garantir le respect des engagements de service (SLA) et d'anticiper la saturation des infrastructures.",
       "chapters": "INSPECT vous permet de suivre les indicateurs clés de performance et de fiabilité de vos applications, en mettant l'accent sur la santé, la disponibilité, la performance et le volume.",
       "sla": {
         "title": "Santé et disponibilité",
         "concept": {
-          "sla": {
-            "title": "SLA",
-            "desc": "Le Service Level Agreement est le contrat d'engagement formel. INSPECT permet au mieux de suivre les SLA"
+          "control": {
+            "title": "Analyse d'impact des erreurs ",
+            "desc": "INSPECT permet une capture centralisée des piles d'exceptions avec limitation intelligente de la profondeur pour cibler la cause racine sans surcharger l'affichage."
           },
           "uptime": {
-            "title": "Uptime",
-            "desc": "Le temps pendant lequel l'application a été accessible et pleinement opérationnelle sans panne. Donnée qu'INSPECT permet de connaitre"
-          },
-          "error": {
-            "title": "Taux d'erreur",
-            "desc": "INSPECT permet de remonter le taux d'erreur, le nombre d'échecs pour le démarrage d'une de vos applications"
+            "title": "Contrôle continu de disponibilité",
+            "desc": "INSPECT gère aussi une mesure du taux de service (uptime) et calcul automatisé du taux d'erreur par application et par environnement."
           }
         }
       },
