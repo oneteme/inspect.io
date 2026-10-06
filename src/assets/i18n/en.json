@@ -478,10 +478,6 @@
           "ram": {
             "title": "RAM / JVM",
             "desc": "INSPECT monitors the RAM (space where active data is stored). If it is full (Out of Memory), the application stops, so monitoring it is a primary need."
-          },
-          "gc": {
-            "title": "Garbage Collector",
-            "desc": "The automatic mechanism that frees unused memory. If it takes too long to act, it causes noticeable pauses."
           }
         }
       }
