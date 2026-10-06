@@ -458,8 +458,8 @@
             "desc": "By tracking the number of requests, commands, or transactions successfully processed per unit of time, INSPECT allows you to better understand the throughput of your applications."
           },
           "spike": {
-            "title": "Load Spike",
-            "desc": "Exceptional traffic moments are easily identifiable."
+            "title": "Load Monitoring",
+            "desc": "INSPECT allows visualization of the overall transaction volume and instantaneous throughput to anticipate load spikes (sales, accounting closures, etc.)."
           },
           "capacity": {
             "title": "Capacity and Sizing",

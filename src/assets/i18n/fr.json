@@ -421,30 +421,26 @@
             "desc": "En suivant le nombre de requêtes, commandes ou transactions traitées avec succès par unité de temps, INSPECT permet de connaitre au mieux le débit de vos applications."
           },
           "spike": {
-            "title": "Pic de charge",
-            "desc": "Les moments d'affluence exceptionnelle sont facilement repérables."
+            "title": "Suivi de la sollicitation",
+            "desc": "INSPECT permet la visualisation du volume global de transactions et du débit instantané afin d'anticiper les pics de charge (soldes, fermetures comptables, etc.)."
           },
           "capacity": {
             "title": "Capacité et dimensionnement",
-            "desc": "Capacité d'anticiper les montées de charge et dimensionner l'infrastructure avant la saturation des serveurs."
+            "desc": "INSPECT a la capacité d'anticiper les montées de charge et dimensionner l'infrastructure avant la saturation des serveurs."
           }
         }
       },
       "resources": {
         "title": "Ressources système et machine",
-        "description": "Voici les différents indicateurs clés de vos applications surveillés par INSPECT",
+        "description": "INSPECT permet une corrélation directe entre les pics d'activité applicative et la consommation matérielle (mémoire vive, espace disque, activité processeur) pour dimensionner l'infrastructure au juste besoin.",
         "concept": {
           "cpu": {
             "title": "CPU",
-            "desc": "Un CPU saturé à 100% fait ramer toutes les applications du serveur. INSPECT permettant de surveiller son état garantit au mieux la fiabilité de vos applications."
+            "desc": "Un CPU saturé à 100% fait ramer toutes les applications du serveur. L'utilisation d'INSPECT permet de surveiller son état et de garantir au mieux la fiabilité de vos applications."
           },
           "ram": {
             "title": "RAM / JVM",
             "desc": "INSPECT surveille la RAM (espace où les données actives sont stockées). Si elle est pleine (Out of Memory), l'application s'arrête, sa surveillance est un besoin principal"
-          },
-          "gc": {
-            "title": "Garbage Collector",
-            "desc": "Le mécanisme automatique qui libère la mémoire inutilisée. S'il met trop de temps à agir, il provoque des pauses perceptibles"
           }
         }
       }
