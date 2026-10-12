@@ -487,7 +487,7 @@
       "badges": {
         "title": "LIFECYCLE AND VERSION GOVERNANCE"
       },
-      "description": "You can have from INSPECT the possibility to track in real time the lifecycle of your applications, and to know which version is deployed on each server. INSPECT gives you the possibility to have a complete inventory of your applications, and to track all lifecycle events.",
+      "description": "Computer environments are constantly evolving at the pace of deployments. INSPECT ensures the tracking of the application lifecycle to guarantee the traceability of changes.",
       "inventory": {
         "title": "Application inventory",
         "concept": {
