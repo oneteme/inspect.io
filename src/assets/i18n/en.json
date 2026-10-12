@@ -518,24 +518,23 @@
         }
       },
       "events": {
-        "title": "Events history",
-        "description": "Have a complete history of all lifecycle events, including deployments, restarts, and other operational changes.",
+        "title": "Event History",
+        "description": "Have visibility into every significant event in the lifecycle of your applications to instantly correlate a technical change with its impact on performance.",
         "concept": {
           "deployments": {
-            "title": "Deployments",
-            "desc": "INSPECT offers visibility into ongoing or completed deployments on your applications. You can easily see if there are any anomalies during staging or production deployments."
+            "title": "Rapid forensic analysis",
+            "desc": "INSPECT provides visibility into ongoing or completed deployments on your applications. You can easily see if there are any anomalies or instance restarts during staging or production deployments."
           },
           "restarts": {
-            "title": "Reboot",
-            "desc": "INSPECT can show you if a server restarted due to planned maintenance or an unexpected bug."
+            "title": "Lifecycle milestone logging",
+            "desc": "INSPECT allows you to know if a server restarted due to planned maintenance or an exceptional bug."
           },
           "correlation": {
-            "title": "Easy analysis",
-            "desc": "For example, if a service fails every day at a specific time, you can perform a preliminary analysis and understand that something at that time might be causing a bug."
+            "title": "Identification of recurring patterns",
+            "desc": "If a service fails every day at a specific time, you can perform a preliminary analysis and understand that something at that time might be causing a bug."
           }
         }
-      }
-    },
+      }    },
     "autonomy": {
       "title": "Self Management and autonomy",
       "badges": {

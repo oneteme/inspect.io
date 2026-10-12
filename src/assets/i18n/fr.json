@@ -488,16 +488,16 @@
         "description": "Ayez la visibilité sur chaque événement marquant du cycle de vie de vos applications pour corréler instantanément un changement technique avec ses effets sur les performances.",
         "concept": {
           "deployments": {
-            "title": "Déploiements",
-            "desc": "INSPECT offre la visibilité sur les déploiements en cours ou réalisés sur vos applications. Vous pouvez facilement voir lors de mises en recette ou production s'il y a des anomalies."
+            "title": "Analyse médico-légale rapide",
+            "desc": "INSPECT offre la visibilité sur les déploiements en cours ou réalisés sur vos applications. Vous pouvez facilement voir lors de mises en recette ou production s'il y a des anomalies ou des redémarrages d'instances."
           },
           "restarts": {
-            "title": "Redémarrages",
+            "title": "Journalisation des jalons de vie",
             "desc": "INSPECT vous permet de savoir si un serveur a redémarré suite à une opération de maintenance planifiée ou à cause d'un bug exceptionnel."
           },
           "correlation": {
-            "title": "Analyse facilitée",
-            "desc": "Si par exemple un service est en erreur tous les jours à un moment précis, vous pouvez faire une pré analyse et comprendre qu'il y a quelque chose à ce moment qui causerait un bug."
+            "title": "Identification de patterns récurrents",
+            "desc": "Si un service est en erreur tous les jours à un moment précis, vous pouvez faire une pré analyse et comprendre qu'il y a quelque chose à ce moment qui causerait un bug."
           }
         }
       }
