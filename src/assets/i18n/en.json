@@ -541,11 +541,12 @@
         "title": "SELF MANAGEMENT AND AUTONOMY"
       },
       "intro": {
-        "title": "An autonomous system that self-optimizes, self-purges, and self-monitors",
-        "description": "Install a monitoring tool shouldn't give more tasks for the teams and should not be difficult to maintain. That's why INSPECT automatically manages its database, storage, and its own monitoring."
+        "title": "An observability platform must simplify the lives of teams and not add complexity. INSPECT is designed in a philosophy ",
+        "gradient": "0 effort",
+        "description": "The platform self-manages, regulates its own storage, and protects the host application."
       },
       "partitioning": {
-        "title": "Automatic data dartitioning",
+        "title": "Automatic data partitioning",
         "description": "To stay performant even with a large amount of data, INSPECT automatically organizes its data into partitions.",
         "concept": {
           "title": "Data Partitioning",
