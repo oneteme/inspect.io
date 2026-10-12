@@ -86,16 +86,6 @@
     margin-bottom: 1.25rem;
   }
 
-  &__gradient {
-    position: relative;
-    z-index: 1;
-    display: block;
-    background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #8b5cf6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 0 0 1rem;
-  }
-
   &__desc {
     position: relative;
     z-index: 1;
@@ -110,113 +100,6 @@
 .section {
   padding: 4.5rem 0;
   border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.06));
-
-  &__header {
-    text-align: center;
-    max-width: 780px;
-    margin: 0 auto 3rem;
-  }
-
-  &__title {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 700;
-    color: var(--text-color, #0f172a);
-    margin-bottom: 0.75rem;
-  }
-
-  &__subtitle {
-    font-size: 1rem;
-    color: var(--text-muted, #64748b);
-    line-height: 1.6;
-  }
-}
-
-.intro-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.intro-card {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.25s ease;
-
-  &__header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-
-  &__icon-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: 1.25rem;
-
-    &.icon--indigo {
-      color: var(--primary);
-    }
-    &.icon--cyan {
-      color: var(--secondary);
-    }
-    &.icon--amber {
-      color: var(--warning);
-    }
-    &.icon--emerald {
-      color: var(--accent);
-    }
-  }
-
-  &__title {
-    font-weight: 700;
-    color: var(--clr-text-primary);
-    margin: 0;
-  }
-
-  &__desc {
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin: 0 0 1rem;
-    flex-grow: 1;
-  }
-
-  &__value {
-    background: var(--sidebar-bg);
-    border: 1px solid var(--sidebar-border);
-    border-radius: 10px;
-    padding: 0.65rem 0.85rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    font-size: 0.82rem;
-    line-height: 1.4;
-    color: var(--text-muted);
-    font-weight: 500;
-
-    .value-icon {
-      color: var(--accent);
-      font-size: 1rem;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-  }
-}
-
-.screenshot {
-  display: block;
-  align-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 300px;
-  margin-top: 0.9rem;
 }
 
 .features-grid {
@@ -240,8 +123,6 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &__icon-wrap {
-    width: 48px;
-    height: 48px;
     border-radius: 0.625rem;
     display: flex;
     align-items: center;

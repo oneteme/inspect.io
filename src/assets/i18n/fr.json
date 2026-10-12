@@ -529,12 +529,12 @@
         "description": "Optimisez l'espace de stockage en conservant les données techniques le temps nécessaire au diagnostic, et les événements métier stratégiques sur la durée requise par vos obligations légales.",
         "concept": {
           "retention": {
-            "title": "Rétention et rétention différenciée",
-            "desc": "INSPECT permet de gérer les règles de rétention qui définissent combien de temps une information reste consultable. La rétention différenciée permet d'avoir des règles différentes selon le type de données, les détails techniques lourds sont plus rapidement purgés que des commandes métiers moins volumineuses."
+            "title": "Gestion différenciée",
+            "desc": "INSPECT permet d'adapter les règles de conservation selon le niveau de criticité des données ou les exigences de conformité des environnements."
           },
           "purge": {
-            "title": "Purge",
-            "desc": "INSPECT purge proprement et automatiquement des partitions expirées sans consommer de CPU."
+            "title": "Nettoyage automatique programmé",
+            "desc": "Des tâches planifiées purgent automatiquement les données trop anciennes (par exemple au-delà de 90 jours configurable)."
           }
         },
         "value": {

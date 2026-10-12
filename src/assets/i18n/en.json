@@ -560,15 +560,14 @@
         "description": "INSPECT optimizes storage by keeping short-lived technical traces for diagnostics and long-term functional business records for audits and compliance.",
         "concept": {
           "retention": {
-            "title": "Retention and retention differenciated",
-            "desc": "The policy determining how many days records are kept before automated cleanup."
+            "title": "Differentiated management",
+            "desc": "INSPECT allows you to adapt retention rules based on the criticality of the data or the compliance requirements of the environments."
           },
           "purge": {
-            "title": "Smart Purge",
-            "desc": "INSPECT instantly and cleanly drops expired partition tables in milliseconds without CPU spikes."
+            "title": "Scheduled automatic cleanup",
+            "desc": "Scheduled tasks automatically purge data that is too old (for example, beyond 90 days configurable)."
           }
-        },
-        "value": {
+        },        "value": {
           "title": "The INSPECT Advantage for Your Teams",
           "subtitle": "Storage cost control and regulatory compliance",
           "first": {
