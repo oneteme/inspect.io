@@ -516,15 +516,9 @@
         "title": "Partitionnement dynamique des données",
         "description": "Pour rester performant même avec un grand nombre de données, INSPECT organise automatiquement ses données dans des partitions.",
         "concept": {
-          "title": "Partitionnement de données",
-          "desc": "Une technique indispensable pour conserver des recherches ultra-rapides dans le temps.",
           "partition": {
-            "title": "Partitions",
-            "desc": "Le partitionnement de données sert à INSPECT à conserver des recherches rapides, peu importe l'application où il sera intégré."
-          },
-          "dynamic": {
-            "title": "Automatisation dynamique",
-            "desc": "INSPECT crée automatiquement les nouvelles partitions, sans qu'aucune action ne soit nécessaire."
+            "title": "Organisation intelligente en base de données",
+            "desc": "Le serveur (inspect-server) découpe et segmente automatiquement les tables de données selon le volume de trafic (par jour ou par mois) et par type de flux (HTTP, BATCH, JDBC, FTP, SMTP, LDAP). Les requêtes restent fluides même avec des milliards d'événements."
           }
         }
       },

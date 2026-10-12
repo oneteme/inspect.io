@@ -549,15 +549,9 @@
         "title": "Automatic data partitioning",
         "description": "To stay performant even with a large amount of data, INSPECT automatically organizes its data into partitions.",
         "concept": {
-          "title": "Data Partitioning",
-          "desc": "An essential technique to keep searches ultra-fast over time.",
           "partition": {
-            "title": "Partitions",
-            "desc": "Data partitioning helps INSPECT maintain fast searches, regardless of the application it is integrated into."
-          },
-          "dynamic": {
-            "title": "Dynamic Automation",
-            "desc": "INSPECT automatically creates new partitions without any manual intervention."
+            "title": "Intelligent Database Organization",
+            "desc": "The server (inspect-server) automatically splits and segments data tables based on traffic volume (daily or monthly) and by flow type (HTTP, BATCH, JDBC, FTP, SMTP, LDAP). Queries remain fast even with billions of events."
           }
         }
       },

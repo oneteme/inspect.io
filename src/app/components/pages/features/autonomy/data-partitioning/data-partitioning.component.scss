@@ -219,16 +219,12 @@
   margin-top: 0.9rem;
 }
 
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.feature {
+  display: flex;
   gap: 1.5rem;
   align-items: center;
   text-align: center;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .feature-card {
@@ -240,8 +236,6 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &__icon-wrap {
-    width: 48px;
-    height: 48px;
     border-radius: 0.625rem;
     display: flex;
     align-items: center;
